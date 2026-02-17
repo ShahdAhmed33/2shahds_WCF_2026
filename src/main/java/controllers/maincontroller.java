@@ -1,16 +1,29 @@
 package controllers;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import Model.LoginPage;
 import Model.LoginResponse;
-
-
+import Model.languageList;
+import edu.csus.ecs.pc2.api.IContest;
+import edu.csus.ecs.pc2.api.ILanguage;
+import edu.csus.ecs.pc2.api.ServerConnection;
+import edu.csus.ecs.pc2.api.exceptions.LoginFailureException;
+import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
+import helpers.CookiesHandlers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -18,15 +31,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-
-
+import java.util.HashMap;
 
 @Path("/main")
 @Tag(name = "Main", description = "Main controller endpoints")
 
 public class maincontroller {
+	  private static Map<String, ServerConnection> sessions =
+	            new ConcurrentHashMap<>();
 	//we will use get method to retrieve the username and password that the user will enter
-	@POST
 	
 	//write http://localhost:8080/api/main/login/{username}/{password} ....> {username}=YOUR_USERNAME ,{password}=YOUR_PASSWORD
 	//@Path("/login/{username}/{password}")
@@ -74,12 +87,11 @@ public class maincontroller {
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@POST
 	
 	//@PathParam("username") String username , @PathParam("password") String password
 	public Response loginApi(LoginPage req) {
-		String username=req.username;
-		String password=req.password;
-		
+
 		
 		/*
 		 -initialized res as null and res data type is Response
@@ -92,29 +104,140 @@ public class maincontroller {
 		 -after comparing we will return the res that carries the information inside the entity class
 		*/
 		Response res=null;
-		if (!"admin".equals(username) || !"admin".equals(password)) {
-			res= Response.status(Response.Status.UNAUTHORIZED)
-					.entity("USERNAME and password is not correct ")		
-					.type(MediaType.APPLICATION_JSON)
-					.build();	
+		 if (req == null ) {
+		           res=Response.status(Response.Status.BAD_REQUEST)
+		                .entity("Invalid media")
+		                .type(MediaType.APPLICATION_JSON)
+		                .build();
+		           return res;
+		    }
+		 
+		 if (req.username == null || req.password == null) {
+	           res=Response.status(Response.Status.BAD_REQUEST)
+	                .entity("Missing credentials")
+	                .type(MediaType.APPLICATION_JSON)
+	                .build();
+	           return res;
+	    }
+
+			String username=req.username;
+			String password=req.password; 	
+			
+	
+		
+		try {
+			 ServerConnection serverconnection = new ServerConnection();
+			 serverconnection.login(req.username, req.password);
+			 IContest contest = serverconnection.getContest();
+			 
+			 
+				String token="aast";
+				sessions.put(token, serverconnection);
+				NewCookie jwtCookie=new NewCookie(
+						"awt_jwt",
+						token,
+						"/api",
+						null,
+						"WTI JWT auth token",
+						3600,
+						false,
+						true
+						
+						);
+
+				LoginResponse login=new LoginResponse(req.username,token);
+				res=Response.ok()
+						.entity(login)
+						.cookie(jwtCookie)
+						.type(MediaType.APPLICATION_JSON)
+						.build();
 		}
 		
-		else {
-			 	
-			
-			String token="aast";
-			LoginResponse login=new LoginResponse(req.username,token);
-			res=Response.ok()
-					.entity(login)
-					.type(MediaType.APPLICATION_JSON)
-					.build();
-	}
+	   catch (NotLoggedInException e) {
+		res= Response.status(Response.Status.UNAUTHORIZED)
+				.entity("unable to execute api method")
+				.type(MediaType.APPLICATION_JSON)
+				.build();
+	     return res;
+	   }
+		
+		catch (Exception e) {
+
+		    return Response.status(Response.Status.UNAUTHORIZED)
+		            .entity("Invalid username/password or PC2 error")
+		            .type(MediaType.APPLICATION_JSON)
+		            .build();
+		}
 		return res;
 	} 
 	
 	
 			
 	
+	
+	
+	
+	
+   	   ServerConnection serverconnection = new ServerConnection();
+
+	    @GET
+	    @Path("/listlanguages")
+	    @Produces(MediaType.APPLICATION_JSON)
+	    
+	    public Response listlanguages(final @Context HttpServletRequest req) {
+			 Response res=null;
+			 
+				String token="aast";
+			
+				 
+	        if (serverconnection == null) {
+	             res=Response.status(Response.Status.UNAUTHORIZED)
+	                    .entity("Not logged in")
+	                    .type(MediaType.APPLICATION_JSON)
+	                    .build();
+	            return res;
+	         
+	        }
+	        if(req.getCookies()==null ) {
+	        	res=Response.status(Response.Status.UNAUTHORIZED)
+	        				.entity("Not logged in")
+	        				.type(MediaType.APPLICATION_JSON)
+	        				.build();
+	        	return res;
+	        }
+	        if(CookiesHandlers.getCookie(req.getCookies(),"awt_jwt")== null){
+	        	res=Response.status(Response.Status.UNAUTHORIZED)
+    				.entity("Not logged in")
+    				.type(MediaType.APPLICATION_JSON)
+    				.build();
+    	return res;
+	        	
+	        }
+	        
+	        
+
+	        try {
+
+	            IContest contest = serverconnection.getContest();
+	            ILanguage[] languages = contest.getLanguages();
+
+	            List<languageList> result = new ArrayList<languageList>();
+
+	            for (ILanguage lang : contest.getLanguages()) {
+	                   languageList li=new languageList(lang.getName(),lang.getTitle());
+	                   result.add(li);
+	            }
+	            
+
+	            return Response.ok(result).build();
+
+	        } catch (Exception e) {
+
+	            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+	                    .entity("Failed to fetch languages from PC2")
+	                    .build();
+	        }
+	    }
 	
 	
 	
