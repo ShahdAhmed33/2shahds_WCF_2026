@@ -1,0 +1,8 @@
+openAPI:
+  info:
+    title: Main API
+    version: "1.0"
+    description: Login and demo endpoints
+resourcePackages:
+  - controllers
+prettyPrint: true
