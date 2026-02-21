@@ -40,6 +40,7 @@ import java.util.HashMap;
 public class maincontroller {
 	  private static Map<String, ServerConnection> sessions =
 	            new ConcurrentHashMap<>();
+	  
 	//we will use get method to retrieve the username and password that the user will enter
 	
 	//write http://localhost:8080/api/main/login/{username}/{password} ....> {username}=YOUR_USERNAME ,{password}=YOUR_PASSWORD
@@ -115,7 +116,7 @@ public class maincontroller {
 		 
 		 if (req.username == null || req.password == null) {
 	           res=Response.status(Response.Status.BAD_REQUEST)
-	                .entity("Missing credentials")
+	                .entity("Missing credentials hahahahhaha")
 	                .type(MediaType.APPLICATION_JSON)
 	                .build();
 	           return res;
@@ -216,6 +217,7 @@ public class maincontroller {
 	            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 	                    .entity("Failed to fetch languages from PC2")
 	                    .build();
+	           
 	        }
 	    }
 	

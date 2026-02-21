@@ -10,7 +10,7 @@ public class CookiesHandlers {
     public static NewCookie createAuthCookie(String tokenValue) {
         return new NewCookie(
             AUTH_COOKIE_NAME, 
-            tokenValue,       
+            tokenValue,       //soso
             "/api",           // Path
             null,             // Domain
             "WTI auth token", 
