@@ -90,3 +90,184 @@ l:
 260217 210346.599|INFO|Thread-18|log|   key: ACCOUNT_ARRAY is: [Ledu.csus.ecs.pc2.core.model.Account; [Ledu.csus.ecs.pc2.core.model.Account;@5d34b3ce
 260217 210346.941|INFO|Thread-19|log|send(Serializable)
 260217 210346.992|INFO|Thread-16|log|connectionDropped(ConnectionHandlerID myConnectionID) 
+260221 232141.720|CONFIG|qtp1130478920-14|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260221 232141.721|INFO|qtp1130478920-14|log|
+260221 232141.721|INFO|qtp1130478920-14|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-94-generic (amd64) 
+260221 232141.721|INFO|qtp1130478920-14|log|Login: team1 (aka team1)
+260221 232141.722|INFO|qtp1130478920-14|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260221 232141.722|INFO|qtp1130478920-14|log|Process id is 39643@shahoda
+260221 232141.723|INFO|qtp1130478920-14|log|Contacting server at localhost:50002 as TEAM1 @ site 0
+260221 232141.723|INFO|qtp1130478920-14|log|sendLoginRequest start - sending from TEAM1 @ site 0
+260221 232141.724|INFO|qtp1130478920-14|log|Sending packet to server Packet[LOGIN_REQUEST] #2 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 232141.725|INFO|qtp1130478920-14|log|Sent    packet to server Packet[LOGIN_REQUEST] #2 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 232141.725|INFO|qtp1130478920-14|log|sendLoginRequest end - packet sent.
+260221 232141.724|INFO|Thread-16|log|send(Serializable)
+260221 232141.768|INFO|Thread-15|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=51288]--3896010026944029467)
+260221 232141.772|INFO|Thread-15|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=51288]--3896010026944029467 key is com.sun.crypto.provider.DESKey@186ba
+260221 232141.772|INFO|Thread-15|log|Generating Unencrypted Public Key Packet
+260221 232141.773|INFO|Thread-15|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    dcfbeb11 f6496678 9a0d11eb 140985ca 83090b80 f15fddb3 78514620 ea90daec
+    eeb08182 cd4eaaeb fcb9c09a bd598d40 5bf73884 31a76b5c e9cad765 013e1aed
+    5128b4a3 054c5870 d3838adf 4a5d8309 f565ba28 046a63c0 625c2002 e98b84f4
+    42db9515 c6a7061c ffa7ce5e a689e72b e3396fa7 765b7e0f 67d5c12a 5be291e3
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260221 232141.773|INFO|Thread-15|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@33c3514a
+260221 232141.885|INFO|Thread-15|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260221 232141.903|INFO|Thread-17|log| receiveObject(S) start got Packet[LOGIN_SUCCESS] #26 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 232141.908|INFO|Thread-17|log|Packet LOGIN_SUCCESS (Seq #26, o#26 ) recieveObject
+260221 232141.909|INFO|Thread-17|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260221 232141.909|INFO|Thread-17|log|    To: TEAM1 @ site 1
+260221 232141.909|INFO|Thread-17|log|   key: PROFILE_LIST is: [Ledu.csus.ecs.pc2.core.model.Profile; [Ledu.csus.ecs.pc2.core.model.Profile;@2a1341fd
+260221 232141.910|INFO|Thread-17|log|   key: GENERAL_PROBLEM is: edu.csus.ecs.pc2.core.model.Problem General
+260221 232141.910|INFO|Thread-17|log|   key: CLIENT_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.ClientSettings; [Ledu.csus.ecs.pc2.core.model.ClientSettings;@24d4bacf
+260221 232141.910|INFO|Thread-17|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@20eb2a8d
+260221 232141.911|INFO|Thread-17|log|   key: CLARIFICATION_LIST is: [Ledu.csus.ecs.pc2.core.model.Clarification; [Ledu.csus.ecs.pc2.core.model.Clarification;@65e9b0f4
+260221 232141.911|INFO|Thread-17|log|   key: CATEGORY_LIST is: [Ledu.csus.ecs.pc2.core.model.Category; [Ledu.csus.ecs.pc2.core.model.Category;@5545191d
+260221 232141.911|INFO|Thread-17|log|   key: LANGUAGE_LIST is: [Ledu.csus.ecs.pc2.core.model.Language; [Ledu.csus.ecs.pc2.core.model.Language;@5446d3b8
+260221 232141.911|INFO|Thread-17|log|   key: REMOTE_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@2d0024ff
+260221 232141.912|INFO|Thread-17|log|   key: CONTEST_TIME_LIST is: [Ledu.csus.ecs.pc2.core.model.ContestTime; [Ledu.csus.ecs.pc2.core.model.ContestTime;@5c64fbb
+260221 232141.912|INFO|Thread-17|log|   key: CONNECTION_HANDLE_ID_LIST is: [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID; [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID;@783633ef
+260221 232141.912|INFO|Thread-17|log|   key: PROFILE is: edu.csus.ecs.pc2.core.model.Profile Default--6159007321590187439
+260221 232141.912|INFO|Thread-17|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId TEAM1 @ site 1
+260221 232141.912|INFO|Thread-17|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260221 232141.913|INFO|Thread-17|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@1a8ff442
+260221 232141.913|INFO|Thread-17|log|   key: SITE_LIST is: [Ledu.csus.ecs.pc2.core.model.Site; [Ledu.csus.ecs.pc2.core.model.Site;@36040c30
+260221 232141.913|INFO|Thread-17|log|   key: PROBLEM_DATA_FILES is: [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles; [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles;@18836dc
+260221 232141.914|INFO|Thread-17|log|   key: JUDGEMENT_LIST is: [Ledu.csus.ecs.pc2.core.model.Judgement; [Ledu.csus.ecs.pc2.core.model.Judgement;@48e8c449
+260221 232141.914|INFO|Thread-17|log|   key: PROBLEM_LIST is: [Ledu.csus.ecs.pc2.core.model.Problem; [Ledu.csus.ecs.pc2.core.model.Problem;@2da004f2
+260221 232141.914|INFO|Thread-17|log|   key: GROUP_LIST is: [Ledu.csus.ecs.pc2.core.model.Group; [Ledu.csus.ecs.pc2.core.model.Group;@3b53e8fa
+260221 232141.914|INFO|Thread-17|log|   key: LOCAL_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@7bad179a
+260221 232141.915|INFO|Thread-17|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1771708901835,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=1,WEEK_OF_YEAR=8,WEEK_OF_MONTH=3,DAY_OF_MONTH=21,DAY_OF_YEAR=52,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=9,HOUR_OF_DAY=21,MINUTE=21,SECOND=41,MILLISECOND=835,ZONE_OFFSET=0,DST_OFFSET=0]
+260221 232141.915|INFO|Thread-17|log|   key: CONTEST_IDENTIFIER is: java.lang.String Default--6159007321590187439
+260221 232141.915|INFO|Thread-17|log|   key: BALLOON_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.BalloonSettings; [Ledu.csus.ecs.pc2.core.model.BalloonSettings;@75695e2a
+260221 232141.915|INFO|Thread-17|log|   key: RUN_LIST is: [Ledu.csus.ecs.pc2.core.model.Run; [Ledu.csus.ecs.pc2.core.model.Run;@58c343e1
+260221 232141.915|INFO|Thread-17|log|   key: ACCOUNT_ARRAY is: [Ledu.csus.ecs.pc2.core.model.Account; [Ledu.csus.ecs.pc2.core.model.Account;@7cf3643b
+260221 232141.916|INFO|Thread-17|log|handlePacket start Packet[LOGIN_SUCCESS] #26 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 232141.916|INFO|Thread-17|log|Packet LOGIN_SUCCESS (Seq #26, o#26 ) handlePacket
+260221 232141.916|INFO|Thread-17|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260221 232141.916|INFO|Thread-17|log|    To: TEAM1 @ site 1
+260221 232141.917|INFO|Thread-17|log|   key: PROFILE_LIST is: [Ledu.csus.ecs.pc2.core.model.Profile; [Ledu.csus.ecs.pc2.core.model.Profile;@2a1341fd
+260221 232141.917|INFO|Thread-17|log|   key: GENERAL_PROBLEM is: edu.csus.ecs.pc2.core.model.Problem General
+260221 232141.917|INFO|Thread-17|log|   key: CLIENT_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.ClientSettings; [Ledu.csus.ecs.pc2.core.model.ClientSettings;@24d4bacf
+260221 232141.917|INFO|Thread-17|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@20eb2a8d
+260221 232141.917|INFO|Thread-17|log|   key: CLARIFICATION_LIST is: [Ledu.csus.ecs.pc2.core.model.Clarification; [Ledu.csus.ecs.pc2.core.model.Clarification;@65e9b0f4
+260221 232141.917|INFO|Thread-17|log|   key: CATEGORY_LIST is: [Ledu.csus.ecs.pc2.core.model.Category; [Ledu.csus.ecs.pc2.core.model.Category;@5545191d
+260221 232141.918|INFO|Thread-17|log|   key: LANGUAGE_LIST is: [Ledu.csus.ecs.pc2.core.model.Language; [Ledu.csus.ecs.pc2.core.model.Language;@5446d3b8
+260221 232141.918|INFO|Thread-17|log|   key: REMOTE_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@2d0024ff
+260221 232141.918|INFO|Thread-17|log|   key: CONTEST_TIME_LIST is: [Ledu.csus.ecs.pc2.core.model.ContestTime; [Ledu.csus.ecs.pc2.core.model.ContestTime;@5c64fbb
+260221 232141.918|INFO|Thread-17|log|   key: CONNECTION_HANDLE_ID_LIST is: [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID; [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID;@783633ef
+260221 232141.918|INFO|Thread-17|log|   key: PROFILE is: edu.csus.ecs.pc2.core.model.Profile Default--6159007321590187439
+260221 232141.919|INFO|Thread-17|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId TEAM1 @ site 1
+260221 232141.919|INFO|Thread-17|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260221 232141.919|INFO|Thread-17|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@1a8ff442
+260221 232141.919|INFO|Thread-17|log|   key: SITE_LIST is: [Ledu.csus.ecs.pc2.core.model.Site; [Ledu.csus.ecs.pc2.core.model.Site;@36040c30
+260221 232141.919|INFO|Thread-17|log|   key: PROBLEM_DATA_FILES is: [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles; [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles;@18836dc
+260221 232141.919|INFO|Thread-17|log|   key: JUDGEMENT_LIST is: [Ledu.csus.ecs.pc2.core.model.Judgement; [Ledu.csus.ecs.pc2.core.model.Judgement;@48e8c449
+260221 232141.919|INFO|Thread-17|log|   key: PROBLEM_LIST is: [Ledu.csus.ecs.pc2.core.model.Problem; [Ledu.csus.ecs.pc2.core.model.Problem;@2da004f2
+260221 232141.920|INFO|Thread-17|log|   key: GROUP_LIST is: [Ledu.csus.ecs.pc2.core.model.Group; [Ledu.csus.ecs.pc2.core.model.Group;@3b53e8fa
+260221 232141.920|INFO|Thread-17|log|   key: LOCAL_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@7bad179a
+260221 232141.920|INFO|Thread-17|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1771708901835,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=1,WEEK_OF_YEAR=8,WEEK_OF_MONTH=3,DAY_OF_MONTH=21,DAY_OF_YEAR=52,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=9,HOUR_OF_DAY=21,MINUTE=21,SECOND=41,MILLISECOND=835,ZONE_OFFSET=0,DST_OFFSET=0]
+260221 232141.920|INFO|Thread-17|log|   key: CONTEST_IDENTIFIER is: java.lang.String Default--6159007321590187439
+260221 232141.920|INFO|Thread-17|log|   key: BALLOON_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.BalloonSettings; [Ledu.csus.ecs.pc2.core.model.BalloonSettings;@75695e2a
+260221 232141.921|INFO|Thread-17|log|   key: RUN_LIST is: [Ledu.csus.ecs.pc2.core.model.Run; [Ledu.csus.ecs.pc2.core.model.Run;@58c343e1
+260221 232141.921|INFO|Thread-17|log|   key: ACCOUNT_ARRAY is: [Ledu.csus.ecs.pc2.core.model.Account; [Ledu.csus.ecs.pc2.core.model.Account;@7cf3643b
+260221 235533.476|CONFIG|qtp1130478920-13|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260221 235533.476|INFO|qtp1130478920-13|log|
+260221 235533.477|INFO|qtp1130478920-13|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-94-generic (amd64) 
+260221 235533.477|INFO|qtp1130478920-13|log|Login: team1 (aka team1)
+260221 235533.477|INFO|qtp1130478920-13|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260221 235533.478|INFO|qtp1130478920-13|log|Process id is 43835@shahoda
+260221 235533.478|INFO|qtp1130478920-13|log|Contacting server at localhost:50002 as TEAM1 @ site 0
+260221 235533.479|INFO|qtp1130478920-13|log|sendLoginRequest start - sending from TEAM1 @ site 0
+260221 235533.479|INFO|qtp1130478920-13|log|Sending packet to server Packet[LOGIN_REQUEST] #2 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 235533.480|INFO|qtp1130478920-13|log|Sent    packet to server Packet[LOGIN_REQUEST] #2 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 235533.480|INFO|qtp1130478920-13|log|sendLoginRequest end - packet sent.
+260221 235533.480|INFO|Thread-16|log|send(Serializable)
+260221 235533.518|INFO|Thread-15|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=47356]--6088091243336526854)
+260221 235533.523|INFO|Thread-15|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=47356]--6088091243336526854 key is com.sun.crypto.provider.DESKey@fffe78a8
+260221 235533.523|INFO|Thread-15|log|Generating Unencrypted Public Key Packet
+260221 235533.524|INFO|Thread-15|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    8f9dc3ef 6c7bc6fc 4096415a 76cf95ce d1da4448 355bd01d 3f1e6145 8d4b59ea
+    a6eaa3f2 0d128489 418420ac e44ab32c c0988832 3f96eab7 b53855d3 274193d0
+    5130d6a1 f579a508 bd227b26 1d3c3b6e fb768803 123d072b 16e71dba d2c39a9e
+    4e6478c5 2e99bc8d 1734d847 3b11fdb6 185f62f1 d82bf19c 00a1662c 72e71ae7
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260221 235533.524|INFO|Thread-15|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@2a1341fd
+260221 235533.627|INFO|Thread-15|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260221 235533.648|INFO|Thread-17|log| receiveObject(S) start got Packet[LOGIN_SUCCESS] #58 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 235533.653|INFO|Thread-17|log|Packet LOGIN_SUCCESS (Seq #58, o#58 ) recieveObject
+260221 235533.654|INFO|Thread-17|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260221 235533.654|INFO|Thread-17|log|    To: TEAM1 @ site 1
+260221 235533.654|INFO|Thread-17|log|   key: PROFILE_LIST is: [Ledu.csus.ecs.pc2.core.model.Profile; [Ledu.csus.ecs.pc2.core.model.Profile;@27711ef4
+260221 235533.655|INFO|Thread-17|log|   key: GENERAL_PROBLEM is: edu.csus.ecs.pc2.core.model.Problem General
+260221 235533.655|INFO|Thread-17|log|   key: CLIENT_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.ClientSettings; [Ledu.csus.ecs.pc2.core.model.ClientSettings;@29b6e46a
+260221 235533.655|INFO|Thread-17|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@2d897584
+260221 235533.655|INFO|Thread-17|log|   key: CLARIFICATION_LIST is: [Ledu.csus.ecs.pc2.core.model.Clarification; [Ledu.csus.ecs.pc2.core.model.Clarification;@688bee51
+260221 235533.656|INFO|Thread-17|log|   key: CATEGORY_LIST is: [Ledu.csus.ecs.pc2.core.model.Category; [Ledu.csus.ecs.pc2.core.model.Category;@47a2cb0a
+260221 235533.656|INFO|Thread-17|log|   key: LANGUAGE_LIST is: [Ledu.csus.ecs.pc2.core.model.Language; [Ledu.csus.ecs.pc2.core.model.Language;@5929e220
+260221 235533.656|INFO|Thread-17|log|   key: REMOTE_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@3fea99d4
+260221 235533.656|INFO|Thread-17|log|   key: CONTEST_TIME_LIST is: [Ledu.csus.ecs.pc2.core.model.ContestTime; [Ledu.csus.ecs.pc2.core.model.ContestTime;@8a4111e
+260221 235533.657|INFO|Thread-17|log|   key: CONNECTION_HANDLE_ID_LIST is: [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID; [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID;@590f719b
+260221 235533.657|INFO|Thread-17|log|   key: PROFILE is: edu.csus.ecs.pc2.core.model.Profile Default--6159007321590187439
+260221 235533.657|INFO|Thread-17|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId TEAM1 @ site 1
+260221 235533.657|INFO|Thread-17|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260221 235533.658|INFO|Thread-17|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@4f21a078
+260221 235533.658|INFO|Thread-17|log|   key: SITE_LIST is: [Ledu.csus.ecs.pc2.core.model.Site; [Ledu.csus.ecs.pc2.core.model.Site;@24eeb471
+260221 235533.658|INFO|Thread-17|log|   key: PROBLEM_DATA_FILES is: [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles; [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles;@cea6d13
+260221 235533.658|INFO|Thread-17|log|   key: JUDGEMENT_LIST is: [Ledu.csus.ecs.pc2.core.model.Judgement; [Ledu.csus.ecs.pc2.core.model.Judgement;@2e4b56bc
+260221 235533.659|INFO|Thread-17|log|   key: PROBLEM_LIST is: [Ledu.csus.ecs.pc2.core.model.Problem; [Ledu.csus.ecs.pc2.core.model.Problem;@6c2b016d
+260221 235533.659|INFO|Thread-17|log|   key: GROUP_LIST is: [Ledu.csus.ecs.pc2.core.model.Group; [Ledu.csus.ecs.pc2.core.model.Group;@3db76da5
+260221 235533.659|INFO|Thread-17|log|   key: LOCAL_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@62ea1df5
+260221 235533.660|INFO|Thread-17|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1771710933580,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=1,WEEK_OF_YEAR=8,WEEK_OF_MONTH=3,DAY_OF_MONTH=21,DAY_OF_YEAR=52,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=9,HOUR_OF_DAY=21,MINUTE=55,SECOND=33,MILLISECOND=580,ZONE_OFFSET=0,DST_OFFSET=0]
+260221 235533.660|INFO|Thread-17|log|   key: CONTEST_IDENTIFIER is: java.lang.String Default--6159007321590187439
+260221 235533.660|INFO|Thread-17|log|   key: BALLOON_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.BalloonSettings; [Ledu.csus.ecs.pc2.core.model.BalloonSettings;@16e049a2
+260221 235533.660|INFO|Thread-17|log|   key: RUN_LIST is: [Ledu.csus.ecs.pc2.core.model.Run; [Ledu.csus.ecs.pc2.core.model.Run;@2274027a
+260221 235533.661|INFO|Thread-17|log|   key: ACCOUNT_ARRAY is: [Ledu.csus.ecs.pc2.core.model.Account; [Ledu.csus.ecs.pc2.core.model.Account;@242889d4
+260221 235533.661|INFO|Thread-17|log|handlePacket start Packet[LOGIN_SUCCESS] #58 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 235533.661|INFO|Thread-17|log|Packet LOGIN_SUCCESS (Seq #58, o#58 ) handlePacket
+260221 235533.661|INFO|Thread-17|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260221 235533.662|INFO|Thread-17|log|    To: TEAM1 @ site 1
+260221 235533.662|INFO|Thread-17|log|   key: PROFILE_LIST is: [Ledu.csus.ecs.pc2.core.model.Profile; [Ledu.csus.ecs.pc2.core.model.Profile;@27711ef4
+260221 235533.662|INFO|Thread-17|log|   key: GENERAL_PROBLEM is: edu.csus.ecs.pc2.core.model.Problem General
+260221 235533.662|INFO|Thread-17|log|   key: CLIENT_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.ClientSettings; [Ledu.csus.ecs.pc2.core.model.ClientSettings;@29b6e46a
+260221 235533.663|INFO|Thread-17|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@2d897584
+260221 235533.663|INFO|Thread-17|log|   key: CLARIFICATION_LIST is: [Ledu.csus.ecs.pc2.core.model.Clarification; [Ledu.csus.ecs.pc2.core.model.Clarification;@688bee51
+260221 235533.664|INFO|Thread-17|log|   key: CATEGORY_LIST is: [Ledu.csus.ecs.pc2.core.model.Category; [Ledu.csus.ecs.pc2.core.model.Category;@47a2cb0a
+260221 235533.664|INFO|Thread-17|log|   key: LANGUAGE_LIST is: [Ledu.csus.ecs.pc2.core.model.Language; [Ledu.csus.ecs.pc2.core.model.Language;@5929e220
+260221 235533.664|INFO|Thread-17|log|   key: REMOTE_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@3fea99d4
+260221 235533.664|INFO|Thread-17|log|   key: CONTEST_TIME_LIST is: [Ledu.csus.ecs.pc2.core.model.ContestTime; [Ledu.csus.ecs.pc2.core.model.ContestTime;@8a4111e
+260221 235533.665|INFO|Thread-17|log|   key: CONNECTION_HANDLE_ID_LIST is: [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID; [Ledu.csus.ecs.pc2.core.transport.ConnectionHandlerID;@590f719b
+260221 235533.665|INFO|Thread-17|log|   key: PROFILE is: edu.csus.ecs.pc2.core.model.Profile Default--6159007321590187439
+260221 235533.665|INFO|Thread-17|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId TEAM1 @ site 1
+260221 235533.665|INFO|Thread-17|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260221 235533.666|INFO|Thread-17|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@4f21a078
+260221 235533.666|INFO|Thread-17|log|   key: SITE_LIST is: [Ledu.csus.ecs.pc2.core.model.Site; [Ledu.csus.ecs.pc2.core.model.Site;@24eeb471
+260221 235533.666|INFO|Thread-17|log|   key: PROBLEM_DATA_FILES is: [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles; [Ledu.csus.ecs.pc2.core.model.ProblemDataFiles;@cea6d13
+260221 235533.666|INFO|Thread-17|log|   key: JUDGEMENT_LIST is: [Ledu.csus.ecs.pc2.core.model.Judgement; [Ledu.csus.ecs.pc2.core.model.Judgement;@2e4b56bc
+260221 235533.667|INFO|Thread-17|log|   key: PROBLEM_LIST is: [Ledu.csus.ecs.pc2.core.model.Problem; [Ledu.csus.ecs.pc2.core.model.Problem;@6c2b016d
+260221 235533.667|INFO|Thread-17|log|   key: GROUP_LIST is: [Ledu.csus.ecs.pc2.core.model.Group; [Ledu.csus.ecs.pc2.core.model.Group;@3db76da5
+260221 235533.667|INFO|Thread-17|log|   key: LOCAL_LOGGED_IN_USERS is: [Ledu.csus.ecs.pc2.core.model.ClientId; [Ledu.csus.ecs.pc2.core.model.ClientId;@62ea1df5
+260221 235533.667|INFO|Thread-17|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1771710933580,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=1,WEEK_OF_YEAR=8,WEEK_OF_MONTH=3,DAY_OF_MONTH=21,DAY_OF_YEAR=52,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=9,HOUR_OF_DAY=21,MINUTE=55,SECOND=33,MILLISECOND=580,ZONE_OFFSET=0,DST_OFFSET=0]
+260221 235533.668|INFO|Thread-17|log|   key: CONTEST_IDENTIFIER is: java.lang.String Default--6159007321590187439
+260221 235533.668|INFO|Thread-17|log|   key: BALLOON_SETTINGS_LIST is: [Ledu.csus.ecs.pc2.core.model.BalloonSettings; [Ledu.csus.ecs.pc2.core.model.BalloonSettings;@16e049a2
+260221 235533.668|INFO|Thread-17|log|   key: RUN_LIST is: [Ledu.csus.ecs.pc2.core.model.Run; [Ledu.csus.ecs.pc2.core.model.Run;@2274027a
+260221 235533.668|INFO|Thread-17|log|   key: ACCOUNT_ARRAY is: [Ledu.csus.ecs.pc2.core.model.Account; [Ledu.csus.ecs.pc2.core.model.Account;@242889d4
+260221 235548.243|INFO|Thread-15|log|connectionDropped(ConnectionHandlerID myConnectionID) 

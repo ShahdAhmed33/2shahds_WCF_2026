@@ -9,3 +9,21 @@
 260217 210346.603|INFO|Thread-18|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #31 SERVER0 @ site 1 -> TEAM1 @ site 1
 260217 210346.939|INFO|qtp1130478920-23|log|Sending packet to server Packet[LOGOUT] #4 TEAM1 @ site 1 -> SERVER0 @ site 1
 260217 210346.941|INFO|qtp1130478920-23|log|Sent    packet to server Packet[LOGOUT] #4 TEAM1 @ site 1 -> SERVER0 @ site 1
+260221 232141.923|CONFIG|Thread-17|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260221 232141.923|INFO|Thread-17|log|
+260221 232141.923|INFO|Thread-17|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-94-generic (amd64) 
+260221 232141.924|INFO|Thread-17|log|Login: team1 (aka team1)
+260221 232141.924|INFO|Thread-17|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260221 232141.924|INFO|Thread-17|log|Process id is 39643@shahoda
+260221 232141.925|INFO|Thread-17|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260221 232141.926|INFO|Thread-17|log|handlePacket end Packet[LOGIN_SUCCESS] #26 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 232141.926|INFO|Thread-17|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #26 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 235533.671|CONFIG|Thread-17|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260221 235533.672|INFO|Thread-17|log|
+260221 235533.672|INFO|Thread-17|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-94-generic (amd64) 
+260221 235533.672|INFO|Thread-17|log|Login: team1 (aka team1)
+260221 235533.673|INFO|Thread-17|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260221 235533.673|INFO|Thread-17|log|Process id is 43835@shahoda
+260221 235533.675|INFO|Thread-17|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260221 235533.676|INFO|Thread-17|log|handlePacket end Packet[LOGIN_SUCCESS] #58 SERVER0 @ site 1 -> TEAM1 @ site 1
+260221 235533.676|INFO|Thread-17|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #58 SERVER0 @ site 1 -> TEAM1 @ site 1

@@ -131,13 +131,15 @@ public class maincontroller {
 			 serverconnection.login(req.username, req.password);
 			 IContest contest = serverconnection.getContest();
 			// Generate a unique token for this specific user session
-			 String token = UUID.randomUUID().toString();
+			 CookiesHandlers.CookieData data = CookiesHandlers.createAuthCookie();
+			  String token = data.getToken();
+
 			 sessions.put(token, serverconnection);
 			// USE HELPER: Create the cookie
-			 NewCookie jwtCookie = CookiesHandlers.createAuthCookie(token);
+			 
 			 LoginResponse loginRes = new LoginResponse(req.username, token);
 	            return Response.ok(loginRes)
-	                           .cookie(jwtCookie)
+	                           .cookie(data.getCookie())
 	                           .type(MediaType.APPLICATION_JSON)
 	                           .build();
 		}
@@ -204,7 +206,7 @@ public class maincontroller {
 	            IContest contest = userConn.getContest();
 	            List<languageList> result = new ArrayList<languageList>();
 	            for (ILanguage lang : contest.getLanguages()) {
-	                   languageList li=new languageList(lang.getName(),lang.getTitle());
+	                   languageList li=new languageList(lang.getName(),lang.getCompilerCommandLine());
 	                   result.add(li);
 	            }
 	            
