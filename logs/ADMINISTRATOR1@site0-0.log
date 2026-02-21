@@ -1,0 +1,14 @@
+260221 162507.307|CONFIG|qtp325333723-34|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 162507.308|INFO|qtp325333723-34|log|
+260221 162507.309|INFO|qtp325333723-34|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 162507.309|INFO|qtp325333723-34|log|Login: administrator1 (aka administrator1)
+260221 162507.311|INFO|qtp325333723-34|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 162507.313|INFO|qtp325333723-34|log|Process id is 31612@DESKTOP-5EPLK95
+260221 162507.313|INFO|qtp325333723-34|log|Contacting server at localhost:50002 as ADMINISTRATOR1 @ site 0
+260221 162507.313|INFO|Thread-35|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=57609]--2764020674221268760)
+260221 162507.314|INFO|qtp325333723-34|log|sendLoginRequest start - sending from ADMINISTRATOR1 @ site 0
+260221 162507.315|INFO|qtp325333723-34|log|Sending packet to server Packet[LOGIN_REQUEST] #5 ADMINISTRATOR1 @ site 0 -> SERVER0 @ site 0
+260221 162507.315|INFO|qtp325333723-34|log|Sent    packet to server Packet[LOGIN_REQUEST] #5 ADMINISTRATOR1 @ site 0 -> SERVER0 @ site 0
+260221 162507.316|INFO|qtp325333723-34|log|sendLoginRequest end - packet sent.
+260221 162507.316|INFO|Thread-36|log|send(Serializable)
+260221 162517.424|INFO|qtp325333723-34|log|Login failed - timed out, server at localhost:50002 as ADMINISTRATOR1 @ site 0

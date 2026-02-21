@@ -2,6 +2,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -129,29 +130,18 @@ public class maincontroller {
 			 ServerConnection serverconnection = new ServerConnection();
 			 serverconnection.login(req.username, req.password);
 			 IContest contest = serverconnection.getContest();
-			 
-			 
-				String token="aast";
-				sessions.put(token, serverconnection);
-				NewCookie jwtCookie=new NewCookie(
-						"awt_jwt",
-						token,
-						"/api",
-						null,
-						"WTI JWT auth token",
-						3600,
-						false,
-						true
-						
-						);
-
-				LoginResponse login=new LoginResponse(req.username,token);
-				res=Response.ok()
-						.entity(login)
-						.cookie(jwtCookie)
-						.type(MediaType.APPLICATION_JSON)
-						.build();
+			// Generate a unique token for this specific user session
+			 String token = UUID.randomUUID().toString();
+			 sessions.put(token, serverconnection);
+			// USE HELPER: Create the cookie
+			 NewCookie jwtCookie = CookiesHandlers.createAuthCookie(token);
+			 LoginResponse loginRes = new LoginResponse(req.username, token);
+	            return Response.ok(loginRes)
+	                           .cookie(jwtCookie)
+	                           .type(MediaType.APPLICATION_JSON)
+	                           .build();
 		}
+				 
 		
 	   catch (NotLoggedInException e) {
 		res= Response.status(Response.Status.UNAUTHORIZED)
@@ -168,15 +158,9 @@ public class maincontroller {
 		            .type(MediaType.APPLICATION_JSON)
 		            .build();
 		}
-		return res;
+
 	} 
-	
-	
-			
-	
-	
-	
-	
+	  
 	
    	   ServerConnection serverconnection = new ServerConnection();
 
@@ -186,17 +170,15 @@ public class maincontroller {
 	    
 	    public Response listlanguages(final @Context HttpServletRequest req) {
 			 Response res=null;
-			 
-				String token="aast";
-			
-				 
-	        if (serverconnection == null) {
+			// USE HELPER: Get token from request cookies
+			 String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);			
+			// Validate session
+	        if (serverconnection == null || token == null || !sessions.containsKey(token)) {
 	             res=Response.status(Response.Status.UNAUTHORIZED)
 	                    .entity("Not logged in")
 	                    .type(MediaType.APPLICATION_JSON)
 	                    .build();
 	            return res;
-	         
 	        }
 	        if(req.getCookies()==null ) {
 	        	res=Response.status(Response.Status.UNAUTHORIZED)
@@ -213,16 +195,14 @@ public class maincontroller {
     	return res;
 	        	
 	        }
+	     // Get the SPECIFIC connection for this user from the map
+	        ServerConnection userConn = sessions.get(token);
 	        
 	        
-
 	        try {
 
-	            IContest contest = serverconnection.getContest();
-	            ILanguage[] languages = contest.getLanguages();
-
+	            IContest contest = userConn.getContest();
 	            List<languageList> result = new ArrayList<languageList>();
-
 	            for (ILanguage lang : contest.getLanguages()) {
 	                   languageList li=new languageList(lang.getName(),lang.getTitle());
 	                   result.add(li);
@@ -238,10 +218,6 @@ public class maincontroller {
 	                    .build();
 	        }
 	    }
-	
-	
-	
-	
 	
 	
 	@GET

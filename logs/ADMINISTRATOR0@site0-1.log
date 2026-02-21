@@ -1,0 +1,56 @@
+260221 162309.519|CONFIG|qtp325333723-56|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 162309.521|INFO|qtp325333723-56|log|
+260221 162309.521|INFO|qtp325333723-56|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 162309.522|INFO|qtp325333723-56|log|Login: admin (aka root)
+260221 162309.523|INFO|qtp325333723-56|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 162309.523|INFO|qtp325333723-56|log|Process id is 31612@DESKTOP-5EPLK95
+260221 162309.523|INFO|qtp325333723-56|log|Contacting server at localhost:50002 as ADMINISTRATOR0 @ site 0
+260221 162309.524|INFO|qtp325333723-56|log|sendLoginRequest start - sending from ADMINISTRATOR0 @ site 0
+260221 162309.525|INFO|qtp325333723-56|log|Sending packet to server Packet[LOGIN_REQUEST] #3 ADMINISTRATOR0 @ site 0 -> SERVER0 @ site 0
+260221 162309.526|INFO|qtp325333723-56|log|Sent    packet to server Packet[LOGIN_REQUEST] #3 ADMINISTRATOR0 @ site 0 -> SERVER0 @ site 0
+260221 162309.527|INFO|Thread-29|log|send(Serializable)
+260221 162309.527|INFO|qtp325333723-56|log|sendLoginRequest end - packet sent.
+260221 162319.702|INFO|qtp325333723-56|log|Login failed - timed out, server at localhost:50002 as ADMINISTRATOR0 @ site 0
+260221 163529.449|CONFIG|qtp325333723-31|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 163529.449|INFO|qtp325333723-31|log|
+260221 163529.451|INFO|qtp325333723-31|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 163529.451|INFO|qtp325333723-31|log|Login: admin (aka root)
+260221 163529.452|INFO|qtp325333723-31|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 163529.453|INFO|qtp325333723-31|log|Process id is 11424@DESKTOP-5EPLK95
+260221 163529.453|INFO|qtp325333723-31|log|Contacting server at localhost:50002 as ADMINISTRATOR0 @ site 0
+260221 163529.453|INFO|qtp325333723-31|log|sendLoginRequest start - sending from ADMINISTRATOR0 @ site 0
+260221 163529.453|INFO|qtp325333723-31|log|Sending packet to server Packet[LOGIN_REQUEST] #2 ADMINISTRATOR0 @ site 0 -> SERVER0 @ site 0
+260221 163529.454|INFO|qtp325333723-31|log|Sent    packet to server Packet[LOGIN_REQUEST] #2 ADMINISTRATOR0 @ site 0 -> SERVER0 @ site 0
+260221 163529.454|INFO|qtp325333723-31|log|sendLoginRequest end - packet sent.
+260221 163529.455|INFO|Thread-23|log|send(Serializable)
+260221 163529.455|INFO|Thread-22|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=50372]--2463622965525117071 key is com.sun.crypto.provider.DESKey@fffe784d
+260221 163529.455|INFO|Thread-22|log|Generating Unencrypted Public Key Packet
+260221 163529.461|INFO|Thread-22|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    796e2e88 3c399438 b0034f73 426073ab 09a61b74 46cca9cd a75fbc4f d7b6d526
+    83ed1438 3061a09b ba96ca0f 9b62e047 f2a5aa1c 3efc237a 2fc72ea0 d10652c5
+    e38d0465 c667181b acdaf852 9fcea020 c8f7e339 aefcb6c1 5ee9e7b3 f7a0499b
+    11c0ba0a 929c768d 6e67995a c12976d2 139d234c 98ed273d 0b55779f 279d8db8
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260221 163529.461|INFO|Thread-22|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@11d8e3d
+260221 163529.481|INFO|Thread-22|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260221 163529.485|INFO|Thread-24|log| receiveObject(S) start got Packet[LOGIN_FAILED] #4 SERVER0 @ site 1 -> ADMINISTRATOR0 @ site 0
+260221 163529.486|INFO|Thread-24|log|Packet LOGIN_FAILED (Seq #4, o#4 ) recieveObject
+260221 163529.486|INFO|Thread-24|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260221 163529.486|INFO|Thread-24|log|    To: ADMINISTRATOR0 @ site 0
+260221 163529.486|INFO|Thread-24|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260221 163529.487|INFO|Thread-24|log|handlePacket start Packet[LOGIN_FAILED] #4 SERVER0 @ site 1 -> ADMINISTRATOR0 @ site 0
+260221 163529.487|INFO|Thread-24|log|Packet LOGIN_FAILED (Seq #4, o#4 ) handlePacket
+260221 163529.487|INFO|Thread-24|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260221 163529.487|INFO|Thread-24|log|    To: ADMINISTRATOR0 @ site 0
+260221 163529.487|INFO|Thread-24|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260221 163529.488|INFO|Thread-24|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #4 SERVER0 @ site 1 -> ADMINISTRATOR0 @ site 0
+260221 164330.372|INFO|Thread-22|log|connectionDropped(ConnectionHandlerID myConnectionID) 

@@ -472,3 +472,59 @@ l:
 260217 220840.808|INFO|Thread-13|log|   key: ACCOUNT_ARRAY is: [Ledu.csus.ecs.pc2.core.model.Account; [Ledu.csus.ecs.pc2.core.model.Account;@5282912f
 260217 220841.095|INFO|Thread-14|log|send(Serializable)
 260217 220841.158|INFO|Thread-11|log|connectionDropped(ConnectionHandlerID myConnectionID) 
+260221 162211.863|CONFIG|qtp325333723-36|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 162211.864|INFO|qtp325333723-36|log|
+260221 162211.865|INFO|qtp325333723-36|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 162211.865|INFO|qtp325333723-36|log|Login: team1 (aka team1)
+260221 162211.867|INFO|qtp325333723-36|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 162211.867|INFO|qtp325333723-36|log|Process id is 31612@DESKTOP-5EPLK95
+260221 162211.868|INFO|qtp325333723-36|log|Contacting server at localhost:50002 as TEAM1 @ site 0
+260221 162211.868|INFO|qtp325333723-36|log|sendLoginRequest start - sending from TEAM1 @ site 0
+260221 162211.869|INFO|qtp325333723-36|log|Sending packet to server Packet[LOGIN_REQUEST] #2 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 162211.870|INFO|qtp325333723-36|log|Sent    packet to server Packet[LOGIN_REQUEST] #2 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 162211.870|INFO|Thread-25|log|send(Serializable)
+260221 162211.870|INFO|qtp325333723-36|log|sendLoginRequest end - packet sent.
+260221 162222.042|INFO|qtp325333723-36|log|Login failed - timed out, server at localhost:50002 as TEAM1 @ site 0
+260221 163846.307|CONFIG|qtp325333723-34|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 163846.308|INFO|qtp325333723-34|log|
+260221 163846.309|INFO|qtp325333723-34|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 163846.309|INFO|qtp325333723-34|log|Login: team1 (aka team1)
+260221 163846.310|INFO|qtp325333723-34|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 163846.310|INFO|qtp325333723-34|log|Process id is 11424@DESKTOP-5EPLK95
+260221 163846.311|INFO|qtp325333723-34|log|Contacting server at localhost:50002 as TEAM1 @ site 0
+260221 163846.311|INFO|qtp325333723-34|log|sendLoginRequest start - sending from TEAM1 @ site 0
+260221 163846.311|INFO|qtp325333723-34|log|Sending packet to server Packet[LOGIN_REQUEST] #6 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 163846.312|INFO|qtp325333723-34|log|Sent    packet to server Packet[LOGIN_REQUEST] #6 TEAM1 @ site 0 -> SERVER0 @ site 0
+260221 163846.312|INFO|qtp325333723-34|log|sendLoginRequest end - packet sent.
+260221 163846.312|INFO|Thread-40|log|send(Serializable)
+260221 163846.314|INFO|Thread-39|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=55967]-3119827469741462025 key is com.sun.crypto.provider.DESKey@186a8
+260221 163846.314|INFO|Thread-39|log|Generating Unencrypted Public Key Packet
+260221 163846.315|INFO|Thread-39|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    899169aa af281d7a 51b6d67b 61a4141c 37f4cc37 5e9f5058 ced3cb45 97ddc0d9
+    b81b71c0 302d8d1c d02133a2 4009543f 15df9cf8 88bfb12a 4393d990 0bbcf4ff
+    ea6f9240 e59d5e84 fc8b31d1 92434b19 c1f4a6ab 9f3f3611 8a902b1d 1fbb7604
+    0c00e20a e19998cf fba11f13 fdd862fb f4fd49bb dbed6be9 262ba7d2 d5427b39
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260221 163846.315|INFO|Thread-39|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@7f850116
+260221 163846.330|INFO|Thread-39|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260221 163846.333|INFO|Thread-41|log| receiveObject(S) start got Packet[LOGIN_FAILED] #12 SERVER0 @ site 1 -> TEAM1 @ site 0
+260221 163846.333|INFO|Thread-41|log|Packet LOGIN_FAILED (Seq #12, o#12 ) recieveObject
+260221 163846.333|INFO|Thread-41|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260221 163846.333|INFO|Thread-41|log|    To: TEAM1 @ site 0
+260221 163846.333|INFO|Thread-41|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260221 163846.334|INFO|Thread-41|log|handlePacket start Packet[LOGIN_FAILED] #12 SERVER0 @ site 1 -> TEAM1 @ site 0
+260221 163846.334|INFO|Thread-41|log|Packet LOGIN_FAILED (Seq #12, o#12 ) handlePacket
+260221 163846.334|INFO|Thread-41|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260221 163846.334|INFO|Thread-41|log|    To: TEAM1 @ site 0
+260221 163846.334|INFO|Thread-41|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260221 163846.335|INFO|Thread-41|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #12 SERVER0 @ site 1 -> TEAM1 @ site 0
+260221 164330.372|INFO|Thread-39|log|connectionDropped(ConnectionHandlerID myConnectionID) 
