@@ -116,3 +116,138 @@
 260221 235528.390|INFO|Thread-13|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260221 235528.390|INFO|Thread-13|log|handlePacket end Packet[LOGIN_SUCCESS] #52 SERVER0 @ site 1 -> TEAM1 @ site 1
 260221 235528.390|INFO|Thread-13|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #52 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 012833.760|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 012833.761|INFO|Thread-22|log|
+260222 012833.762|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 012833.763|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 012833.764|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 012833.764|INFO|Thread-22|log|Process id is 31660@DESKTOP-5EPLK95
+260222 012833.765|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 012833.765|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #5 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 012833.765|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #5 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 013423.079|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 013423.079|INFO|Thread-22|log|
+260222 013423.080|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 013423.080|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 013423.080|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 013423.081|INFO|Thread-22|log|Process id is 7468@DESKTOP-5EPLK95
+260222 013423.081|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 013423.081|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #22 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 013423.081|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #22 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 013549.719|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 013549.720|INFO|Thread-22|log|
+260222 013549.720|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 013549.720|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 013549.721|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 013549.722|INFO|Thread-22|log|Process id is 12896@DESKTOP-5EPLK95
+260222 013549.722|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 013549.723|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #27 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 013549.723|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #27 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 014247.389|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 014247.390|INFO|Thread-22|log|
+260222 014247.390|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 014247.390|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 014247.390|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 014247.391|INFO|Thread-22|log|Process id is 31548@DESKTOP-5EPLK95
+260222 014247.392|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 014247.392|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #32 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 014247.392|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #32 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 014824.149|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 014824.150|INFO|Thread-22|log|
+260222 014824.150|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 014824.150|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 014824.151|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 014824.151|INFO|Thread-22|log|Process id is 7032@DESKTOP-5EPLK95
+260222 014824.152|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 014824.152|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #37 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 014824.152|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #37 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 020014.540|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 020014.541|INFO|Thread-22|log|
+260222 020014.542|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 020014.542|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 020014.543|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 020014.543|INFO|Thread-22|log|Process id is 26900@DESKTOP-5EPLK95
+260222 020014.543|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 020014.543|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #48 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 020014.543|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #48 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 020159.227|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 020159.227|INFO|Thread-22|log|
+260222 020159.227|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 020159.228|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 020159.228|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 020159.228|INFO|Thread-22|log|Process id is 26928@DESKTOP-5EPLK95
+260222 020159.229|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 020159.229|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #53 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 020159.230|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #53 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 020915.704|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 020915.704|INFO|Thread-22|log|
+260222 020915.706|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 020915.707|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 020915.708|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 020915.708|INFO|Thread-22|log|Process id is 29580@DESKTOP-5EPLK95
+260222 020915.708|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 020915.708|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #58 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 020915.709|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #58 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 022107.279|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 022107.279|INFO|Thread-22|log|
+260222 022107.280|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 022107.280|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 022107.281|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 022107.282|INFO|Thread-22|log|Process id is 41588@DESKTOP-5EPLK95
+260222 022107.283|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 022107.283|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #63 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 022107.283|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #63 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 022546.036|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 022546.038|INFO|Thread-22|log|
+260222 022546.038|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 022546.039|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 022546.040|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 022546.041|INFO|Thread-22|log|Process id is 42284@DESKTOP-5EPLK95
+260222 022546.041|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 022546.041|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #68 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 022546.041|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #68 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 022820.391|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 022820.391|INFO|Thread-22|log|
+260222 022820.395|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 022820.396|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 022820.397|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 022820.398|INFO|Thread-22|log|Process id is 21344@DESKTOP-5EPLK95
+260222 022820.398|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 022820.398|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #73 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 022820.398|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #73 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 023628.250|CONFIG|Thread-20|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 023628.251|INFO|Thread-20|log|
+260222 023628.251|INFO|Thread-20|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 023628.252|INFO|Thread-20|log|Login: team1 (aka team1)
+260222 023628.252|INFO|Thread-20|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 023628.253|INFO|Thread-20|log|Process id is 39688@DESKTOP-5EPLK95
+260222 023628.253|INFO|Thread-20|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 023628.254|INFO|Thread-20|log|handlePacket end Packet[LOGIN_SUCCESS] #78 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 023628.254|INFO|Thread-20|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #78 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 024017.447|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 024017.447|INFO|Thread-22|log|
+260222 024017.449|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 024017.449|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 024017.451|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 024017.451|INFO|Thread-22|log|Process id is 28552@DESKTOP-5EPLK95
+260222 024017.451|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 024017.452|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #83 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 024017.452|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #83 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 024245.387|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 024245.388|INFO|Thread-22|log|
+260222 024245.389|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 024245.389|INFO|Thread-22|log|Login: team1 (aka team1)
+260222 024245.390|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 024245.391|INFO|Thread-22|log|Process id is 40552@DESKTOP-5EPLK95
+260222 024245.393|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 024245.393|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #88 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 024245.393|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #88 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 024937.553|CONFIG|Thread-21|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 024937.553|INFO|Thread-21|log|
+260222 024937.554|INFO|Thread-21|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 024937.555|INFO|Thread-21|log|Login: team1 (aka team1)
+260222 024937.556|INFO|Thread-21|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 024937.556|INFO|Thread-21|log|Process id is 22780@DESKTOP-5EPLK95
+260222 024937.557|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 024937.557|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #93 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 024937.558|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #93 SERVER0 @ site 1 -> TEAM1 @ site 1
