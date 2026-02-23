@@ -251,3 +251,105 @@
 260222 024937.557|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260222 024937.557|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #93 SERVER0 @ site 1 -> TEAM1 @ site 1
 260222 024937.558|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #93 SERVER0 @ site 1 -> TEAM1 @ site 1
+260223 224941.016|CONFIG|Thread-16|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260223 224941.017|INFO|Thread-16|log|
+260223 224941.018|INFO|Thread-16|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260223 224941.018|INFO|Thread-16|log|Login: team1 (aka team1)
+260223 224941.018|INFO|Thread-16|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260223 224941.018|INFO|Thread-16|log|Process id is 12576@lilsaados
+260223 224941.019|INFO|Thread-16|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260223 224941.019|INFO|Thread-16|log|handlePacket end Packet[LOGIN_SUCCESS] #6 SERVER0 @ site 1 -> TEAM1 @ site 1
+260223 224941.020|INFO|Thread-16|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #6 SERVER0 @ site 1 -> TEAM1 @ site 1
+260223 225204.533|INFO|Thread-17|log| receiveObject(S) start got Packet[ADD_SETTING] #8 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225204.535|INFO|Thread-17|log|Packet ADD_SETTING (Seq #8, o#3 ) recieveObject
+260223 225204.535|INFO|Thread-17|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225204.536|INFO|Thread-17|log|    To: SERVER0 @ site 0
+260223 225204.536|INFO|Thread-17|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language Java
+260223 225204.536|INFO|Thread-17|log|handlePacket start Packet[ADD_SETTING] #8 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225204.537|INFO|Thread-17|log|Packet ADD_SETTING (Seq #8, o#3 ) handlePacket
+260223 225204.537|INFO|Thread-17|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225204.537|INFO|Thread-17|log|    To: SERVER0 @ site 0
+260223 225204.537|INFO|Thread-17|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language Java
+260223 225204.541|INFO|Thread-17|log|handlePacket end Packet[ADD_SETTING] #8 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225204.541|INFO|Thread-17|log| receiveObject(S) end   got Packet[ADD_SETTING] #8 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225210.621|INFO|Thread-18|log| receiveObject(S) start got Packet[ADD_SETTING] #9 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225210.623|INFO|Thread-18|log|Packet ADD_SETTING (Seq #9, o#4 ) recieveObject
+260223 225210.623|INFO|Thread-18|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225210.623|INFO|Thread-18|log|    To: SERVER0 @ site 0
+260223 225210.623|INFO|Thread-18|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language GNU C++
+260223 225210.623|INFO|Thread-18|log|handlePacket start Packet[ADD_SETTING] #9 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225210.623|INFO|Thread-18|log|Packet ADD_SETTING (Seq #9, o#4 ) handlePacket
+260223 225210.623|INFO|Thread-18|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225210.624|INFO|Thread-18|log|    To: SERVER0 @ site 0
+260223 225210.624|INFO|Thread-18|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language GNU C++
+260223 225210.626|INFO|Thread-18|log|handlePacket end Packet[ADD_SETTING] #9 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225210.627|INFO|Thread-18|log| receiveObject(S) end   got Packet[ADD_SETTING] #9 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225221.429|INFO|Thread-19|log| receiveObject(S) start got Packet[ADD_SETTING] #10 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225221.429|INFO|Thread-19|log|Packet ADD_SETTING (Seq #10, o#5 ) recieveObject
+260223 225221.429|INFO|Thread-19|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225221.429|INFO|Thread-19|log|    To: SERVER0 @ site 0
+260223 225221.429|INFO|Thread-19|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language default
+260223 225221.430|INFO|Thread-19|log|handlePacket start Packet[ADD_SETTING] #10 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225221.430|INFO|Thread-19|log|Packet ADD_SETTING (Seq #10, o#5 ) handlePacket
+260223 225221.430|INFO|Thread-19|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225221.430|INFO|Thread-19|log|    To: SERVER0 @ site 0
+260223 225221.430|INFO|Thread-19|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language default
+260223 225221.430|INFO|Thread-19|log|handlePacket end Packet[ADD_SETTING] #10 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225221.430|INFO|Thread-19|log| receiveObject(S) end   got Packet[ADD_SETTING] #10 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225227.523|INFO|Thread-20|log| receiveObject(S) start got Packet[ADD_SETTING] #11 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225227.524|INFO|Thread-20|log|Packet ADD_SETTING (Seq #11, o#6 ) recieveObject
+260223 225227.524|INFO|Thread-20|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225227.524|INFO|Thread-20|log|    To: SERVER0 @ site 0
+260223 225227.524|INFO|Thread-20|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language GNU C
+260223 225227.524|INFO|Thread-20|log|handlePacket start Packet[ADD_SETTING] #11 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225227.524|INFO|Thread-20|log|Packet ADD_SETTING (Seq #11, o#6 ) handlePacket
+260223 225227.525|INFO|Thread-20|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225227.525|INFO|Thread-20|log|    To: SERVER0 @ site 0
+260223 225227.525|INFO|Thread-20|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language GNU C
+260223 225227.525|INFO|Thread-20|log|handlePacket end Packet[ADD_SETTING] #11 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225227.526|INFO|Thread-20|log| receiveObject(S) end   got Packet[ADD_SETTING] #11 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225233.722|INFO|Thread-21|log| receiveObject(S) start got Packet[ADD_SETTING] #12 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225233.722|INFO|Thread-21|log|Packet ADD_SETTING (Seq #12, o#7 ) recieveObject
+260223 225233.722|INFO|Thread-21|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225233.722|INFO|Thread-21|log|    To: SERVER0 @ site 0
+260223 225233.723|INFO|Thread-21|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language Mono C#
+260223 225233.723|INFO|Thread-21|log|handlePacket start Packet[ADD_SETTING] #12 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225233.723|INFO|Thread-21|log|Packet ADD_SETTING (Seq #12, o#7 ) handlePacket
+260223 225233.723|INFO|Thread-21|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 225233.723|INFO|Thread-21|log|    To: SERVER0 @ site 0
+260223 225233.725|INFO|Thread-21|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language Mono C#
+260223 225233.726|INFO|Thread-21|log|handlePacket end Packet[ADD_SETTING] #12 SERVER0 @ site 1 -> SERVER0 @ site 0
+260223 225233.726|INFO|Thread-21|log| receiveObject(S) end   got Packet[ADD_SETTING] #12 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000114.843|CONFIG|Thread-16|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260224 000114.843|INFO|Thread-16|log|
+260224 000114.843|INFO|Thread-16|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260224 000114.843|INFO|Thread-16|log|Login: team1 (aka team1)
+260224 000114.843|INFO|Thread-16|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260224 000114.844|INFO|Thread-16|log|Process id is 10288@lilsaados
+260224 000114.844|INFO|Thread-16|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260224 000114.844|INFO|Thread-16|log|handlePacket end Packet[LOGIN_SUCCESS] #46 SERVER0 @ site 1 -> TEAM1 @ site 1
+260224 000114.844|INFO|Thread-16|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #46 SERVER0 @ site 1 -> TEAM1 @ site 1
+260224 000344.503|INFO|Thread-17|log| receiveObject(S) start got Packet[UPDATE_SETTING] #49 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000344.503|INFO|Thread-17|log|Packet UPDATE_SETTING (Seq #49, o#4 ) recieveObject
+260224 000344.504|INFO|Thread-17|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260224 000344.504|INFO|Thread-17|log|    To: SERVER0 @ site 0
+260224 000344.504|INFO|Thread-17|log|   key: PROBLEM is: edu.csus.ecs.pc2.core.model.Problem problem2
+260224 000344.504|INFO|Thread-17|log|handlePacket start Packet[UPDATE_SETTING] #49 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000344.504|INFO|Thread-17|log|Packet UPDATE_SETTING (Seq #49, o#4 ) handlePacket
+260224 000344.504|INFO|Thread-17|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260224 000344.504|INFO|Thread-17|log|    To: SERVER0 @ site 0
+260224 000344.504|INFO|Thread-17|log|   key: PROBLEM is: edu.csus.ecs.pc2.core.model.Problem problem2
+260224 000344.504|INFO|Thread-17|log|handlePacket end Packet[UPDATE_SETTING] #49 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000344.504|INFO|Thread-17|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #49 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000405.425|INFO|Thread-19|log| receiveObject(S) start got Packet[UPDATE_SETTING] #51 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000405.427|INFO|Thread-19|log|Packet UPDATE_SETTING (Seq #51, o#5 ) recieveObject
+260224 000405.427|INFO|Thread-19|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260224 000405.427|INFO|Thread-19|log|    To: SERVER0 @ site 0
+260224 000405.427|INFO|Thread-19|log|   key: PROBLEM is: edu.csus.ecs.pc2.core.model.Problem problem2
+260224 000405.427|INFO|Thread-19|log|handlePacket start Packet[UPDATE_SETTING] #51 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000405.427|INFO|Thread-19|log|Packet UPDATE_SETTING (Seq #51, o#5 ) handlePacket
+260224 000405.427|INFO|Thread-19|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260224 000405.427|INFO|Thread-19|log|    To: SERVER0 @ site 0
+260224 000405.427|INFO|Thread-19|log|   key: PROBLEM is: edu.csus.ecs.pc2.core.model.Problem problem2
+260224 000405.431|INFO|Thread-19|log|handlePacket end Packet[UPDATE_SETTING] #51 SERVER0 @ site 1 -> SERVER0 @ site 0
+260224 000405.433|INFO|Thread-19|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #51 SERVER0 @ site 1 -> SERVER0 @ site 0

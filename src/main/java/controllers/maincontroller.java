@@ -19,8 +19,10 @@ import javax.ws.rs.core.Response;
 import Model.LoginPage;
 import Model.LoginResponse;
 import Model.languageList;
+import Model.listProblems;
 import edu.csus.ecs.pc2.api.IContest;
 import edu.csus.ecs.pc2.api.ILanguage;
+import edu.csus.ecs.pc2.api.IProblem;
 import edu.csus.ecs.pc2.api.ServerConnection;
 import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
 import helpers.CookiesHandlers;
@@ -185,6 +187,39 @@ public class maincontroller {
 	                    .build();
 	        }
 	    }
+	    @GET 
+	    @Path("/listProblem")
+	    @Produces(MediaType.APPLICATION_JSON)
+	    public Response listProblem(final @Context HttpServletRequest req) {
+	    	Response res=null;
+			 String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+			 
+			// Validate session signature and existence
+		        if (!CookiesHandlers.verifyTokenSignature(token) || token == null || !sessions.containsKey(token)) {
+		             res=Response.status(Response.Status.UNAUTHORIZED)
+		                    .entity("Not logged in")
+		                    .type(MediaType.APPLICATION_JSON)
+		                    .build();
+		            return res;
+		        }
+
+		        ServerConnection userConn = sessions.get(token);
+		        try {
+		            IContest contest = userConn.getContest();
+		            List<listProblems> problem = new ArrayList<listProblems>();
+		            for (IProblem prob : contest.getProblems()) {
+		                   listProblems li=new listProblems(prob.getName(),prob.getShortName(),prob.isDeleted());
+		                   problem.add(li);
+		            }
+		            return Response.ok(problem).build();
+		        } catch (Exception e) {
+		            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+		                    .entity("Failed to fetch problems from PC2")
+		                    .build();
+		        }
+	    }
+	    
+	    
 	
 	@GET
 	@Path("/sayhello/{name}")

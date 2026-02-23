@@ -1,0 +1,43 @@
+260223 230208.199|CONFIG|qtp38997010-41|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260223 230208.199|INFO|qtp38997010-41|log|
+260223 230208.199|INFO|qtp38997010-41|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260223 230208.199|INFO|qtp38997010-41|log|Login: team12 (aka team12)
+260223 230208.200|INFO|qtp38997010-41|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260223 230208.200|INFO|qtp38997010-41|log|Process id is 12576@lilsaados
+260223 230208.201|INFO|qtp38997010-41|log|Contacting server at localhost:50002 as TEAM12 @ site 0
+260223 230208.202|INFO|qtp38997010-41|log|sendLoginRequest start - sending from TEAM12 @ site 0
+260223 230208.202|INFO|Thread-37|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=64987]--3237824248374248327)
+260223 230208.202|INFO|qtp38997010-41|log|Sending packet to server Packet[LOGIN_REQUEST] #4 TEAM12 @ site 0 -> SERVER0 @ site 0
+260223 230208.205|INFO|qtp38997010-41|log|Sent    packet to server Packet[LOGIN_REQUEST] #4 TEAM12 @ site 0 -> SERVER0 @ site 0
+260223 230208.205|INFO|Thread-38|log|send(Serializable)
+260223 230208.205|INFO|qtp38997010-41|log|sendLoginRequest end - packet sent.
+260223 230208.209|INFO|Thread-37|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=64987]--3237824248374248327 key is com.sun.crypto.provider.DESKey@fffe79ca
+260223 230208.209|INFO|Thread-37|log|Generating Unencrypted Public Key Packet
+260223 230208.210|INFO|Thread-37|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    29bec966 152718a8 9e967229 297bce63 6aa41201 90c0faa0 114e9c78 5824c9fe
+    ed6b31b7 7019772f be485aa9 aae32846 0852c001 e10fd9da adbe5e98 d03e4331
+    4fd69631 96dac7c4 269613c0 d7bc7384 aebd5cf7 c20f6163 da8bca33 1df3d308
+    1227cc13 4c7e9b71 7d927277 d01973cb ae090cba 2950367a 4e29bce1 42ab35b2
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260223 230208.210|INFO|Thread-37|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@2e78f8e4
+260223 230208.226|INFO|Thread-37|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260223 230208.226|INFO|Thread-39|log| receiveObject(S) start got Packet[LOGIN_FAILED] #22 SERVER0 @ site 1 -> TEAM12 @ site 0
+260223 230208.227|INFO|Thread-39|log|Packet LOGIN_FAILED (Seq #22, o#22 ) recieveObject
+260223 230208.227|INFO|Thread-39|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 230208.227|INFO|Thread-39|log|    To: TEAM12 @ site 0
+260223 230208.227|INFO|Thread-39|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260223 230208.227|INFO|Thread-39|log|handlePacket start Packet[LOGIN_FAILED] #22 SERVER0 @ site 1 -> TEAM12 @ site 0
+260223 230208.227|INFO|Thread-39|log|Packet LOGIN_FAILED (Seq #22, o#22 ) handlePacket
+260223 230208.227|INFO|Thread-39|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260223 230208.227|INFO|Thread-39|log|    To: TEAM12 @ site 0
+260223 230208.227|INFO|Thread-39|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260223 230208.228|INFO|Thread-39|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #22 SERVER0 @ site 1 -> TEAM12 @ site 0
