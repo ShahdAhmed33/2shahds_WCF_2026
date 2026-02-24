@@ -1,17 +1,24 @@
 package helpers;
 
+import java.security.MessageDigest;
 import java.security.SecureRandom;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.Cookie;
 import javax.ws.rs.core.NewCookie;
+
+
 import java.util.Arrays;
 
 public abstract class CookiesHandlers {
     
     public static final String AUTH_COOKIE_NAME = "awt_jwt";
+    
     private static final String SECRET_KEY = "your-very-secure-secret-key-here";
-
+    //this is hard coded which could lead to system compromise if leaked
+    
+   // private static final String SECRET_KEY = System.getenv("JWT_SECRET");//generates 256 bit random key but needes to be defined in enviromnent
+    
     /**
      * Creates a fixed 64-character token.
      * [32 chars random payload][32 chars signature]
@@ -36,10 +43,9 @@ public abstract class CookiesHandlers {
             null,             
             "WTI auth token", 
             3600,             
-            false,            
-            true              
+            true,  //must be secure           
+            true       
         );
-
         return new CookieData(fixedToken64, cookie);
     }
 
@@ -59,7 +65,8 @@ public abstract class CookiesHandlers {
 
             String expectedSignature = hmacSha256Short(payload, SECRET_KEY);
 
-            return expectedSignature.equals(providedSignature);
+           //return expectedSignature.equals(providedSignature);
+            return MessageDigest.isEqual(expectedSignature.getBytes(),providedSignature.getBytes());//for constant comparison and prevents attacker from guessing byte by byte
         } catch (Exception e) {
             return false;
         }

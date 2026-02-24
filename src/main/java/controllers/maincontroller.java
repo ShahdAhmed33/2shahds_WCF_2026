@@ -119,10 +119,23 @@ public class maincontroller {
 			 sessions.put(token, serverconnection);
 			 
 			 LoginResponse loginRes = new LoginResponse(req.username, token);
-	            return Response.ok(loginRes)
+			 
+			 String cookieHeader = CookiesHandlers.AUTH_COOKIE_NAME + "=" + token +
+				        "; Path=/api" +
+				        "; Max-Age=3600" +
+				        "; Secure" +
+				        "; HttpOnly" +
+				        "; SameSite=Strict";//added samesite for mitigation against CSRF
+
+				return Response.ok(loginRes)
+				        .header("Set-Cookie", cookieHeader)
+				        .type(MediaType.APPLICATION_JSON)
+				        .build();
+			
+	           /* return Response.ok(loginRes)
 	                           .cookie(data.getCookie())
 	                           .type(MediaType.APPLICATION_JSON)
-	                           .build();
+	                           .build();*/
 		}
 	   catch (NotLoggedInException e) {
 		res= Response.status(Response.Status.UNAUTHORIZED)

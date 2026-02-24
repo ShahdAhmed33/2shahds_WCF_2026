@@ -1,0 +1,11 @@
+260224 220349.976|CONFIG|qtp38997010-13|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260224 220349.976|INFO|qtp38997010-13|log|
+260224 220349.976|INFO|qtp38997010-13|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260224 220349.976|INFO|qtp38997010-13|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260224 220349.977|INFO|qtp38997010-13|log|Process id is 23652@lilsaados
+260224 220349.977|INFO|qtp38997010-13|log|Starting ConnectionManager...
+260224 220349.980|INFO|qtp38997010-13|log|Started ConnectionManager
+260224 220349.981|SEVERE|qtp38997010-13|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Lenovo\git\2shahds_WCF_2026
+260224 220349.982|INFO|qtp38997010-13|log|Contacting server at localhost:50002
+260224 220349.982|INFO|qtp38997010-13|log|Connecting to localhost:50002
+260224 220349.987|INFO|Thread-18|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=57286]-4125050681321118562)
