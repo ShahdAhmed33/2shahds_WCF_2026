@@ -12,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -25,6 +26,9 @@ import edu.csus.ecs.pc2.api.ILanguage;
 import edu.csus.ecs.pc2.api.IProblem;
 import edu.csus.ecs.pc2.api.ServerConnection;
 import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
+import exceptions.LanguageNotFoundException;
+import exceptions.MethodNotSupportedException;
+import exceptions.PC2ServiceUnavailableException;
 import helpers.CookiesHandlers;
 import helpers.CookiesHandlers.CookieData;
 import io.swagger.v3.oas.annotations.Operation;
@@ -173,6 +177,11 @@ public class maincontroller {
 	    @Produces(MediaType.APPLICATION_JSON)
 	    public Response listlanguages(final @Context HttpServletRequest req) {
 			 Response res=null;
+			 if (!"GET".equalsIgnoreCase(req.getMethod())) {
+		            throw new MethodNotSupportedException("This endpoint only supports GET requests.");
+		        }
+			 
+			 
 			 String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);			
 			
 			// Validate session signature and existence
@@ -187,13 +196,26 @@ public class maincontroller {
 	        ServerConnection userConn = sessions.get(token);
 	        
 	        try {
+	        	if (userConn == null || !userConn.isLoggedIn()) {
+	                throw new PC2ServiceUnavailableException("Lost connection to the PC2 Server backend.");
+	            }
 	            IContest contest = userConn.getContest();
+	            
+	            if (contest == null || contest.getLanguages() == null || contest.getLanguages().length == 0) {
+	                throw new LanguageNotFoundException("No languages exist for this contest.");
+	            }
+	            
 	            List<languageList> result = new ArrayList<languageList>();
+	            
+	            
 	            for (ILanguage lang : contest.getLanguages()) {
 	                   languageList li=new languageList(lang.getName(),lang.getCompilerCommandLine());
 	                   result.add(li);
 	            }
 	            return Response.ok(result).build();
+	        } catch (WebApplicationException e) {
+	            // This rethrows your custom exceptions so JAX-RS can handle the Response automatically
+	            throw e;
 	        } catch (Exception e) {
 	            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 	                    .entity("Failed to fetch languages from PC2")
@@ -205,6 +227,7 @@ public class maincontroller {
 	    @Produces(MediaType.APPLICATION_JSON)
 	    public Response listProblem(final @Context HttpServletRequest req) {
 	    	Response res=null;
+	    	
 			 String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 			 
 			// Validate session signature and existence
