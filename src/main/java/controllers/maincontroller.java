@@ -7,8 +7,12 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HEAD;
+import javax.ws.rs.PATCH;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -16,7 +20,6 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import Model.LoginPage;
 import Model.LoginResponse;
 import Model.languageList;
@@ -29,6 +32,7 @@ import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
 import exceptions.LanguageNotFoundException;
 import exceptions.MethodNotSupportedException;
 import exceptions.PC2ServiceUnavailableException;
+import exceptions.UnauthorizedSessionException;
 import helpers.CookiesHandlers;
 import helpers.CookiesHandlers.CookieData;
 import io.swagger.v3.oas.annotations.Operation;
@@ -42,7 +46,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @Path("/main")
 @Tag(name = "Main", description = "Main controller endpoints")
 public class maincontroller {
-	  private static Map<String, ServerConnection> sessions =
+	 protected static Map<String, ServerConnection> sessions =
 	            new ConcurrentHashMap<>();
 	//we will use get method to retrieve the username and password that the user will enter
 	
@@ -172,98 +176,188 @@ public class maincontroller {
 		return Response.ok(success).build();
 	}
 
-	    @GET
-	    @Path("/listlanguages")
-	    @Produces(MediaType.APPLICATION_JSON)
-	    public Response listlanguages(final @Context HttpServletRequest req) {
-			 Response res=null;
-			 if (!"GET".equalsIgnoreCase(req.getMethod())) {
-		            throw new MethodNotSupportedException("This endpoint only supports GET requests.");
-		        }
-			 
-			 
-			 String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);			
-			
-			// Validate session signature and existence
-	        if (!CookiesHandlers.verifyTokenSignature(token) || token == null || !sessions.containsKey(token)) {
-	             res=Response.status(Response.Status.UNAUTHORIZED)
-	                    .entity("Not logged in")
-	                    .type(MediaType.APPLICATION_JSON)
-	                    .build();
-	            return res;
+	
+	 //handling the specific to the general exception for the get path for  list languages 
+	
+	@GET
+	@Path("/listlanguages")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listlanguages(@Context HttpServletRequest req) {
+	    try {
+	       
+	        String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+	        if (token == null || !CookiesHandlers.verifyTokenSignature(token) || !sessions.containsKey(token)) {
+	         throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
 	        }
 
 	        ServerConnection userConn = sessions.get(token);
-	        
-	        try {
-	        	if (userConn == null || !userConn.isLoggedIn()) {
-	                throw new PC2ServiceUnavailableException("Lost connection to the PC2 Server backend.");
-	            }
-	            IContest contest = userConn.getContest();
-	            
-	            if (contest == null || contest.getLanguages() == null || contest.getLanguages().length == 0) {
-	                throw new LanguageNotFoundException("No languages exist for this contest.");
-	            }
-	            
-	            List<languageList> result = new ArrayList<languageList>();
-	            
-	            
-	            for (ILanguage lang : contest.getLanguages()) {
-	                   languageList li=new languageList(lang.getName(),lang.getCompilerCommandLine());
-	                   result.add(li);
-	            }
-	            return Response.ok(result).build();
-	        } catch (WebApplicationException e) {
-	            // This rethrows your custom exceptions so JAX-RS can handle the Response automatically
-	            throw e;
-	        } catch (Exception e) {
-	            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-	                    .entity("Failed to fetch languages from PC2")
-	                    .build();
-	        }
-	    }
-	    @GET 
-	    @Path("/listProblem")
-	    @Produces(MediaType.APPLICATION_JSON)
-	    public Response listProblem(final @Context HttpServletRequest req) {
-	    	Response res=null;
-	    	
-			 String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
-			 
-			// Validate session signature and existence
-		        if (!CookiesHandlers.verifyTokenSignature(token) || token == null || !sessions.containsKey(token)) {
-		             res=Response.status(Response.Status.UNAUTHORIZED)
-		                    .entity("Not logged in")
-		                    .type(MediaType.APPLICATION_JSON)
-		                    .build();
-		            return res;
-		        }
 
-		        ServerConnection userConn = sessions.get(token);
-		        try {
-		            IContest contest = userConn.getContest();
-		            List<listProblems> problem = new ArrayList<listProblems>();
-		            for (IProblem prob : contest.getProblems()) {
-		                   listProblems li=new listProblems(prob.getName(),prob.getShortName(),prob.isDeleted());
-		                   problem.add(li);
-		            }
-		            return Response.ok(problem).build();
-		        } catch (Exception e) {
-		            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-		                    .entity("Failed to fetch problems from PC2")
-		                    .build();
-		        }
+	        if (userConn == null) {
+	            throw new PC2ServiceUnavailableException("The session exists, but the server connection object is missing.");
+	        }
+
+	        if (!userConn.isLoggedIn()) {
+	            throw new NotLoggedInException("Your session has expired or the credentials are no longer valid.");
+	        }
+
+	        IContest contest = userConn.getContest();
+	        if (contest == null) {
+	            throw new PC2ServiceUnavailableException("Unable to retrieve contest data from the PC2 server.");
+	        }
+
+	        ILanguage[] languages = contest.getLanguages();
+	        if (languages == null || languages.length == 0) {
+	            throw new LanguageNotFoundException("No programming languages are defined for this contest.");
+	        }
+
+	        List<languageList> result = new ArrayList<>();
+	        for (ILanguage lang : languages) {
+	            result.add(new languageList(lang.getName(), lang.getCompilerCommandLine()));
+	        }
+
+	        return Response.ok(result).build();
+
+	    } 
+	    catch (MethodNotSupportedException e) {
+	        return e.getResponse();
 	    }
-	    
-	    
+	    catch (NotLoggedInException e) {
+	        return Response.status(Response.Status.UNAUTHORIZED)
+	                .entity("error:" + e.getMessage())
+	                .type(MediaType.APPLICATION_JSON)
+	                .build();
+	    }
+	    catch (PC2ServiceUnavailableException e) {
+	        return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+	                .entity("error:" + e.getMessage())
+	                .type(MediaType.APPLICATION_JSON)
+	                .build();
+	    }
+	    catch (LanguageNotFoundException e) {
+	        return e.getResponse(); 
+	    }
+	    catch (WebApplicationException e) {
+	        return Response.fromResponse(e.getResponse())
+	                .type(MediaType.APPLICATION_JSON)
+	                .build();
+	    }
+	    catch (Exception e) {
+	        return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+	                .entity("System Error: " + e.getLocalizedMessage())
+	                .type(MediaType.APPLICATION_JSON)
+	                .build();
+	    }
+	}
 	
+	//handling the wrong path for the list languages
+	
+	@POST
+    @Path("/listlanguages")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPost(@Context HttpServletRequest req) {
+        throw new MethodNotSupportedException("Error: POST is not supported. Use GET.");
+    }
+	@PUT
+    @Path("/listlanguages")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPut(@Context HttpServletRequest req) {
+        throw new MethodNotSupportedException("Error: PUT is not supported. Please use GET.");
+    }
+    @DELETE
+    @Path("/listlanguages")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchDelete(@Context HttpServletRequest req) {
+        throw new MethodNotSupportedException("Error: DELETE is not supported. Please use GET.");
+    }
+    @HEAD
+    @Path("/listlanguages")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchHead(@Context HttpServletRequest req) {
+        throw new MethodNotSupportedException("Error: HEAD is not supported. Please use GET.");
+    }
+    @PATCH
+    @Path("/listlanguages")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPatch(@Context HttpServletRequest req) {
+        throw new MethodNotSupportedException("Error: PATCH is not supported. Please use GET.");
+    }
+    
+    // handling exceptions from specific to general for the list problem
+    
+    @GET 
+    @Path("/listProblem")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listProblem(final @Context HttpServletRequest req) {
+        try {
+            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+            if (token == null || !CookiesHandlers.verifyTokenSignature(token) || !sessions.containsKey(token)) {
+            throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
+            }
+            ServerConnection userConn = sessions.get(token);
+            if (userConn == null) {
+                throw new PC2ServiceUnavailableException("Server connection object is missing for this session.");
+            }
+            IContest contest = userConn.getContest();
+            if (contest == null) {
+                throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
+            }
+
+            List<listProblems> problem = new ArrayList<listProblems>();
+            IProblem[] problems = contest.getProblems();
+            
+            if (problems == null || problems.length == 0) {
+                throw new LanguageNotFoundException("No problems found for this contest.");
+            }
+
+            for (IProblem prob : problems) {
+                listProblems li = new listProblems(prob.getName(), prob.getShortName(), prob.isDeleted());
+                problem.add(li);
+            }
+
+            return Response.ok(problem).build();
+
+        } 
+        catch (MethodNotSupportedException e) {
+            return e.getResponse();
+        }
+        catch (PC2ServiceUnavailableException e) {
+            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+                    .entity("e.getMessage()")
+                    .type(MediaType.APPLICATION_JSON).build();
+        }
+        catch (WebApplicationException e) {
+            return Response.fromResponse(e.getResponse())
+                    .type(MediaType.APPLICATION_JSON).build();
+        }
+        catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("System Error: " + e.getLocalizedMessage())
+                    .type(MediaType.APPLICATION_JSON).build();
+        }
+    }
+    
+    
+    //handling the error if we use the wrong path of list Problem
+    
+    @POST @Path("/listProblem") @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPostP(@Context HttpServletRequest req) { throw new MethodNotSupportedException("POST not supported. Use GET."); }
+    @PUT @Path("/listProblem") @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPutP(@Context HttpServletRequest req) { throw new MethodNotSupportedException("PUT not supported. Use GET."); }
+    @DELETE @Path("/listProblem") @Produces(MediaType.APPLICATION_JSON)
+    public Response catchDeleteP(@Context HttpServletRequest req) { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }
+    @PATCH @Path("/listProblem") @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPatchP(@Context HttpServletRequest req) { throw new MethodNotSupportedException("PATCH not supported. Use GET."); }
+    @HEAD @Path("/listProblem") @Produces(MediaType.APPLICATION_JSON)
+    public Response catchHeadP(@Context HttpServletRequest req) { throw new MethodNotSupportedException("HEAD not supported. Use GET."); }
+    
+    
+    
 	@GET
 	@Path("/sayhello/{name}")
 	@Produces("text/plan")
 	public String sayHelloName(@PathParam("name") String name) {
 		return "Hello to jersey eng. " + name;
 	}
-	
 	@GET
 	@Path("/sayhello")
 	@Produces("text/plain")

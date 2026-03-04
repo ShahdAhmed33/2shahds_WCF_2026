@@ -1,0 +1,26 @@
+260302 220336.913|CONFIG|qtp477289012-39|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260302 220336.915|INFO|qtp477289012-39|log|
+260302 220336.918|INFO|qtp477289012-39|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260302 220336.919|INFO|qtp477289012-39|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260302 220336.923|INFO|qtp477289012-39|log|Process id is 9536@DESKTOP-5EPLK95
+260302 220336.923|INFO|qtp477289012-39|log|Starting ConnectionManager...
+260302 220336.948|INFO|qtp477289012-39|log|Started ConnectionManager
+260302 220336.950|SEVERE|qtp477289012-39|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260302 220336.950|INFO|qtp477289012-39|log|Contacting server at localhost:50002
+260302 220336.951|INFO|qtp477289012-39|log|Connecting to localhost:50002
+260302 220420.342|INFO|Thread-19|log|EOFException in receive for Socket[addr=localhost/127.0.0.1,port=50002,localport=50652]-5118095056056631655
+|java.io.EOFException: null
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (ObjectInputStream.java:3232)
+|    at java.io.ObjectInputStream.readObject0 (ObjectInputStream.java:1713)
+|    at java.io.ObjectInputStream.readObject (ObjectInputStream.java:540)
+|    at java.io.ObjectInputStream.readObject (ObjectInputStream.java:498)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:152)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260302 220420.342|FINER|Thread-19|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:159)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260302 220420.342|FINER|Thread-19|run - e.getmessage is null()|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:159)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)

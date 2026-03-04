@@ -25,3 +25,29 @@
 260224 211904.453|INFO|Thread-28|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260224 211904.453|INFO|Thread-28|log|handlePacket end Packet[LOGIN_SUCCESS] #19 SERVER0 @ site 1 -> TEAM1 @ site 1
 260224 211904.453|INFO|Thread-28|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #19 SERVER0 @ site 1 -> TEAM1 @ site 1
+260302 225925.781|CONFIG|Thread-37|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260302 225925.784|INFO|Thread-37|log|
+260302 225925.784|INFO|Thread-37|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260302 225925.786|INFO|Thread-37|log|Login: team1 (aka team1)
+260302 225925.786|INFO|Thread-37|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260302 225925.786|INFO|Thread-37|log|Process id is 10724@DESKTOP-5EPLK95
+260302 225925.786|INFO|Thread-37|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260302 225925.787|INFO|Thread-37|log|handlePacket end Packet[LOGIN_SUCCESS] #53 SERVER0 @ site 1 -> TEAM1 @ site 1
+260302 225925.788|INFO|Thread-37|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #53 SERVER0 @ site 1 -> TEAM1 @ site 1
+260302 230423.803|INFO|Thread-38|log| receiveObject(S) start got Packet[CLARIFICATION_ANSWER_UPDATE] #59 SERVER0 @ site 1 -> SERVER0 @ site 0
+260302 230423.804|INFO|Thread-38|log|Packet CLARIFICATION_ANSWER_UPDATE (Seq #59, o#59 ) recieveObject
+260302 230423.804|INFO|Thread-38|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260302 230423.805|INFO|Thread-38|log|    To: SERVER0 @ site 0
+260302 230423.805|INFO|Thread-38|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 1 ANSWERED from TEAM1 @ site 1 at 125184 id=Clarification-714017410049786757
+260302 230423.805|INFO|Thread-38|log|   key: CLARIFICATION_ANSWER is: java.lang.String yes this is my name is anwar , yes she is peppy
+
+260302 230423.805|INFO|Thread-38|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId JUDGE1 @ site 1
+260302 230423.806|INFO|Thread-38|log|handlePacket start Packet[CLARIFICATION_ANSWER_UPDATE] #59 SERVER0 @ site 1 -> SERVER0 @ site 0
+260302 230423.806|INFO|Thread-38|log|Packet CLARIFICATION_ANSWER_UPDATE (Seq #59, o#59 ) handlePacket
+260302 230423.806|INFO|Thread-38|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260302 230423.806|INFO|Thread-38|log|    To: SERVER0 @ site 0
+260302 230423.806|INFO|Thread-38|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 1 ANSWERED from TEAM1 @ site 1 at 125184 id=Clarification-714017410049786757
+260302 230423.806|INFO|Thread-38|log|   key: CLARIFICATION_ANSWER is: java.lang.String yes this is my name is anwar , yes she is peppy
+
+260302 230423.806|INFO|Thread-38|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId JUDGE1 @ site 1
+260302 230423.807|INFO|Thread-38|log| receiveObject(S) end   got Packet[CLARIFICATION_ANSWER_UPDATE] #59 SERVER0 @ site 1 -> SERVER0 @ site 0

@@ -41,7 +41,7 @@ public class webServer {
 	public Handler getFrontendHandler() {
 		ResourceHandler webcontent = new ResourceHandler();
 		webcontent.setResourceBase("./html");
-		ContextHandler frontend = new ContextHandler("/html/*");
+		ContextHandler frontend = new ContextHandler("/*");
 		frontend.setHandler(webcontent);
 		
 		return frontend;

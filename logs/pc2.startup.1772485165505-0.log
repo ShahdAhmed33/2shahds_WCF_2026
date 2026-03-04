@@ -1,0 +1,29 @@
+260302 225925.509|CONFIG|qtp477289012-80|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260302 225925.510|INFO|qtp477289012-80|log|
+260302 225925.510|INFO|qtp477289012-80|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260302 225925.511|INFO|qtp477289012-80|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260302 225925.512|INFO|qtp477289012-80|log|Process id is 10724@DESKTOP-5EPLK95
+260302 225925.512|INFO|qtp477289012-80|log|Starting ConnectionManager...
+260302 225925.515|INFO|qtp477289012-80|log|Started ConnectionManager
+260302 225925.623|SEVERE|qtp477289012-80|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260302 225925.624|INFO|qtp477289012-80|log|Contacting server at localhost:50002
+260302 225925.624|INFO|qtp477289012-80|log|Connecting to localhost:50002
+260302 225925.642|INFO|Thread-35|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=61166]--1412001324630872695)
+260302 225925.647|INFO|Thread-35|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=61166]--1412001324630872695 key is com.sun.crypto.provider.DESKey@184c6
+260302 225925.647|INFO|Thread-35|log|Generating Unencrypted Public Key Packet
+260302 225925.649|INFO|Thread-35|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    5ea8ff70 675bb6a5 c827190b eca4593e 8b9617fc 154d2ecb bf470b84 d7477848
+    ee4c5796 8208f56c 4e14ac9e 0a75c157 f6a02b42 0745e59a 77107d76 cb02f099
+    a79e2d7b c4da6028 e1e54fd3 2eda6657 d128c99f d5a712c6 0c366dc4 0b127fe8
+    c8b19583 d00498b0 01c46b25 55453bfb 5a037922 c0b4f0d8 c4df4b91 a41a6780
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260302 225925.649|INFO|Thread-35|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@196c1d19
