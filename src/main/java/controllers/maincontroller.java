@@ -1,10 +1,9 @@
 package controllers;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -160,21 +159,74 @@ public class maincontroller {
 		}
 	} 
 	  
-	@GET
-	@Path("/verify")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response verifySession(@Context HttpServletRequest req) {
-		String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+	  // Exception from specific to general for the verify 
+	  
+	  
+	  @GET
+	    @Path("/verify")
+	    @Produces(MediaType.APPLICATION_JSON)
+	    public Response verifySession(@Context HttpServletRequest req) {
+	        try {
+	            // 1. SPECIFIC: Check PC2 Service health
+	            if (sessions == null) { 
+	                throw new PC2ServiceUnavailableException("Session registry is unavailable, pc2 service is unavailable");
+	            }
 
-		// Verify signature and map existence
-		if (!CookiesHandlers.verifyTokenSignature(token) || token == null || !sessions.containsKey(token)) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid Session").build();
-		}
+	            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 
-		Map<String, String> success = new HashMap<>();
-		success.put("status", "authenticated");
-		return Response.ok(success).build();
-	}
+	            // 2. SPECIFIC: Check Session Validity
+	            if (token == null || !CookiesHandlers.verifyTokenSignature(token) || !sessions.containsKey(token)) {
+	                // Formatting message as JSON for consistency
+	                throw new UnauthorizedSessionException("Invalid or expired session");
+	            }
+
+	            // 3. Success Path
+	            return Response.ok(Collections.singletonMap("status", "authenticated")).build();
+
+	        } 
+	        // --- CATCH BLOCKS: Specific to General ---
+	        catch (MethodNotSupportedException e) {
+	            return e.getResponse();
+	        }
+	        catch (UnauthorizedSessionException e) {
+	            return e.getResponse();
+	        }
+	        catch (PC2ServiceUnavailableException e) {
+	            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+	                    .entity("error" + e.getMessage())
+	                    .type(MediaType.APPLICATION_JSON)
+	                    .build();
+	        }
+	        catch (WebApplicationException e) {
+	            return Response.fromResponse(e.getResponse())
+	                    .type(MediaType.APPLICATION_JSON)
+	                    .build();
+	        }
+	        catch (Exception e) {
+	            // 4. GENERAL: Final Fallback
+	            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+	                    .entity("System Error: " + e.getLocalizedMessage())
+	                    .type(MediaType.APPLICATION_JSON)
+	                    .build();
+	        }
+	    }
+
+	    // --- CATCHERS FOR OTHER METHODS (Prevents Default HTML 405) ---
+
+	    @POST @Path("/verify") @Produces(MediaType.APPLICATION_JSON)
+	    public Response catchPostV(@Context HttpServletRequest req) { throw new MethodNotSupportedException("POST not supported. Use GET."); }
+
+	    @PUT @Path("/verify") @Produces(MediaType.APPLICATION_JSON)
+	    public Response catchPutV(@Context HttpServletRequest req) { throw new MethodNotSupportedException("PUT not supported. Use GET."); }
+
+	    @DELETE @Path("/verify") @Produces(MediaType.APPLICATION_JSON)
+	    public Response catchDeleteV(@Context HttpServletRequest req) { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }
+
+	    @PATCH @Path("/verify") @Produces(MediaType.APPLICATION_JSON)
+	    public Response catchPatchV(@Context HttpServletRequest req) { throw new MethodNotSupportedException("PATCH not supported. Use GET."); }
+
+	    @HEAD @Path("/verify") @Produces(MediaType.APPLICATION_JSON)
+	    public Response catchHeadV(@Context HttpServletRequest req) { throw new MethodNotSupportedException("HEAD not supported. Use GET."); }
 
 	
 	 //handling the specific to the general exception for the get path for  list languages 
@@ -356,7 +408,7 @@ public class maincontroller {
 	@Path("/sayhello/{name}")
 	@Produces("text/plan")
 	public String sayHelloName(@PathParam("name") String name) {
-		return "Hello to jersey eng. " + name;
+		return "Hello to jersey ENG. " + name;
 	}
 	@GET
 	@Path("/sayhello")
