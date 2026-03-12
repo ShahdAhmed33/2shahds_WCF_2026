@@ -10,6 +10,8 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.servlet.ServletHolder.JspContainer;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.eclipse.jetty.util.resource.Resource;
+import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
+import websocket.ChatEndpoint;
 
 public class webServer {
 	private Integer portNum;
