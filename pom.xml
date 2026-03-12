@@ -82,5 +82,18 @@
             <artifactId>swagger-ui</artifactId>
             <version>5.11.8</version>
         </dependency>
+
+        <!-- Jetty WebSocket (JSR-356 / javax.websocket) -->
+        <dependency>
+            <groupId>org.eclipse.jetty.websocket</groupId>
+            <artifactId>javax-websocket-server-impl</artifactId>
+            <version>9.4.58.v20250814</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
