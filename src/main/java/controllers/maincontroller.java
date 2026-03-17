@@ -33,6 +33,7 @@ import helpers.CookiesHandlers;
 import helpers.CookiesHandlers.CookieData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import websocket.ContestSocket;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -125,9 +126,9 @@ public class maincontroller {
 			 LoginResponse loginRes = new LoginResponse(req.username, token);
 			 
 			 String cookieHeader = CookiesHandlers.AUTH_COOKIE_NAME + "=" + token +
-				        "; Path=/api" +
+				        "; Path=/" +
 				        "; Max-Age=3600" +
-				        "; Secure" +
+				       // "; Secure" +
 				        "; HttpOnly" +
 				        "; SameSite=Strict";//added samesite for mitigation against CSRF
 
@@ -163,7 +164,7 @@ public class maincontroller {
 		String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 
 		// Verify signature and map existence
-		if (!CookiesHandlers.verifyTokenSignature(token) || token == null || !sessions.containsKey(token)) {
+		if ( token == null || !CookiesHandlers.verifyTokenSignature(token) || !sessions.containsKey(token)) {
 			return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid Session").build();
 		}
 
@@ -171,6 +172,42 @@ public class maincontroller {
 		success.put("status", "authenticated");
 		return Response.ok(success).build();
 	}
+	
+	
+	
+	// for websockets update to check the token is it valid or not 
+	public static boolean isValidToken(String token) {
+	    return token != null
+	        && CookiesHandlers.verifyTokenSignature(token)
+	        && sessions.containsKey(token);
+	}
+	
+	//this the websocket api part updated code
+	@GET
+    @Path("/ws-test")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response wsTest(@Context HttpServletRequest req) {
+        String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+
+        if (!isValidToken(token)) {
+            return Response.status(Response.Status.UNAUTHORIZED)
+                .entity("Not logged in")
+                .type(MediaType.APPLICATION_JSON)
+                .build();
+        }
+
+        ContestSocket.broadcast("{\"type\":\"TEST\",\"payload\":{\"message\":\"hello from websocket test endpoint\"}}");
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("status", "broadcast sent");
+        result.put("connectedClients", ContestSocket.getConnectedClientsCount());
+
+        return Response.ok(result).build(); 
+    } 
+	
+	
+	
+
 
 	    @GET
 	    @Path("/listlanguages")

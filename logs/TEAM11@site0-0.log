@@ -83,3 +83,46 @@ l:
 260221 211551.707|INFO|Thread-18|log|    To: TEAM11 @ site 0
 260221 211551.707|INFO|Thread-18|log|   key: MESSAGE_STRING is: java.lang.String No such account
 260221 211551.721|INFO|Thread-18|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #15 SERVER0 @ site 1 -> TEAM11 @ site 0
+260309 050116.879|CONFIG|qtp758529971-22|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260309 050116.882|INFO|qtp758529971-22|log|
+260309 050116.883|INFO|qtp758529971-22|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-100-generic (amd64) 
+260309 050116.883|INFO|qtp758529971-22|log|Login: team11 (aka team11)
+260309 050116.884|INFO|qtp758529971-22|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260309 050116.884|INFO|qtp758529971-22|log|Process id is 26709@shahoda
+260309 050116.886|INFO|qtp758529971-22|log|Contacting server at localhost:50002 as TEAM11 @ site 0
+260309 050116.886|INFO|qtp758529971-22|log|sendLoginRequest start - sending from TEAM11 @ site 0
+260309 050116.891|INFO|qtp758529971-22|log|Sending packet to server Packet[LOGIN_REQUEST] #1 TEAM11 @ site 0 -> SERVER0 @ site 0
+260309 050116.893|INFO|Thread-12|log|send(Serializable)
+260309 050116.894|INFO|qtp758529971-22|log|Sent    packet to server Packet[LOGIN_REQUEST] #1 TEAM11 @ site 0 -> SERVER0 @ site 0
+260309 050116.895|INFO|qtp758529971-22|log|sendLoginRequest end - packet sent.
+260309 050116.931|INFO|Thread-11|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=52868]-4099054588668170198)
+260309 050116.948|INFO|Thread-11|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=52868]-4099054588668170198 key is com.sun.crypto.provider.DESKey@fffe7871
+260309 050116.948|INFO|Thread-11|log|Generating Unencrypted Public Key Packet
+260309 050116.950|INFO|Thread-11|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    efe03f4b feedd00f fe89bfc0 b8dbf669 3c7613c9 da0aacbc 3b5f30db c95cf065
+    397f77fe 86f24517 3e8942f4 5201e5b1 1febfcb6 e1fdaeea 3e08fbf3 b1131c03
+    d81d0e28 14d9e84c 940998d4 6d9132e3 1c06a8ae 2dd80f29 693be3e7 e8e97155
+    c21121d7 53702b77 a06b7975 8c8a79c5 ec2091b4 e919f0a5 465989bb e8b36491
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260309 050116.950|INFO|Thread-11|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@4735fda5
+260309 050117.042|INFO|Thread-11|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260309 050117.052|INFO|Thread-13|log| receiveObject(S) start got Packet[LOGIN_FAILED] #52 SERVER0 @ site 1 -> TEAM11 @ site 0
+260309 050117.053|INFO|Thread-13|log|Packet LOGIN_FAILED (Seq #52, o#52 ) recieveObject
+260309 050117.053|INFO|Thread-13|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260309 050117.053|INFO|Thread-13|log|    To: TEAM11 @ site 0
+260309 050117.054|INFO|Thread-13|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260309 050117.054|INFO|Thread-13|log|handlePacket start Packet[LOGIN_FAILED] #52 SERVER0 @ site 1 -> TEAM11 @ site 0
+260309 050117.054|INFO|Thread-13|log|Packet LOGIN_FAILED (Seq #52, o#52 ) handlePacket
+260309 050117.055|INFO|Thread-13|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260309 050117.055|INFO|Thread-13|log|    To: TEAM11 @ site 0
+260309 050117.055|INFO|Thread-13|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260309 050117.058|INFO|Thread-13|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #52 SERVER0 @ site 1 -> TEAM11 @ site 0

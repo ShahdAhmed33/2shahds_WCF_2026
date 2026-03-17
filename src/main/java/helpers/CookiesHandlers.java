@@ -39,7 +39,7 @@ public abstract class CookiesHandlers {
         NewCookie cookie = new NewCookie(
             AUTH_COOKIE_NAME, 
             fixedToken64,       
-            "/api",           
+            "/",           
             null,             
             "WTI auth token", 
             3600,             
@@ -109,6 +109,17 @@ public abstract class CookiesHandlers {
     public static String getCookie(Cookie[] cookies, String tokenName) {
         if (cookies != null) {
             for (Cookie cookie : cookies) {
+                if (tokenName.equals(cookie.getName())) {
+                    return cookie.getValue();
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static String getCookie(java.util.List<java.net.HttpCookie> cookies, String tokenName) {
+        if (cookies != null) {
+            for (java.net.HttpCookie cookie : cookies) {
                 if (tokenName.equals(cookie.getName())) {
                     return cookie.getValue();
                 }
