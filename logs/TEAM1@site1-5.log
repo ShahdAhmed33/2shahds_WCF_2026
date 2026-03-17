@@ -1,0 +1,9 @@
+260302 224657.269|CONFIG|Thread-42|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260302 224657.270|INFO|Thread-42|log|
+260302 224657.270|INFO|Thread-42|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-100-generic (amd64) 
+260302 224657.270|INFO|Thread-42|log|Login: team1 (aka team1)
+260302 224657.271|INFO|Thread-42|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260302 224657.271|INFO|Thread-42|log|Process id is 17247@shahoda
+260302 224657.273|INFO|Thread-42|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260302 224657.274|INFO|Thread-42|log|handlePacket end Packet[LOGIN_SUCCESS] #55 SERVER0 @ site 1 -> TEAM1 @ site 1
+260302 224657.274|INFO|Thread-42|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #55 SERVER0 @ site 1 -> TEAM1 @ site 1

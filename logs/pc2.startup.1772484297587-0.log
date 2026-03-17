@@ -1,0 +1,10 @@
+260302 224457.589|CONFIG|qtp1130478920-16|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260302 224457.590|INFO|qtp1130478920-16|log|
+260302 224457.590|INFO|qtp1130478920-16|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-100-generic (amd64) 
+260302 224457.590|INFO|qtp1130478920-16|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260302 224457.591|INFO|qtp1130478920-16|log|Process id is 17247@shahoda
+260302 224457.591|INFO|qtp1130478920-16|log|Starting ConnectionManager...
+260302 224457.596|INFO|qtp1130478920-16|log|Started ConnectionManager
+260302 224457.596|SEVERE|qtp1130478920-16|log|Cannot start PC^2, pc2v9.ini file not found in /home/shahd/eclipse-workspace/wti1
+260302 224457.596|INFO|qtp1130478920-16|log|Contacting server at localhost:50002
+260302 224457.597|INFO|qtp1130478920-16|log|Connecting to localhost:50002
