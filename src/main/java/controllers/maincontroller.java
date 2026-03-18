@@ -31,6 +31,7 @@ import edu.csus.ecs.pc2.api.ServerConnection;
 import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
 import exceptions.LanguageNotFoundException;
 import exceptions.MethodNotSupportedException;
+import exceptions.MissingCredientials;
 import exceptions.PC2ServiceUnavailableException;
 import exceptions.UnauthorizedSessionException;
 import helpers.CookiesHandlers;
@@ -77,7 +78,7 @@ public class maincontroller {
 		}
 
 		if (req.username == null || req.password == null) {
-			return Response.status(Response.Status.BAD_REQUEST).entity("Missing credentials").type(MediaType.APPLICATION_JSON).build();
+			throw new MissingCredientials("Please add username/password");//thorws exceptions when there is missing credientials 
 		}
 
 		try {
@@ -106,37 +107,11 @@ public class maincontroller {
 		} catch (NotLoggedInException e) {
 			return Response.status(Response.Status.UNAUTHORIZED).entity("unable to execute api method").type(MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid username/password or PC2 error").type(MediaType.APPLICATION_JSON).build();
+			throw new PC2ServiceUnavailableException("PC2Server is not available");// throws exception if the server is not working and tried logging in 
 		}
 	}
 
-	@GET
-	@Path("/verify")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response verifySession(@Context HttpServletRequest req) {
-		try {
-			if (sessions == null) {
-				throw new PC2ServiceUnavailableException("Session registry is unavailable");
-			}
-
-			String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
-
-			if (!isValidToken(token)) {
-				throw new UnauthorizedSessionException("Invalid or expired session");
-			}
-
-			return Response.ok(Collections.singletonMap("status", "authenticated")).build();
-
-		} catch (MethodNotSupportedException | UnauthorizedSessionException e) {
-			return e.getResponse();
-		} catch (PC2ServiceUnavailableException e) {
-			return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity("error" + e.getMessage()).type(MediaType.APPLICATION_JSON).build();
-		} catch (WebApplicationException e) {
-			return Response.fromResponse(e.getResponse()).type(MediaType.APPLICATION_JSON).build();
-		} catch (Exception e) {
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("System Error: " + e.getLocalizedMessage()).type(MediaType.APPLICATION_JSON).build();
-		}
-	}
+	
 
 	// --- CONTEST DATA: LANGUAGES ---
 
@@ -147,26 +122,26 @@ public class maincontroller {
 		try {
 			String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 			if (!isValidToken(token)) {
-				throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
+				throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");//throws exception when session is invalid 
 			}
 
 			ServerConnection userConn = sessions.get(token);
 			if (userConn == null) {
-				throw new PC2ServiceUnavailableException("Session exists, but server connection is missing.");
+				throw new PC2ServiceUnavailableException("Session exists, but server connection is missing.");//Throws exception if session exists but no server connection 
 			}
 
 			if (!userConn.isLoggedIn()) {
-				throw new NotLoggedInException("Your session has expired on the PC2 server.");
+				throw new NotLoggedInException("Your session has expired on the PC2 server.");//throws exception when session expires
 			}
 
 			IContest contest = userConn.getContest();
 			if (contest == null) {
-				throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
+				throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");// throws exception if the server is not working
 			}
 
 			ILanguage[] languages = contest.getLanguages();
 			if (languages == null || languages.length == 0) {
-				throw new LanguageNotFoundException("No programming languages defined.");
+				throw new LanguageNotFoundException("No programming languages defined.");//throws exceptions when no languages are added yet 
 			}
 
 			List<languageList> result = new ArrayList<>();
@@ -198,22 +173,22 @@ public class maincontroller {
 		try {
 			String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 			if (!isValidToken(token)) {
-				throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
+				throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");//throws exception when session is invalid
 			}
 
 			ServerConnection userConn = sessions.get(token);
 			if (userConn == null) {
-				throw new PC2ServiceUnavailableException("Server connection object is missing.");
+				throw new PC2ServiceUnavailableException("Server connection object is missing.");// throws exception if the server is not working
 			}
 
 			IContest contest = userConn.getContest();
 			if (contest == null) {
-				throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
+				throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");// throws exception if the server is not working	
 			}
 
 			IProblem[] problems = contest.getProblems();
 			if (problems == null || problems.length == 0) {
-				throw new LanguageNotFoundException("No problems found for this contest.");
+				throw new LanguageNotFoundException("No problems found for this contest.");//throws exception when no problems are added yet 
 			}
 
 			List<listProblems> problemList = new ArrayList<>();
@@ -272,13 +247,6 @@ public class maincontroller {
 	}
 
 	// --- CATCHERS FOR INVALID METHODS (PREVENTS DEFAULT HTML 405) ---
-
-	@POST @Path("/verify") public Response catchPostV() { throw new MethodNotSupportedException("POST not supported. Use GET."); }
-	@PUT @Path("/verify") public Response catchPutV() { throw new MethodNotSupportedException("PUT not supported. Use GET."); }
-	@DELETE @Path("/verify") public Response catchDeleteV() { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }
-	@PATCH @Path("/verify") public Response catchPatchV() { throw new MethodNotSupportedException("PATCH not supported. Use GET."); }
-	@HEAD @Path("/verify") public Response catchHeadV() { throw new MethodNotSupportedException("HEAD not supported. Use GET."); }
-
 	@POST @Path("/listlanguages") public Response catchPostL() { throw new MethodNotSupportedException("POST not supported. Use GET."); }
 	@PUT @Path("/listlanguages") public Response catchPutL() { throw new MethodNotSupportedException("PUT not supported. Use GET."); }
 	@DELETE @Path("/listlanguages") public Response catchDeleteL() { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }

@@ -28,19 +28,19 @@ public class teamcontroller extends maincontroller {
             // 1. SPECIFIC: Session Validation
             String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);      
             if (token == null || !CookiesHandlers.verifyTokenSignature(token) || !sessions.containsKey(token)) {
-                throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
+                throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");//throws exception when session is invalid 
             }
 
             ServerConnection userConn = sessions.get(token);
             
             // 2. SPECIFIC: Connection Check
             if (userConn == null) {
-                throw new PC2ServiceUnavailableException("The PC2 server connection is lost for this session.");
+                throw new PC2ServiceUnavailableException("The PC2 server connection is lost for this session.");//throws exception if server lost connection
             }
 
             IContest contest = userConn.getContest();
             if (contest == null) {
-                throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
+                throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");// throws exception when server is not working 
             }
 
             IClarification[] clarifications = contest.getClarifications();

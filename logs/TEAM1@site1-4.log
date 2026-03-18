@@ -16,3 +16,12 @@
 260302 224522.023|INFO|Thread-38|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260302 224522.023|INFO|Thread-38|log|handlePacket end Packet[LOGIN_SUCCESS] #49 SERVER0 @ site 1 -> TEAM1 @ site 1
 260302 224522.023|INFO|Thread-38|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #49 SERVER0 @ site 1 -> TEAM1 @ site 1
+260319 004056.170|CONFIG|Thread-34|log|Now logging to C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026\logs directory.
+260319 004056.171|INFO|Thread-34|log|
+260319 004056.171|INFO|Thread-34|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260319 004056.171|INFO|Thread-34|log|Login: team1 (aka team1)
+260319 004056.171|INFO|Thread-34|log|Working directory is C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260319 004056.171|INFO|Thread-34|log|Process id is 27160@lilsaados
+260319 004056.171|INFO|Thread-34|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260319 004056.171|INFO|Thread-34|log|handlePacket end Packet[LOGIN_SUCCESS] #68 SERVER0 @ site 1 -> TEAM1 @ site 1
+260319 004056.171|INFO|Thread-34|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #68 SERVER0 @ site 1 -> TEAM1 @ site 1

@@ -1,0 +1,27 @@
+260318 231640.091|CONFIG|qtp997608398-15|log|Now logging to C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026\logs directory.
+260318 231640.092|INFO|qtp997608398-15|log|
+260318 231640.092|INFO|qtp997608398-15|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260318 231640.092|INFO|qtp997608398-15|log|Working directory is C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260318 231640.092|INFO|qtp997608398-15|log|Process id is 12720@lilsaados
+260318 231640.092|INFO|qtp997608398-15|log|Starting ConnectionManager...
+260318 231640.096|INFO|qtp997608398-15|log|Started ConnectionManager
+260318 231640.096|SEVERE|qtp997608398-15|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260318 231640.096|INFO|qtp997608398-15|log|Contacting server at localhost:50002
+260318 231640.098|INFO|qtp997608398-15|log|Connecting to localhost:50002
+260318 231640.098|INFO|Thread-26|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=62782]--2781440567611006349)
+260318 232417.869|INFO|Thread-26|log|SocketException in receive for Socket[addr=localhost/127.0.0.1,port=50002,localport=62782]--2781440567611006349
+|java.net.SocketException: Connection reset
+|    at java.net.SocketInputStream.read (Unknown Source)
+|    at java.net.SocketInputStream.read (Unknown Source)
+|    at java.net.SocketInputStream.read (Unknown Source)
+|    at java.io.ObjectInputStream$PeekInputStream.peek (Unknown Source)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peek (Unknown Source)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (Unknown Source)
+|    at java.io.ObjectInputStream.readObject0 (Unknown Source)
+|    at java.io.ObjectInputStream.readObject (Unknown Source)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:152)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260318 232417.869|FINER|Thread-26|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection reset
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:156)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)

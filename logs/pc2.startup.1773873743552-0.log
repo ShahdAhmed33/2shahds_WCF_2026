@@ -1,0 +1,29 @@
+260319 004223.555|CONFIG|qtp997608398-11|log|Now logging to C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026\logs directory.
+260319 004223.555|INFO|qtp997608398-11|log|
+260319 004223.555|INFO|qtp997608398-11|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260319 004223.556|INFO|qtp997608398-11|log|Working directory is C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260319 004223.556|INFO|qtp997608398-11|log|Process id is 27160@lilsaados
+260319 004223.556|INFO|qtp997608398-11|log|Starting ConnectionManager...
+260319 004223.559|INFO|qtp997608398-11|log|Started ConnectionManager
+260319 004223.559|SEVERE|qtp997608398-11|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260319 004223.559|INFO|qtp997608398-11|log|Contacting server at localhost:50002
+260319 004223.559|INFO|qtp997608398-11|log|Connecting to localhost:50002
+260319 004223.565|INFO|Thread-42|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=62086]--3878422432768278051)
+260319 004223.568|INFO|Thread-42|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=62086]--3878422432768278051 key is com.sun.crypto.provider.DESKey@185f9
+260319 004223.568|INFO|Thread-42|log|Generating Unencrypted Public Key Packet
+260319 004223.569|INFO|Thread-42|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    9720b3ea 4750ac11 876cda87 7131f896 52f1f904 218a44d3 db5c2018 804aa351
+    b8f4aa65 3ca34e77 43b8f45b bbeeb8a3 23a938d4 c4623461 3511f846 a42b36a5
+    907acea1 1b767fca 636da230 380bb3db 37d63661 9ed2c5fd da9ff3e6 f507c0e5
+    25f885ab 85dcd4c6 4c57298c 69d86d0d 668d66da 5518ab73 b7cf556a 8150328a
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260319 004223.569|INFO|Thread-42|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@3cce3fc

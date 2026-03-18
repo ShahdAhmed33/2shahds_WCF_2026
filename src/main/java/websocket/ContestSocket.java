@@ -25,7 +25,7 @@ public class ContestSocket {
 	        // Read from query parameter
 	        String token = session.getUpgradeRequest()
 	                              .getParameterMap()
-	                              .getOrDefault("token", java.util.List.of(""))
+	                              .getOrDefault("token", java.util.Collections.singletonList(""))
 	                              .get(0);
 
 	        System.out.println("[WS] Token received: " + token);

@@ -1,0 +1,9 @@
+260319 005028.485|CONFIG|Thread-104|log|Now logging to C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026\logs directory.
+260319 005028.487|INFO|Thread-104|log|
+260319 005028.487|INFO|Thread-104|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260319 005028.487|INFO|Thread-104|log|Login: team1 (aka team1)
+260319 005028.487|INFO|Thread-104|log|Working directory is C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260319 005028.487|INFO|Thread-104|log|Process id is 27160@lilsaados
+260319 005028.487|INFO|Thread-104|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260319 005028.487|INFO|Thread-104|log|handlePacket end Packet[LOGIN_SUCCESS] #124 SERVER0 @ site 1 -> TEAM1 @ site 1
+260319 005028.488|INFO|Thread-104|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #124 SERVER0 @ site 1 -> TEAM1 @ site 1

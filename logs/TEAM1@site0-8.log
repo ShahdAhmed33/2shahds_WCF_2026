@@ -1,0 +1,43 @@
+260319 004601.437|CONFIG|qtp997608398-16|log|Now logging to C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026\logs directory.
+260319 004601.437|INFO|qtp997608398-16|log|
+260319 004601.437|INFO|qtp997608398-16|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260319 004601.437|INFO|qtp997608398-16|log|Login: team1 (aka team1)
+260319 004601.437|INFO|qtp997608398-16|log|Working directory is C:\Users\Lenovo\git\WCF_New_Update\WCF_2026\2shahds_WCF_2026
+260319 004601.437|INFO|qtp997608398-16|log|Process id is 27160@lilsaados
+260319 004601.437|INFO|qtp997608398-16|log|Contacting server at localhost:50002 as TEAM1 @ site 0
+260319 004601.438|INFO|qtp997608398-16|log|sendLoginRequest start - sending from TEAM1 @ site 0
+260319 004601.438|INFO|qtp997608398-16|log|Sending packet to server Packet[LOGIN_REQUEST] #11 TEAM1 @ site 0 -> SERVER0 @ site 0
+260319 004601.438|INFO|qtp997608398-16|log|Sent    packet to server Packet[LOGIN_REQUEST] #11 TEAM1 @ site 0 -> SERVER0 @ site 0
+260319 004601.438|INFO|qtp997608398-16|log|sendLoginRequest end - packet sent.
+260319 004601.438|INFO|Thread-66|log|send(Serializable)
+260319 004601.439|INFO|Thread-65|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=55264]-436874006853219369)
+260319 004601.442|INFO|Thread-65|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=55264]-436874006853219369 key is com.sun.crypto.provider.DESKey@1856d
+260319 004601.442|INFO|Thread-65|log|Generating Unencrypted Public Key Packet
+260319 004601.442|INFO|Thread-65|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    5947a2f6 2b33b5e5 91acd9c8 d4fe047d 0a51dea6 1d057351 cec1eabe 6d1d8ea0
+    b6d255d2 1950d2b8 fc199158 294f422c c8ce4d3c 2138b08f 159422d0 c3f029c1
+    93c08996 0048e41d b40dbe0b de2e5349 4029d613 1f3ab2ad 3854efe4 49f41293
+    e79d665a 4fe8a234 098273fe 5d91075c 1925a9cc c8832177 e0027ab1 b797dc63
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260319 004601.442|INFO|Thread-65|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@439ab1a5
+260319 004601.451|INFO|Thread-65|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260319 004601.452|INFO|Thread-67|log| receiveObject(S) start got Packet[LOGIN_FAILED] #97 SERVER0 @ site 1 -> TEAM1 @ site 0
+260319 004601.452|INFO|Thread-67|log|Packet LOGIN_FAILED (Seq #97, o#97 ) recieveObject
+260319 004601.452|INFO|Thread-67|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260319 004601.452|INFO|Thread-67|log|    To: TEAM1 @ site 0
+260319 004601.452|INFO|Thread-67|log|   key: MESSAGE_STRING is: java.lang.String Invalid password
+260319 004601.452|INFO|Thread-67|log|handlePacket start Packet[LOGIN_FAILED] #97 SERVER0 @ site 1 -> TEAM1 @ site 0
+260319 004601.452|INFO|Thread-67|log|Packet LOGIN_FAILED (Seq #97, o#97 ) handlePacket
+260319 004601.452|INFO|Thread-67|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (lilsaados @ 169.254.83.107) (Contest Id: Default--8030075252927918473)
+260319 004601.452|INFO|Thread-67|log|    To: TEAM1 @ site 0
+260319 004601.452|INFO|Thread-67|log|   key: MESSAGE_STRING is: java.lang.String Invalid password
+260319 004601.453|INFO|Thread-67|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #97 SERVER0 @ site 1 -> TEAM1 @ site 0
