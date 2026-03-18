@@ -752,3 +752,12 @@
 260317 194436.015|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260317 194436.016|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
 260317 194436.016|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
+260318 210434.096|CONFIG|Thread-20|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260318 210434.097|INFO|Thread-20|log|
+260318 210434.102|INFO|Thread-20|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260318 210434.102|INFO|Thread-20|log|Login: team1 (aka team1)
+260318 210434.103|INFO|Thread-20|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260318 210434.103|INFO|Thread-20|log|Process id is 27780@DESKTOP-5EPLK95
+260318 210434.103|INFO|Thread-20|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260318 210434.103|INFO|Thread-20|log|handlePacket end Packet[LOGIN_SUCCESS] #5 SERVER0 @ site 1 -> TEAM1 @ site 1
+260318 210434.103|INFO|Thread-20|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #5 SERVER0 @ site 1 -> TEAM1 @ site 1
