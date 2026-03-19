@@ -60,13 +60,19 @@ public class maincontroller {
 	// --- AUTHENTICATION ---
 
 	@Operation(summary = "User login", description = "Authenticates a user using username and password.")
+	
 	@RequestBody(required = true, description = "Login credentials", 
 		content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginPage.class)))
+	
+	
 	@ApiResponses({
 		@ApiResponse(responseCode = "200", description = "Login successful", 
 			content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginResponse.class))),
 		@ApiResponse(responseCode = "401", description = "Invalid username or password")
 	})
+	
+	
+	
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -92,7 +98,7 @@ public class maincontroller {
 			LoginResponse loginRes = new LoginResponse(req.username, token);
 
 			String cookieHeader = CookiesHandlers.AUTH_COOKIE_NAME + "=" + token + 
-					"; Path=/api" + 
+					"; Path=/" + 
 					"; Max-Age=3600" + 
 					"; Secure" + 
 					"; HttpOnly" + 
