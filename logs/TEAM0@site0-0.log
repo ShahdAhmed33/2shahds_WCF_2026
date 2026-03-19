@@ -41,3 +41,27 @@ l:
 260302 224457.750|INFO|Thread-30|log|    To: TEAM0 @ site 0
 260302 224457.750|INFO|Thread-30|log|   key: MESSAGE_STRING is: java.lang.String No such account
 260302 224457.752|INFO|Thread-30|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #42 SERVER0 @ site 1 -> TEAM0 @ site 0
+260319 152708.402|CONFIG|qtp1890627974-43|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260319 152708.403|INFO|qtp1890627974-43|log|
+260319 152708.403|INFO|qtp1890627974-43|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260319 152708.404|INFO|qtp1890627974-43|log|Login: teamq2 (aka team0)
+260319 152708.404|INFO|qtp1890627974-43|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260319 152708.404|INFO|qtp1890627974-43|log|Process id is 40728@DESKTOP-5EPLK95
+260319 152708.404|INFO|qtp1890627974-43|log|Contacting server at localhost:50002 as TEAM0 @ site 0
+260319 152708.404|INFO|qtp1890627974-43|log|sendLoginRequest start - sending from TEAM0 @ site 0
+260319 152708.405|INFO|qtp1890627974-43|log|Sending packet to server Packet[LOGIN_REQUEST] #5 TEAM0 @ site 0 -> SERVER0 @ site 0
+260319 152708.405|INFO|qtp1890627974-43|log|Sent    packet to server Packet[LOGIN_REQUEST] #5 TEAM0 @ site 0 -> SERVER0 @ site 0
+260319 152708.405|INFO|qtp1890627974-43|log|sendLoginRequest end - packet sent.
+260319 152708.405|INFO|Thread-41|log|send(Serializable)
+260319 152708.421|INFO|Thread-40|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260319 152708.428|INFO|Thread-42|log| receiveObject(S) start got Packet[LOGIN_FAILED] #48 SERVER0 @ site 1 -> TEAM0 @ site 0
+260319 152708.428|INFO|Thread-42|log|Packet LOGIN_FAILED (Seq #48, o#48 ) recieveObject
+260319 152708.428|INFO|Thread-42|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260319 152708.428|INFO|Thread-42|log|    To: TEAM0 @ site 0
+260319 152708.428|INFO|Thread-42|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260319 152708.428|INFO|Thread-42|log|handlePacket start Packet[LOGIN_FAILED] #48 SERVER0 @ site 1 -> TEAM0 @ site 0
+260319 152708.428|INFO|Thread-42|log|Packet LOGIN_FAILED (Seq #48, o#48 ) handlePacket
+260319 152708.428|INFO|Thread-42|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260319 152708.429|INFO|Thread-42|log|    To: TEAM0 @ site 0
+260319 152708.429|INFO|Thread-42|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260319 152708.429|INFO|Thread-42|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #48 SERVER0 @ site 1 -> TEAM0 @ site 0

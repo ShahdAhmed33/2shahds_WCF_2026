@@ -1,6 +1,5 @@
 package controllers;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import Model.LoginPage;
 import Model.LoginResponse;
@@ -28,13 +28,15 @@ import edu.csus.ecs.pc2.api.IContest;
 import edu.csus.ecs.pc2.api.ILanguage;
 import edu.csus.ecs.pc2.api.IProblem;
 import edu.csus.ecs.pc2.api.ServerConnection;
-import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
 import exceptions.LanguageNotFoundException;
+import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
+import edu.csus.ecs.pc2.api.implementation.Contest;
 import exceptions.MethodNotSupportedException;
+import exceptions.NoCookieException;
+import exceptions.NotVerifiedCookieException;
 import exceptions.PC2ServiceUnavailableException;
 import exceptions.UnauthorizedSessionException;
 import helpers.CookiesHandlers;
-import helpers.CookiesHandlers.CookieData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import websocket.ContestSocket;
@@ -45,219 +47,221 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @Path("/main")
 @Tag(name = "Main", description = "Main controller endpoints")
-public class maincontroller {
+public class maincontroller extends GlobalClass { 
 
-	protected static Map<String, ServerConnection> sessions = new ConcurrentHashMap<>();
+    protected static Map<String, ServerConnection> sessions = new ConcurrentHashMap<>();
 
-	// --- HELPER METHODS ---
+    // --- HELPER METHODS ---
+    protected boolean isValidToken(String token) {
+        try {
+            return token != null 
+                && CookiesHandlers.verifyCookie(token) 
+                && sessions.containsKey(token);
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
-	public static boolean isValidToken(String token) {
-		return token != null 
-				&& CookiesHandlers.verifyTokenSignature(token) 
-				&& sessions.containsKey(token);
-	}
+    // --- AUTHENTICATION ---
+    @Operation(summary = "User login", description = "Authenticates a user using username and password.")
+    @RequestBody(required = true, description = "Login credentials", 
+        content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginPage.class)))
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "Login successful", 
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginResponse.class))),
+        @ApiResponse(responseCode = "401", description = "Invalid username or password")
+    })
+    @Path("/login")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response loginApi(LoginPage req) {
+        // 1. Validate Input
+        if (req == null || req.username == null || req.password == null) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("{\"error\": \"Missing credentials\"}")
+                    .build();
+        }
 
-	// --- AUTHENTICATION ---
+        try {
+            // 2. Establish PC2 Connection
+            ServerConnection serverconnection = new ServerConnection();
+            serverconnection.login(req.username, req.password);
+            
+            // 3. Generate Session Token
+            String cookieID = CookiesHandlers.genCookieID("team", req.username, req.username);
+            
+            // 4. Thread-Safe Session Storage
+            sessions.put(cookieID, serverconnection);
+            
+            // 5. Service Registration (Inherited from GlobalClass)
+            // Note: If this fails, the login still technically succeeded, 
+            // but the catch block will handle it.
+            registAllServices(serverconnection.getContest(), cookieID);
+            
+            // 6. Response
+            LoginResponse loginRes = new LoginResponse(cookieID, req.username);
+            return Response.ok(loginRes)
+                .type(MediaType.APPLICATION_JSON)
+                .build();
 
-	@Operation(summary = "User login", description = "Authenticates a user using username and password.")
-	@RequestBody(required = true, description = "Login credentials", 
-		content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginPage.class)))
-	@ApiResponses({
-		@ApiResponse(responseCode = "200", description = "Login successful", 
-			content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginResponse.class))),
-		@ApiResponse(responseCode = "401", description = "Invalid username or password")
-	})
-	@Path("/login")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@POST
-	public Response loginApi(LoginPage req) {
-		if (req == null) {
-			return Response.status(Response.Status.BAD_REQUEST).entity("Invalid media").type(MediaType.APPLICATION_JSON).build();
-		}
+        } catch (Throwable t) { 
+            // Catch Throwable to see class-loading or initialization errors
+            t.printStackTrace(); 
+            
+            String msg = t.getMessage() != null ? t.getMessage() : "Unknown Initialization Error";
+            
+            if (msg.contains("Login denied") || msg.contains("No such account")) {
+                return Response.status(Response.Status.UNAUTHORIZED)
+                        .entity("{\"error\": \"Login denied: Invalid credentials\"}")
+                        .build();
+            }
 
-		if (req.username == null || req.password == null) {
-			return Response.status(Response.Status.BAD_REQUEST).entity("Missing credentials").type(MediaType.APPLICATION_JSON).build();
-		}
+            // Return a JSON error instead of an HTML 500 page
+            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+                    .entity("{\"error\": \"Server warm-up error: " + msg + ". Please try again.\"}")
+                    .type(MediaType.APPLICATION_JSON)
+                    .build();
+        }
+    }
+ // --- CONTEST DATA: LANGUAGES ---
+    @GET
+    @Path("/listlanguages")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listlanguages(@Context HttpServletRequest req) {
+        try {
+            // 1. Extract cookie using the constant
+            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+            
+            // 2. Validate token & Server-side Session
+            if (!isValidToken(token)) {
+                throw new UnauthorizedSessionException("Invalid or expired token.");
+            }
 
-		try {
-			ServerConnection serverconnection = new ServerConnection();
-			serverconnection.login(req.username, req.password);
+            ServerConnection userConn = sessions.get(token);
+            if (userConn == null || !userConn.isLoggedIn()) {
+                throw new NotVerifiedCookieException("Session expired on server. Please login again.");
+            }
 
-			CookieData data = CookiesHandlers.createAuthCookie();
-			String token = data.getToken();
+            // 3. Fetch PC2 Data
+            IContest contest = userConn.getContest();
+            if (contest == null) {
+                throw new PC2ServiceUnavailableException("PC2 Contest data not found.");
+            }
 
-			sessions.put(token, serverconnection);
+            ILanguage[] languages = contest.getLanguages();
+            if (languages == null || languages.length == 0) {
+                throw new LanguageNotFoundException("No languages available for this contest.");
+            }
 
-			LoginResponse loginRes = new LoginResponse(req.username, token);
+            List<languageList> result = new ArrayList<>();
+            for (ILanguage lang : languages) {
+                result.add(new languageList(lang.getName(), lang.getCompilerCommandLine()));
+            }
+            return Response.ok(result).build();
 
-			String cookieHeader = CookiesHandlers.AUTH_COOKIE_NAME + "=" + token + 
-					"; Path=/api" + 
-					"; Max-Age=3600" + 
-					"; Secure" + 
-					"; HttpOnly" + 
-					"; SameSite=Strict";
+        } catch (NoCookieException | UnauthorizedSessionException | NotVerifiedCookieException e) {
+            return Response.status(Response.Status.UNAUTHORIZED)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .build();
+        } catch (LanguageNotFoundException e) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .build();
+        } catch (PC2ServiceUnavailableException e) {
+            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"error\": \"System Error: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+    // --- CONTEST DATA: PROBLEMS ---
+    @GET
+    @Path("/listProblem")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listProblem(@Context HttpServletRequest req) {
+        try {
+            // 1. Get Token from Cookies
+            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+            
+            // 2. Validate Token and Session
+            if (!isValidToken(token)) {
+                throw new UnauthorizedSessionException("Invalid or expired token.");
+            }
 
-			return Response.ok(loginRes)
-					.header("Set-Cookie", cookieHeader)
-					.type(MediaType.APPLICATION_JSON)
-					.build();
+            ServerConnection userConn = sessions.get(token);
+            if (userConn == null || !userConn.isLoggedIn()) {
+                throw new NotVerifiedCookieException("Session not found. Please log in again.");
+            }
 
-		} catch (NotLoggedInException e) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity("unable to execute api method").type(MediaType.APPLICATION_JSON).build();
-		} catch (Exception e) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid username/password or PC2 error").type(MediaType.APPLICATION_JSON).build();
-		}
-	}
+            // 3. Get Contest and Problems
+            IContest contest = userConn.getContest();
+            if (contest == null) {
+                throw new PC2ServiceUnavailableException("Unable to reach PC2 contest data.");
+            }
 
-	@GET
-	@Path("/verify")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response verifySession(@Context HttpServletRequest req) {
-		try {
-			if (sessions == null) {
-				throw new PC2ServiceUnavailableException("Session registry is unavailable");
-			}
+            IProblem[] problems = contest.getProblems();
+            if (problems == null || problems.length == 0) {
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("{\"error\": \"No problems found in this contest.\"}")
+                        .build();
+            }
 
-			String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+            List<listProblems> problemList = new ArrayList<>();
+            for (IProblem prob : problems) {
+                problemList.add(new listProblems(prob.getName(), prob.getShortName(), prob.isDeleted()));
+            }
 
-			if (!isValidToken(token)) {
-				throw new UnauthorizedSessionException("Invalid or expired session");
-			}
+            return Response.ok(problemList).build();
 
-			return Response.ok(Collections.singletonMap("status", "authenticated")).build();
+        } catch (NoCookieException | UnauthorizedSessionException | NotVerifiedCookieException e) {
+            return Response.status(Response.Status.UNAUTHORIZED)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"error\": \"System Error: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
 
-		} catch (MethodNotSupportedException | UnauthorizedSessionException e) {
-			return e.getResponse();
-		} catch (PC2ServiceUnavailableException e) {
-			return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity("error" + e.getMessage()).type(MediaType.APPLICATION_JSON).build();
-		} catch (WebApplicationException e) {
-			return Response.fromResponse(e.getResponse()).type(MediaType.APPLICATION_JSON).build();
-		} catch (Exception e) {
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("System Error: " + e.getLocalizedMessage()).type(MediaType.APPLICATION_JSON).build();
-		}
-	}
+    // --- WEBSOCKET TEST ---
+    @GET
+    @Path("/ws-test")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response wsTest(@Context HttpServletRequest req) {
+        try {
+            // 1. Extract & Validate
+            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 
-	// --- CONTEST DATA: LANGUAGES ---
+            if (!isValidToken(token) || !sessions.containsKey(token)) {
+                throw new UnauthorizedSessionException("WS Auth failed: Session not found.");
+            }
 
-	@GET
-	@Path("/listlanguages")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response listlanguages(@Context HttpServletRequest req) {
-		try {
-			String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
-			if (!isValidToken(token)) {
-				throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
-			}
+            // 2. Broadcast
+            ContestSocket.broadcast("{\"type\":\"TEST\",\"payload\":{\"message\":\"hello\"}}");
 
-			ServerConnection userConn = sessions.get(token);
-			if (userConn == null) {
-				throw new PC2ServiceUnavailableException("Session exists, but server connection is missing.");
-			}
+            // 3. Success Response
+            Map<String, Object> result = new HashMap<>();
+            result.put("status", "broadcast sent");
+            result.put("connectedClients", ContestSocket.getConnectedClientsCount());
 
-			if (!userConn.isLoggedIn()) {
-				throw new NotLoggedInException("Your session has expired on the PC2 server.");
-			}
+            return Response.ok(result).build();
 
-			IContest contest = userConn.getContest();
-			if (contest == null) {
-				throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
-			}
-
-			ILanguage[] languages = contest.getLanguages();
-			if (languages == null || languages.length == 0) {
-				throw new LanguageNotFoundException("No programming languages defined.");
-			}
-
-			List<languageList> result = new ArrayList<>();
-			for (ILanguage lang : languages) {
-				result.add(new languageList(lang.getName(), lang.getCompilerCommandLine()));
-			}
-
-			return Response.ok(result).build();
-
-		} catch (MethodNotSupportedException | LanguageNotFoundException e) {
-			return e.getResponse();
-		} catch (NotLoggedInException e) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity("error:" + e.getMessage()).type(MediaType.APPLICATION_JSON).build();
-		} catch (PC2ServiceUnavailableException e) {
-			return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity("error:" + e.getMessage()).type(MediaType.APPLICATION_JSON).build();
-		} catch (WebApplicationException e) {
-			return Response.fromResponse(e.getResponse()).type(MediaType.APPLICATION_JSON).build();
-		} catch (Exception e) {
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("System Error: " + e.getLocalizedMessage()).type(MediaType.APPLICATION_JSON).build();
-		}
-	}
-
-	// --- CONTEST DATA: PROBLEMS ---
-
-	@GET
-	@Path("/listProblem")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response listProblem(@Context HttpServletRequest req) {
-		try {
-			String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
-			if (!isValidToken(token)) {
-				throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
-			}
-
-			ServerConnection userConn = sessions.get(token);
-			if (userConn == null) {
-				throw new PC2ServiceUnavailableException("Server connection object is missing.");
-			}
-
-			IContest contest = userConn.getContest();
-			if (contest == null) {
-				throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
-			}
-
-			IProblem[] problems = contest.getProblems();
-			if (problems == null || problems.length == 0) {
-				throw new LanguageNotFoundException("No problems found for this contest.");
-			}
-
-			List<listProblems> problemList = new ArrayList<>();
-			for (IProblem prob : problems) {
-				problemList.add(new listProblems(prob.getName(), prob.getShortName(), prob.isDeleted()));
-			}
-
-			return Response.ok(problemList).build();
-
-		} catch (MethodNotSupportedException e) {
-			return e.getResponse();
-		} catch (PC2ServiceUnavailableException e) {
-			return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).type(MediaType.APPLICATION_JSON).build();
-		} catch (WebApplicationException e) {
-			return Response.fromResponse(e.getResponse()).type(MediaType.APPLICATION_JSON).build();
-		} catch (Exception e) {
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("System Error: " + e.getLocalizedMessage()).type(MediaType.APPLICATION_JSON).build();
-		}
-	}
-
-	// --- WEBSOCKET TEST ---
-
-	@GET
-	@Path("/ws-test")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response wsTest(@Context HttpServletRequest req) {
-		String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
-
-		if (!isValidToken(token)) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity("Not logged in").type(MediaType.APPLICATION_JSON).build();
-		}
-
-		ContestSocket.broadcast("{\"type\":\"TEST\",\"payload\":{\"message\":\"hello from websocket test endpoint\"}}");
-
-		Map<String, Object> result = new HashMap<>();
-		result.put("status", "broadcast sent");
-		result.put("connectedClients", ContestSocket.getConnectedClientsCount());
-
-		return Response.ok(result).build();
-	}
-
-	// --- GREETINGS ---
-
-	@GET
+        } catch (NoCookieException | UnauthorizedSessionException e) {
+            return Response.status(Response.Status.UNAUTHORIZED)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"error\": \"Unexpected error during WS test: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+    @GET
 	@Path("/sayhello/{name}")
 	@Produces("text/plain")
 	public String sayHelloName(@PathParam("name") String name) {
@@ -273,11 +277,7 @@ public class maincontroller {
 
 	// --- CATCHERS FOR INVALID METHODS (PREVENTS DEFAULT HTML 405) ---
 
-	@POST @Path("/verify") public Response catchPostV() { throw new MethodNotSupportedException("POST not supported. Use GET."); }
-	@PUT @Path("/verify") public Response catchPutV() { throw new MethodNotSupportedException("PUT not supported. Use GET."); }
-	@DELETE @Path("/verify") public Response catchDeleteV() { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }
-	@PATCH @Path("/verify") public Response catchPatchV() { throw new MethodNotSupportedException("PATCH not supported. Use GET."); }
-	@HEAD @Path("/verify") public Response catchHeadV() { throw new MethodNotSupportedException("HEAD not supported. Use GET."); }
+	
 
 	@POST @Path("/listlanguages") public Response catchPostL() { throw new MethodNotSupportedException("POST not supported. Use GET."); }
 	@PUT @Path("/listlanguages") public Response catchPutL() { throw new MethodNotSupportedException("PUT not supported. Use GET."); }

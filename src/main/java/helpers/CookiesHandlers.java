@@ -1,130 +1,79 @@
 package helpers;
 
-import java.security.MessageDigest;
-import java.security.SecureRandom;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.Cookie;
 import javax.ws.rs.core.NewCookie;
+import exceptions.NoCookieException;
+import exceptions.NotVerifiedCookieException;
 
+/**
+ * All cookies operations: creating, signing, and verifying cookies.
+ */
+public class CookiesHandlers {
 
-import java.util.Arrays;
-
-public abstract class CookiesHandlers {
-    
+    // 1. Consistency is key: Use this constant EVERYWHERE
+    private static final String SecretKey = "D0ntEverL0gHereAgainDudeInAnyACPCContest";
     public static final String AUTH_COOKIE_NAME = "awt_jwt";
-    
-    private static final String SECRET_KEY = "your-very-secure-secret-key-here";
-    //this is hard coded which could lead to system compromise if leaked
-    
-   // private static final String SECRET_KEY = System.getenv("JWT_SECRET");//generates 256 bit random key but needes to be defined in enviromnent
-    
-    /**
-     * Creates a fixed 64-character token.
-     * [32 chars random payload][32 chars signature]
-     */
-    public static CookieData createAuthCookie() throws Exception {
-        // 1. Generate 16 bytes of random data (results in 32 hex chars)
-        SecureRandom random = new SecureRandom();
-        byte[] bytes = new byte[16];
-        random.nextBytes(bytes);
-        String rawPayload = bytesToHex(bytes); // 32 chars
-
-        // 2. Sign the payload and take the first 16 bytes of the HMAC (32 hex chars)
-        String signature = hmacSha256Short(rawPayload, SECRET_KEY); // 32 chars
-
-        // 3. Combine into exactly 64 characters (no dot, no base64)
-        String fixedToken64 = rawPayload + signature;
-
-        NewCookie cookie = new NewCookie(
-            AUTH_COOKIE_NAME, 
-            fixedToken64,       
-            "/",           
-            null,             
-            "WTI auth token", 
-            3600,             
-            true,  //must be secure           
-            true       
-        );
-        return new CookieData(fixedToken64, cookie);
-    }
 
     /**
-     * Verifies the signature by splitting the 64-char token at the halfway point.
+     * Verifies the JWT inside the CookieID value.
      */
-    public static boolean verifyTokenSignature(String token) {
+    public static boolean verifyCookie(String CookieID) throws NotVerifiedCookieException {
         try {
-            // Must be exactly 64 characters
-            if (token == null || token.length() != 64) {
-                return false;
-            }
-
-            // Split: first 32 is payload, last 32 is signature
-            String payload = token.substring(0, 32);
-            String providedSignature = token.substring(32);
-
-            String expectedSignature = hmacSha256Short(payload, SECRET_KEY);
-
-           //return expectedSignature.equals(providedSignature);
-            return MessageDigest.isEqual(expectedSignature.getBytes(),providedSignature.getBytes());//for constant comparison and prevents attacker from guessing byte by byte
-        } catch (Exception e) {
-            return false;
+            JWTOps.verifyJWT(CookieID, SecretKey);
+            return true;
+        } catch (RuntimeException e) {
+            // Re-throw as your custom exception for the API to catch
+            throw new NotVerifiedCookieException("Invalid or Expired Cookie: " + e.getMessage());
         }
     }
 
-    private static String hmacSha256Short(String data, String secret) throws Exception {
-        Mac mac = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secretKey = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
-        mac.init(secretKey);
-        byte[] hashBytes = mac.doFinal(data.getBytes());
-        
-        // Truncate to 16 bytes so the hex string is exactly 32 characters
-        byte[] shortHash = Arrays.copyOfRange(hashBytes, 0, 16);
-        return bytesToHex(shortHash);
+    /**
+     * Generates a JWT string to be used as a Cookie ID.
+     */
+    public static String genCookieID(String clientRole, String clientLogin, String clientDisplayName) {
+        // Expiration set to 300 minutes
+        return JWTOps.createJWT("auth", "acpc", clientRole, clientLogin, clientDisplayName, 300, SecretKey);
     }
 
-    private static String bytesToHex(byte[] bytes) {
-        StringBuilder hexString = new StringBuilder();
-        for (byte b : bytes) {
-            String hex = Integer.toHexString(0xff & b);
-            if (hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
-        }
-        return hexString.toString();
-    }
-
-    public static class CookieData {
-        private final String token;
-        private final NewCookie cookie;
-
-        public CookieData(String token, NewCookie cookie) {
-            this.token = token;
-            this.cookie = cookie;
-        }
-
-        public String getToken() { return token; }
-        public NewCookie getCookie() { return cookie; }
-    }
-
-    public static String getCookie(Cookie[] cookies, String tokenName) {
+    /**
+     * Extracts the value of a specific cookie from the request.
+     */
+    public static String getCookie(Cookie[] cookies, String name) throws NoCookieException {
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (tokenName.equals(cookie.getName())) {
+                if (name.equals(cookie.getName())) {
                     return cookie.getValue();
                 }
             }
         }
-        return null;
+        // If we reach here, the cookie header exists but our specific cookie doesn't, or cookies are null
+        throw new NoCookieException("Authentication required.");    }
+
+    /**
+     * Creates a NewCookie object with security flags.
+     * Path is set to "/" to ensure all @Path endpoints can see it.
+     */
+    public static NewCookie createCookie(String CookieID) {
+        return new NewCookie(
+            AUTH_COOKIE_NAME,       // name: "awt_jwt"
+            CookieID,               // value: The JWT
+            "/",                    // path: Root path so all APIs see it
+            null,                   // domain
+            "WTI JWT auth token",   // comment
+            18000,                  // maxAge: 300 minutes in seconds (300 * 60)
+            false,                  // secure: Set to true only if using HTTPS
+            true                    // httpOnly: CRITICAL - prevents JS from stealing the token
+        );
     }
-    
-    public static String getCookie(java.util.List<java.net.HttpCookie> cookies, String tokenName) {
-        if (cookies != null) {
-            for (java.net.HttpCookie cookie : cookies) {
-                if (tokenName.equals(cookie.getName())) {
-                    return cookie.getValue();
-                }
-            }
-        }
-        return null;
+
+    /**
+     * Helper for manually building a Header string if needed.
+     */
+    public static String getCookieHeader(String token) {
+        return AUTH_COOKIE_NAME + "=" + token + 
+               "; Path=/" + 
+               "; Max-Age=18000" + 
+               "; HttpOnly" + 
+               "; SameSite=Strict";
     }
 }

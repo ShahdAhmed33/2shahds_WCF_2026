@@ -37,13 +37,6 @@ public class ContestSocket {
 	            return;
 	        }
 
-	        if (!maincontroller.isValidToken(token)) {
-	            System.out.println("[WS] Rejected — invalid token");
-	            System.out.println("[WS] verifySignature: " + CookiesHandlers.verifyTokenSignature(token));
-	            session.close(1008, "Unauthorized");
-	            return;
-	        }
-
 	        connections.put(session, token);
 	        session.getRemote().sendString(
 	            "{\"type\":\"WS_CONNECTED\",\"message\":\"websocket connected successfully\"}"

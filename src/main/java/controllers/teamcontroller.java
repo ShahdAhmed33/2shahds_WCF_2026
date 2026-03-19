@@ -1,4 +1,5 @@
 package controllers;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -15,26 +16,28 @@ import helpers.CookiesHandlers;
 import exceptions.MethodNotSupportedException;
 import exceptions.PC2ServiceUnavailableException;
 import exceptions.UnauthorizedSessionException;
+import exceptions.NoCookieException;
 
 @Path("/team")
 public class teamcontroller extends maincontroller {
 
-	//handling the exception from specific to the general in list clarification
     @GET
     @Path("/listClarification")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listClarification(@Context HttpServletRequest req) {
         try {
-            // 1. SPECIFIC: Session Validation
-            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);      
-            if (token == null || !CookiesHandlers.verifyTokenSignature(token) || !sessions.containsKey(token)) {
+            // 1. Extract and Validate Token from Cookie
+            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+            
+            // Check if token is cryptographically valid AND exists in our active sessions map
+            if (!isValidToken(token) || !sessions.containsKey(token)) {
                 throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
             }
 
             ServerConnection userConn = sessions.get(token);
             
-            // 2. SPECIFIC: Connection Check
-            if (userConn == null) {
+            // 2. Validate Server Connection
+            if (userConn == null || !userConn.isLoggedIn()) {
                 throw new PC2ServiceUnavailableException("The PC2 server connection is lost for this session.");
             }
 
@@ -43,83 +46,65 @@ public class teamcontroller extends maincontroller {
                 throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
             }
 
+            // 3. Process Clarifications
             IClarification[] clarifications = contest.getClarifications();
             List<listclarification> result = new ArrayList<>();
             
-            for (IClarification clar : clarifications) {
-                String status = clar.isAnswered() ? "Answered" : "New";
-                String problemName = (clar.getProblem() != null) ? clar.getProblem().getName() : "General";
-                
-                listclarification li = new listclarification(
-                    clar.getTeam().getLoginName(),        
-                    clar.getNumber(),                    
-                    (int) clar.getSubmissionTime(),      
-                    status, 
-                    problemName, 
-                    clar.getQuestion(),                  
-                    clar.getAnswer()                     
-                );
-                result.add(li);
+            if (clarifications != null) {
+                for (IClarification clar : clarifications) {
+                    String status = clar.isAnswered() ? "Answered" : "New";
+                    String problemName = (clar.getProblem() != null) ? clar.getProblem().getName() : "General";
+                    
+                    listclarification li = new listclarification(
+                        clar.getTeam().getLoginName(),        
+                        clar.getNumber(),                    
+                        (int) clar.getSubmissionTime(),      
+                        status, 
+                        problemName, 
+                        clar.getQuestion(),                  
+                        clar.getAnswer()                     
+                    );
+                    result.add(li);
+                }
             }
 
             return Response.ok(result).build();
 
         } 
-        // --- CATCH BLOCKS: Ordered Specific to General ---
-        catch (MethodNotSupportedException e) {
-            // Custom 405
-            return e.getResponse(); 
-        }
-        catch (UnauthorizedSessionException e) {
-            // Custom 401
-            return e.getResponse();
+        // --- CATCH BLOCKS: Specific to General ---
+        catch (NoCookieException | UnauthorizedSessionException e) {
+            return Response.status(Response.Status.UNAUTHORIZED)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .type(MediaType.APPLICATION_JSON)
+                    .build();
         }
         catch (PC2ServiceUnavailableException e) {
-            // Custom 503
             return Response.status(Response.Status.SERVICE_UNAVAILABLE)
-                    .entity("error:" + e.getMessage())
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
                     .type(MediaType.APPLICATION_JSON)
                     .build();
         }
-        catch (WebApplicationException e) {
-            // Other JAX-RS errors
-            return Response.fromResponse(e.getResponse())
-                    .type(MediaType.APPLICATION_JSON)
-                    .build();
+        catch (MethodNotSupportedException e) {
+            return e.getResponse(); // Assuming this returns a properly built JSON Response
         }
         catch (Exception e) {
-            // 3. GENERAL: Final Fallback
+            // Final fallback to prevent HTML 500 error pages
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("System Error:" + e.getLocalizedMessage())
+                    .entity("{\"error\": \"System Error: " + e.getLocalizedMessage() + "\"}")
                     .type(MediaType.APPLICATION_JSON)
                     .build();
         }
     }
 
-    // --- UNSUPPORTED METHOD CATCHERS (Forces JSON for all HTTP verbs) ---
+    // --- UNSUPPORTED METHOD CATCHERS ---
+    // These ensure that if a user tries POST/PUT on a GET endpoint, they get a JSON error
 
     @POST @Path("/listClarification") @Produces(MediaType.APPLICATION_JSON)
-    public Response catchPostCl(@Context HttpServletRequest req) { 
-        throw new MethodNotSupportedException("POST not supported. Use GET."); 
-    }
+    public Response catchPostCl() { throw new MethodNotSupportedException("POST not supported. Use GET."); }
 
     @PUT @Path("/listClarification") @Produces(MediaType.APPLICATION_JSON)
-    public Response catchPutCl(@Context HttpServletRequest req) { 
-        throw new MethodNotSupportedException("PUT not supported. Use GET."); 
-    }
+    public Response catchPutCl() { throw new MethodNotSupportedException("PUT not supported. Use GET."); }
 
     @DELETE @Path("/listClarification") @Produces(MediaType.APPLICATION_JSON)
-    public Response catchDeleteCl(@Context HttpServletRequest req) { 
-        throw new MethodNotSupportedException("DELETE not supported. Use GET."); 
-    }
-
-    @PATCH @Path("/listClarification") @Produces(MediaType.APPLICATION_JSON)
-    public Response catchPatchCl(@Context HttpServletRequest req) { 
-        throw new MethodNotSupportedException("PATCH not supported. Use GET."); 
-    }
-
-    @HEAD @Path("/listClarification") @Produces(MediaType.APPLICATION_JSON)
-    public Response catchHeadCl(@Context HttpServletRequest req) { 
-        throw new MethodNotSupportedException("HEAD not supported. Use GET."); 
-    }
+    public Response catchDeleteCl() { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }
 }
