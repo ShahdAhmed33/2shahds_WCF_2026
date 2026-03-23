@@ -97,10 +97,10 @@ public class maincontroller extends GlobalClass {
             // 5. Service Registration (Inherited from GlobalClass)
             // Note: If this fails, the login still technically succeeded, 
             // but the catch block will handle it.
-            registAllServices(serverconnection.getContest(), cookieID);
-            
+                    
             // 6. Response
             LoginResponse loginRes = new LoginResponse(cookieID, req.username);
+            registAllServices(serverconnection.getContest(), cookieID); 
             return Response.ok(loginRes)
                 .type(MediaType.APPLICATION_JSON)
                 .build();
