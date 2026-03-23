@@ -216,3 +216,77 @@
 260319 163657.626|INFO|Thread-25|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
 260319 163657.627|INFO|Thread-25|log|Clock for site 1 stopped by ADMINISTRATOR1 @ site 1 elapsed 0:09:07
 260319 163657.627|INFO|Thread-25|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #162 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234507.636|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260323 234507.637|INFO|Thread-22|log|
+260323 234507.638|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260323 234507.638|INFO|Thread-22|log|Login: team2 (aka team2)
+260323 234507.638|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260323 234507.639|INFO|Thread-22|log|Process id is 28584@DESKTOP-5EPLK95
+260323 234507.639|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260323 234507.639|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #24 SERVER0 @ site 1 -> TEAM2 @ site 1
+260323 234507.639|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #24 SERVER0 @ site 1 -> TEAM2 @ site 1
+260323 234526.638|INFO|Thread-23|log| receiveObject(S) start got Packet[CLOCK_STOPPED] #26 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234526.638|INFO|Thread-23|log|Packet CLOCK_STOPPED (Seq #26, o#26 ) recieveObject
+260323 234526.639|INFO|Thread-23|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260323 234526.639|INFO|Thread-23|log|    To: SERVER0 @ site 0
+260323 234526.640|INFO|Thread-23|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260323 234526.641|INFO|Thread-23|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260323 234526.641|INFO|Thread-23|log|handlePacket start Packet[CLOCK_STOPPED] #26 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234526.642|INFO|Thread-23|log|Packet CLOCK_STOPPED (Seq #26, o#26 ) handlePacket
+260323 234526.643|INFO|Thread-23|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260323 234526.644|INFO|Thread-23|log|    To: SERVER0 @ site 0
+260323 234526.645|INFO|Thread-23|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260323 234526.645|INFO|Thread-23|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260323 234526.649|INFO|Thread-23|log|Clock for site 1 stopped by ADMINISTRATOR1 @ site 1 elapsed 0:00:00
+260323 234526.649|INFO|Thread-23|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #26 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234701.132|INFO|Thread-24|log| receiveObject(S) start got Packet[ADD_SETTING] #28 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234701.133|INFO|Thread-24|log|Packet ADD_SETTING (Seq #28, o#4 ) recieveObject
+260323 234701.133|INFO|Thread-24|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260323 234701.133|INFO|Thread-24|log|    To: SERVER0 @ site 0
+260323 234701.133|INFO|Thread-24|log|   key: PROBLEM is: edu.csus.ecs.pc2.core.model.Problem problem4
+260323 234701.133|INFO|Thread-24|log|handlePacket start Packet[ADD_SETTING] #28 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234701.134|INFO|Thread-24|log|Packet ADD_SETTING (Seq #28, o#4 ) handlePacket
+260323 234701.134|INFO|Thread-24|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260323 234701.134|INFO|Thread-24|log|    To: SERVER0 @ site 0
+260323 234701.134|INFO|Thread-24|log|   key: PROBLEM is: edu.csus.ecs.pc2.core.model.Problem problem4
+260323 234701.135|INFO|Thread-24|log|handlePacket end Packet[ADD_SETTING] #28 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234701.136|INFO|Thread-24|log| receiveObject(S) end   got Packet[ADD_SETTING] #28 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234809.402|INFO|Thread-25|log| receiveObject(S) start got Packet[UPDATE_SETTING] #30 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234809.402|INFO|Thread-25|log|Packet UPDATE_SETTING (Seq #30, o#6 ) recieveObject
+260323 234809.402|INFO|Thread-25|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260323 234809.403|INFO|Thread-25|log|    To: SERVER0 @ site 0
+260323 234809.403|INFO|Thread-25|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language shahdamora
+260323 234809.403|INFO|Thread-25|log|handlePacket start Packet[UPDATE_SETTING] #30 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234809.403|INFO|Thread-25|log|Packet UPDATE_SETTING (Seq #30, o#6 ) handlePacket
+260323 234809.403|INFO|Thread-25|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260323 234809.403|INFO|Thread-25|log|    To: SERVER0 @ site 0
+260323 234809.403|INFO|Thread-25|log|   key: LANGUAGE is: edu.csus.ecs.pc2.core.model.Language shahdamora
+260323 234809.404|INFO|Thread-25|log|handlePacket end Packet[UPDATE_SETTING] #30 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 234809.405|INFO|Thread-25|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #30 SERVER0 @ site 1 -> SERVER0 @ site 0
+260323 235223.389|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260323 235223.390|INFO|Thread-22|log|
+260323 235223.390|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260323 235223.391|INFO|Thread-22|log|Login: team2 (aka team2)
+260323 235223.391|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260323 235223.392|INFO|Thread-22|log|Process id is 44436@DESKTOP-5EPLK95
+260323 235223.392|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260323 235223.392|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #34 SERVER0 @ site 1 -> TEAM2 @ site 1
+260323 235223.393|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #34 SERVER0 @ site 1 -> TEAM2 @ site 1
+260323 235729.499|CONFIG|Thread-20|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260323 235729.499|INFO|Thread-20|log|
+260323 235729.500|INFO|Thread-20|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260323 235729.500|INFO|Thread-20|log|Login: team2 (aka team2)
+260323 235729.501|INFO|Thread-20|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260323 235729.501|INFO|Thread-20|log|Process id is 8824@DESKTOP-5EPLK95
+260323 235729.501|INFO|Thread-20|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260323 235729.501|INFO|Thread-20|log|handlePacket end Packet[LOGIN_SUCCESS] #45 SERVER0 @ site 1 -> TEAM2 @ site 1
+260323 235729.502|INFO|Thread-20|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #45 SERVER0 @ site 1 -> TEAM2 @ site 1
+260324 000101.788|CONFIG|Thread-21|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260324 000101.788|INFO|Thread-21|log|
+260324 000101.788|INFO|Thread-21|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260324 000101.788|INFO|Thread-21|log|Login: team2 (aka team2)
+260324 000101.789|INFO|Thread-21|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260324 000101.791|INFO|Thread-21|log|Process id is 39020@DESKTOP-5EPLK95
+260324 000101.791|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260324 000101.791|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM2 @ site 1
+260324 000101.793|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM2 @ site 1

@@ -88,20 +88,23 @@ public class maincontroller extends GlobalClass {
             ServerConnection serverconnection = new ServerConnection();
             serverconnection.login(req.username, req.password);
             
-            // 3. Generate Session Token
+            // 3. Generate Session Token (JWT)
             String cookieID = CookiesHandlers.genCookieID("team", req.username, req.username);
             
             // 4. Thread-Safe Session Storage
             sessions.put(cookieID, serverconnection);
             
-            // 5. Service Registration (Inherited from GlobalClass)
-            // Note: If this fails, the login still technically succeeded, 
-            // but the catch block will handle it.
-                    
-            // 6. Response
-            LoginResponse loginRes = new LoginResponse(cookieID, req.username);
+            // 5. Service Registration
             registAllServices(serverconnection.getContest(), cookieID); 
+            
+            // --- THE FIX IS HERE ---
+            // 6. Create the NewCookie object using your helper
+            NewCookie authCookie = CookiesHandlers.createCookie(cookieID);
+            
+            // 7. Response - Attach the cookie to the response
+            LoginResponse loginRes = new LoginResponse(cookieID, req.username);
             return Response.ok(loginRes)
+                .cookie(authCookie) // This adds the 'Set-Cookie' header
                 .type(MediaType.APPLICATION_JSON)
                 .build();
 
