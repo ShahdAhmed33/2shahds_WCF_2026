@@ -29,6 +29,7 @@ import edu.csus.ecs.pc2.api.ILanguage;
 import edu.csus.ecs.pc2.api.IProblem;
 import edu.csus.ecs.pc2.api.ServerConnection;
 import edu.csus.ecs.pc2.api.exceptions.NotLoggedInException;
+import edu.csus.ecs.pc2.api.implementation.Contest;
 import exceptions.LanguageNotFoundException;
 import exceptions.MethodNotSupportedException;
 import exceptions.MissingCredientials;
@@ -46,7 +47,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @Path("/main")
 @Tag(name = "Main", description = "Main controller endpoints")
-public class maincontroller {
+public class maincontroller extends GlobalClass {
 
 	protected static Map<String, ServerConnection> sessions = new ConcurrentHashMap<>();
 
@@ -63,11 +64,13 @@ public class maincontroller {
 	@Operation(summary = "User login", description = "Authenticates a user using username and password.")
 	@RequestBody(required = true, description = "Login credentials", 
 		content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginPage.class)))
+	
 	@ApiResponses({
 		@ApiResponse(responseCode = "200", description = "Login successful", 
 			content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginResponse.class))),
 		@ApiResponse(responseCode = "401", description = "Invalid username or password")
 	})
+	
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -84,16 +87,24 @@ public class maincontroller {
 		try {
 			ServerConnection serverconnection = new ServerConnection();
 			serverconnection.login(req.username, req.password);
-
+			
+			Contest contest = (Contest) serverconnection.getContest();
+			
 			CookieData data = CookiesHandlers.createAuthCookie();
 			String token = data.getToken();
 
 			sessions.put(token, serverconnection);
+			
+			
+			
+	        registAllServices(contest, token);
+	        
+	        
 
 			LoginResponse loginRes = new LoginResponse(req.username, token);
 
 			String cookieHeader = CookiesHandlers.AUTH_COOKIE_NAME + "=" + token + 
-					"; Path=/api" + 
+					"; Path=/" + 
 					"; Max-Age=3600" + 
 					"; Secure" + 
 					"; HttpOnly" + 
@@ -221,13 +232,32 @@ public class maincontroller {
 			return Response.status(Response.Status.UNAUTHORIZED).entity("Not logged in").type(MediaType.APPLICATION_JSON).build();
 		}
 
-		ContestSocket.broadcast("{\"type\":\"TEST\",\"payload\":{\"message\":\"hello from websocket test endpoint\"}}");
+		
+		//ContestSocket.broadcast("{\"type\":\"TEST\",\"payload\":{\"message\":\"hello from websocket test endpoint\"}}");
+		 ContestSocket.broadcast(
+			        "{"
+			            + "\"type\":\"CLOCK_UPDATE\","
+			            + "\"payload\":{"
+			            + "\"running\":true,"
+			            + "\"paused\":false,"
+			            + "\"remainingSeconds\":3590,"
+			            + "\"elapsedSeconds\":10,"
+			            + "\"contestLengthSeconds\":3600"
+			            + "}"
+			            + "}"
+			    );
 
-		Map<String, Object> result = new HashMap<>();
+		/*Map<String, Object> result = new HashMap<>();
 		result.put("status", "broadcast sent");
 		result.put("connectedClients", ContestSocket.getConnectedClientsCount());
 
-		return Response.ok(result).build();
+		return Response.ok(result).build(); */
+		 
+		 
+		 return Response.ok("{\"status\":\"broadcast sent\",\"connectedClients\":" 
+			        + ContestSocket.getConnectedClientsCount() + "}")
+			        .type(MediaType.APPLICATION_JSON)
+			        .build(); 
 	}
 
 	// --- GREETINGS ---

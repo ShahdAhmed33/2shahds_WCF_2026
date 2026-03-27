@@ -162,3 +162,12 @@
 260319 003715.148|INFO|Thread-20|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260319 003715.148|INFO|Thread-20|log|handlePacket end Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM1 @ site 1
 260319 003715.148|INFO|Thread-20|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM1 @ site 1
+260327 042727.019|CONFIG|Thread-18|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260327 042727.020|INFO|Thread-18|log|
+260327 042727.020|INFO|Thread-18|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260327 042727.020|INFO|Thread-18|log|Login: team1 (aka team1)
+260327 042727.020|INFO|Thread-18|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260327 042727.021|INFO|Thread-18|log|Process id is 7568@shahoda
+260327 042727.022|INFO|Thread-18|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260327 042727.022|INFO|Thread-18|log|handlePacket end Packet[LOGIN_SUCCESS] #11 SERVER0 @ site 1 -> TEAM1 @ site 1
+260327 042727.022|INFO|Thread-18|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #11 SERVER0 @ site 1 -> TEAM1 @ site 1
