@@ -52,7 +52,7 @@ public class maincontroller extends GlobalClass {
     protected static Map<String, ServerConnection> sessions = new ConcurrentHashMap<>();
 
     // --- HELPER METHODS ---
-    protected boolean isValidToken(String token) {
+    public boolean isValidToken(String token) {
         try {
             return token != null 
                 && CookiesHandlers.verifyCookie(token) 
@@ -61,6 +61,7 @@ public class maincontroller extends GlobalClass {
             return false;
         }
     }
+    
 
     // --- AUTHENTICATION ---
     @Operation(summary = "User login", description = "Authenticates a user using username and password.")
@@ -71,20 +72,26 @@ public class maincontroller extends GlobalClass {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = LoginResponse.class))),
         @ApiResponse(responseCode = "401", description = "Invalid username or password")
     })
+    
+
     @Path("/login")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response loginApi(LoginPage req) {
         // 1. Validate Input
+
         if (req == null || req.username == null || req.password == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("{\"error\": \"Missing credentials\"}")
                     .build();
         }
+    	System.out.print("fuck");
+
 
         try {
             // 2. Establish PC2 Connection
+        	System.out.print("fuck");
             ServerConnection serverconnection = new ServerConnection();
             serverconnection.login(req.username, req.password);
             
@@ -102,7 +109,7 @@ public class maincontroller extends GlobalClass {
             NewCookie authCookie = CookiesHandlers.createCookie(cookieID);
             
             // 7. Response - Attach the cookie to the response
-            LoginResponse loginRes = new LoginResponse(cookieID, req.username);
+            LoginResponse loginRes = new LoginResponse( req.username , cookieID);
             return Response.ok(loginRes)
                 .cookie(authCookie) // This adds the 'Set-Cookie' header
                 .type(MediaType.APPLICATION_JSON)
@@ -127,6 +134,8 @@ public class maincontroller extends GlobalClass {
                     .build();
         }
     }
+    
+    
  // --- CONTEST DATA: LANGUAGES ---
     @GET
     @Path("/listlanguages")

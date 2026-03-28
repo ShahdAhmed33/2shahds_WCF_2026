@@ -46,29 +46,38 @@ public class webServer {
 		        getSwaggerUIHandler(),
 		        getFrontendHandler()
 		    }); */
-		 WebSocketHandler wsHandler = new WebSocketHandler() {
-		        @Override
-		        public void configure(WebSocketServletFactory factory) {
-		            System.out.println("[WS] Factory configure called");
-		            factory.setCreator((req, resp) -> {
-		                System.out.println("[WS] CREATOR FIRED");
-		                return new websocket.ContestSocket();
-		            });
+		WebSocketHandler wsHandler = new WebSocketHandler() {
+		    @Override
+		    public void configure(WebSocketServletFactory factory) {
+		        System.out.println("[WS] Factory configure called");
+		        factory.setCreator((req, resp) -> {
+		            System.out.println("[WS] CREATOR FIRED");
+		            return new websocket.ContestSocket();
+		        });
+		    }
+
+		    @Override
+		    public void handle(String target, org.eclipse.jetty.server.Request baseRequest,
+		                       javax.servlet.http.HttpServletRequest request,
+		                       javax.servlet.http.HttpServletResponse response)
+		                       throws java.io.IOException, javax.servlet.ServletException {
+		        System.out.println("[WS] handle() called for: " + target);
+
+		        // ✅ FIX: Only intercept actual WebSocket upgrade requests
+		        String upgradeHeader = request.getHeader("Upgrade");
+		        if (upgradeHeader != null && upgradeHeader.equalsIgnoreCase("websocket")) {
+		            System.out.println("[WS] WebSocket upgrade — handling with super");
+		            super.handle(target, baseRequest, request, response);
+		            return;
 		        }
 
-		        @Override
-		        public void handle(String target, org.eclipse.jetty.server.Request baseRequest,
-		                           javax.servlet.http.HttpServletRequest request,
-		                           javax.servlet.http.HttpServletResponse response)
-		                           throws java.io.IOException, javax.servlet.ServletException {
-		            System.out.println("[WS] handle() called for: " + target);
-		            // Only handle WebSocket upgrade requests
-		            
-		                super.handle(target, baseRequest, request, response);
-		            
-		            // Otherwise let it fall through to next handler
+		        // ✅ All normal HTTP requests pass directly to Jersey
+		        System.out.println("[WS] HTTP request — passing to Jersey");
+		        if (getHandler() != null) {
+		            getHandler().handle(target, baseRequest, request, response);
 		        }
-		    };
+		    }
+		};
 
 		    // WebSocket handler wraps everything — WS requests handled inside, 
 		    // all other requests passed to the rest of the chain via setHandler
@@ -84,15 +93,136 @@ public class webServer {
 		    server.setHandler(wsHandler);
 		//server.setHandler(contexts);
 		//server.setHandler(handlers);
-		try {
+		    
+	/*	try {
 			server.start();
 			server.join();
 		} catch (Exception e ) {
 			e.printStackTrace();
 		}finally {
 			server.destroy();
-		}
+		} */
+		    try {
+		        server.start();
+
+		        // ✅ WARM-UP Step 1 — Wake up Jersey with GET
+		        System.out.println("[WARMUP] Step 1 - GET warm-up...");
+		        try {
+		            java.net.HttpURLConnection con = (java.net.HttpURLConnection)
+		                new java.net.URL("http://localhost:" + this.portNum + "/api/main/sayhello")
+		                    .openConnection();
+		            con.setRequestMethod("GET");
+		            con.setConnectTimeout(3000);
+		            con.setReadTimeout(3000);
+		            con.getResponseCode();
+		            con.disconnect();
+		            System.out.println("[WARMUP] Step 1 done");
+		        } catch (Exception e) {
+		            System.out.println("[WARMUP] Step 1 failed: " + e.getMessage());
+		        }
+
+		        // ✅ WARM-UP Step 2 — Wake up Jackson JSON deserializer with POST
+		        System.out.println("[WARMUP] Step 2 - POST JSON warm-up...");
+		        try {
+		            java.net.HttpURLConnection con = (java.net.HttpURLConnection)
+		                new java.net.URL("http://localhost:" + this.portNum + "/api/main/login")
+		                    .openConnection();
+		            con.setRequestMethod("POST");
+		            con.setRequestProperty("Content-Type", "application/json");
+		            con.setDoOutput(true);
+		            con.setConnectTimeout(3000);
+		            con.setReadTimeout(8000);
+		            String body = "{\"username\":\"warmup\",\"password\":\"warmup\"}";
+		            con.getOutputStream().write(body.getBytes("UTF-8"));
+		            int status = con.getResponseCode();
+		            System.out.println("[WARMUP] Step 2 done - status: " + status);
+		            con.disconnect();
+		        } catch (Exception e) {
+		            System.out.println("[WARMUP] Step 2 failed: " + e.getMessage());
+		        }
+
+		        System.out.println("[WARMUP] Jersey is fully ready!");
+		        server.join();
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        server.destroy();
+		    }
+		    
+		  /*  try {
+		        server.start();
+
+		        // ✅ WARM-UP: Force Jersey to fully initialize before first real request
+		        System.out.println("[WARMUP] Sending warm-up request to Jersey...");
+		        try {
+		            java.net.HttpURLConnection con = (java.net.HttpURLConnection)
+		                new java.net.URL("http://localhost:" + this.portNum + "/api/main/sayhello")
+		                    .openConnection();
+		            con.setRequestMethod("GET");
+		            con.setConnectTimeout(3000);
+		            con.setReadTimeout(3000);
+		            int status = con.getResponseCode();
+		            System.out.println("[WARMUP] Warm-up response: " + status);
+		            con.disconnect();
+		        } catch (Exception warmupEx) {
+		            System.out.println("[WARMUP] Warm-up request failed (ignored): " + warmupEx.getMessage());
+		        }
+
+		        server.join();
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        server.destroy();
+		    }
+		    
+		 // First warm-up — GET
+		    System.out.println("[WARMUP] Step 1 - warming up GET...");
+		    try {
+		        java.net.HttpURLConnection con = (java.net.HttpURLConnection)
+		            new java.net.URL("http://localhost:" + this.portNum + "/api/main/sayhello")
+		                .openConnection();
+		        con.setRequestMethod("GET");
+		        con.setConnectTimeout(3000);
+		        con.setReadTimeout(3000);
+		        int status = con.getResponseCode();
+		        System.out.println("[WARMUP] Step 1 response: " + status);
+		        con.disconnect();
+		    } catch (Exception e) {
+		        System.out.println("[WARMUP] Step 1 failed: " + e.getMessage());
+		    }
+
+		    // Second warm-up — POST JSON to login with dummy credentials
+		    System.out.println("[WARMUP] Step 2 - warming up POST JSON...");
+		    try {
+		        java.net.HttpURLConnection con = (java.net.HttpURLConnection)
+		            new java.net.URL("http://localhost:" + this.portNum + "/api/main/login")
+		                .openConnection();
+		        con.setRequestMethod("POST");
+		        con.setRequestProperty("Content-Type", "application/json");
+		        con.setDoOutput(true);
+		        con.setConnectTimeout(3000);
+		        con.setReadTimeout(5000);
+
+		        // Send dummy credentials — will fail login but warms up Jackson + Jersey
+		        String body = "{\"username\":\"warmup\",\"password\":\"warmup\"}";
+		        con.getOutputStream().write(body.getBytes("UTF-8"));
+
+		        int status = con.getResponseCode();
+		        System.out.println("[WARMUP] Step 2 response: " + status + " — POST JSON ready!");
+		        con.disconnect();
+		    } catch (Exception e) {
+		        System.out.println("[WARMUP] Step 2 failed: " + e.getMessage());
+		    }*/
 	}
+        
+		    
+		    
+		    
+		    
+		    
+		    
 	/*public Handler getFrontendHandler() {
 		ResourceHandler webcontent = new ResourceHandler();
 		webcontent.setResourceBase("./html");
@@ -151,7 +281,7 @@ public class webServer {
 	
 	
 	
-	public Handler getWebSocketHandler() {
+	/*public Handler getWebSocketHandler() {
 	    System.out.println("[WS] Building websocket handler");
 
 	    WebSocketHandler wsHandler = new WebSocketHandler() {
@@ -174,7 +304,7 @@ public class webServer {
 	    };
 
 	    return wsHandler;
-	}
+	}*/
 	
 	
 	/*public Handler getWebSocketHandler() {
