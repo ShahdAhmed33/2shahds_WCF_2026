@@ -196,4 +196,24 @@ public class teamcontroller extends maincontroller {
 
     @DELETE @Path("/listClarification") @Produces(MediaType.APPLICATION_JSON)
     public Response catchDeleteCl() { throw new MethodNotSupportedException("DELETE not supported. Use GET."); }
+    @GET
+    @Path("/submitClarification")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchGetSubmit() { 
+        throw new MethodNotSupportedException("GET not supported for submission. Use POST."); 
+    }
+
+    @PUT
+    @Path("/submitClarification")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchPutSubmit() { 
+        throw new MethodNotSupportedException("PUT not supported for submission. Use POST."); 
+    }
+
+    @DELETE
+    @Path("/submitClarification")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response catchDeleteSubmit() { 
+        throw new MethodNotSupportedException("DELETE not supported for submission. Use POST."); 
+    }
 }
