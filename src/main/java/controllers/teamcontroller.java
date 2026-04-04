@@ -13,6 +13,7 @@ import edu.csus.ecs.pc2.api.IClarification;
 import edu.csus.ecs.pc2.api.ServerConnection;
 import edu.csus.ecs.pc2.api.IContest;
 import helpers.CookiesHandlers;
+import services.ClarificationCache;
 import exceptions.MethodNotSupportedException;
 import exceptions.PC2ServiceUnavailableException;
 import exceptions.UnauthorizedSessionException;
@@ -67,6 +68,27 @@ public class teamcontroller extends maincontroller {
                     result.add(li);
                 }
             }
+            
+            
+            // 2. ✅ Read directly from cache instead of asking PC2
+           /* List<ClarificationCache.ClarificationEntry> cached = ClarificationCache.getAll();
+
+            System.out.println("[DEBUG] Clarifications in cache: " + cached.size());
+
+            // 3. Map cache entries to your model
+            List<listclarification> result = new ArrayList<>();
+            for (ClarificationCache.ClarificationEntry entry : cached) {
+                listclarification li = new listclarification(
+                    "",                  // team login name (not available from event)
+                    entry.number,
+                    0,                   // submission time (not available from event)
+                    entry.answered ? "Answered" : "New",
+                    entry.problem,
+                    entry.question,
+                    entry.answer
+                );
+                result.add(li);
+            }*/
 
             return Response.ok(result).build();
 

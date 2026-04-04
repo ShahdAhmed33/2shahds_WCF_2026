@@ -24,6 +24,8 @@ import Model.LoginPage;
 import Model.LoginResponse;
 import Model.languageList;
 import Model.listProblems;
+import edu.csus.ecs.pc2.api.IClient;
+import edu.csus.ecs.pc2.api.IClient.ClientType;
 import edu.csus.ecs.pc2.api.IContest;
 import edu.csus.ecs.pc2.api.ILanguage;
 import edu.csus.ecs.pc2.api.IProblem;
@@ -45,6 +47,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+	
 @Path("/main")
 @Tag(name = "Main", description = "Main controller endpoints")
 public class maincontroller extends GlobalClass { 
@@ -94,6 +97,16 @@ public class maincontroller extends GlobalClass {
         	System.out.print("fuck");
             ServerConnection serverconnection = new ServerConnection();
             serverconnection.login(req.username, req.password);
+            IClient myClient = serverconnection.getMyClient();
+            if (myClient.getType() != ClientType.TEAM_CLIENT) {
+                serverconnection.logoff(); // Clean up the connection
+                return Response.status(Response.Status.FORBIDDEN)
+                        .entity("{\"error\": \"Access denied: Only team accounts are allowed\"}")
+                        .type(MediaType.APPLICATION_JSON)
+                        .build();
+            }
+
+            // 3. Generate Session Token (JWT)
             
             // 3. Generate Session Token (JWT)
             String cookieID = CookiesHandlers.genCookieID("team", req.username, req.username);

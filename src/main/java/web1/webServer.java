@@ -50,6 +50,7 @@ public class webServer {
 		    @Override
 		    public void configure(WebSocketServletFactory factory) {
 		        System.out.println("[WS] Factory configure called");
+		        // ✅ Creator stays simple — path is already filtered in handle()
 		        factory.setCreator((req, resp) -> {
 		            System.out.println("[WS] CREATOR FIRED");
 		            return new websocket.ContestSocket();
@@ -61,25 +62,30 @@ public class webServer {
 		                       javax.servlet.http.HttpServletRequest request,
 		                       javax.servlet.http.HttpServletResponse response)
 		                       throws java.io.IOException, javax.servlet.ServletException {
+
 		        System.out.println("[WS] handle() called for: " + target);
 
-		        // ✅ FIX: Only intercept actual WebSocket upgrade requests
 		        String upgradeHeader = request.getHeader("Upgrade");
 		        if (upgradeHeader != null && upgradeHeader.equalsIgnoreCase("websocket")) {
-		            System.out.println("[WS] WebSocket upgrade — handling with super");
-		            super.handle(target, baseRequest, request, response);
+		            // ✅ Filter the path HERE — before super.handle()
+		            if ("/ws/contest".equals(target)) {
+		                System.out.println("[WS] WebSocket upgrade accepted for /ws/contest");
+		                super.handle(target, baseRequest, request, response);
+		            } else {
+		                System.out.println("[WS] WebSocket upgrade REJECTED for path: " + target);
+		                response.sendError(403, "Invalid WebSocket path");
+		                baseRequest.setHandled(true);
+		            }
 		            return;
 		        }
 
-		        // ✅ All normal HTTP requests pass directly to Jersey
-		        System.out.println("[WS] HTTP request — passing to Jersey");
+		        // ✅ All normal HTTP requests pass to Jersey/Swagger/Frontend
+		        System.out.println("[WS] HTTP request — passing to next handler");
 		        if (getHandler() != null) {
 		            getHandler().handle(target, baseRequest, request, response);
 		        }
 		    }
-		};
-
-		    // WebSocket handler wraps everything — WS requests handled inside, 
+		}; // WebSocket handler wraps everything — WS requests handled inside, 
 		    // all other requests passed to the rest of the chain via setHandler
 		    HandlerList restHandlers = new HandlerList();
 		    restHandlers.addHandler(getApiServletHandler());

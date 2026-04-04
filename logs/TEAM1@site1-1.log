@@ -198,3 +198,102 @@
 260328 163754.526|INFO|Thread-20|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260328 163754.526|INFO|Thread-20|log|handlePacket end Packet[LOGIN_SUCCESS] #15 SERVER0 @ site 1 -> TEAM1 @ site 1
 260328 163754.527|INFO|Thread-20|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #15 SERVER0 @ site 1 -> TEAM1 @ site 1
+260330 193505.925|CONFIG|Thread-18|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260330 193505.926|INFO|Thread-18|log|
+260330 193505.926|INFO|Thread-18|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260330 193505.927|INFO|Thread-18|log|Login: team1 (aka team1)
+260330 193505.927|INFO|Thread-18|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260330 193505.927|INFO|Thread-18|log|Process id is 5233@shahoda
+260330 193505.928|INFO|Thread-18|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260330 193505.928|INFO|Thread-18|log|handlePacket end Packet[LOGIN_SUCCESS] #8 SERVER0 @ site 1 -> TEAM1 @ site 1
+260330 193505.928|INFO|Thread-18|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #8 SERVER0 @ site 1 -> TEAM1 @ site 1
+260330 193610.069|INFO|Thread-19|log| receiveObject(S) start got Packet[CLOCK_STARTED] #13 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193610.070|INFO|Thread-19|log|Packet CLOCK_STARTED (Seq #13, o#13 ) recieveObject
+260330 193610.070|INFO|Thread-19|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193610.070|INFO|Thread-19|log|    To: SERVER0 @ site 0
+260330 193610.071|INFO|Thread-19|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260330 193610.071|INFO|Thread-19|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260330 193610.071|INFO|Thread-19|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1774892170059,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=2,WEEK_OF_YEAR=14,WEEK_OF_MONTH=5,DAY_OF_MONTH=30,DAY_OF_YEAR=89,DAY_OF_WEEK=2,DAY_OF_WEEK_IN_MONTH=5,AM_PM=1,HOUR=5,HOUR_OF_DAY=17,MINUTE=36,SECOND=10,MILLISECOND=59,ZONE_OFFSET=0,DST_OFFSET=0]
+260330 193610.072|INFO|Thread-19|log|handlePacket start Packet[CLOCK_STARTED] #13 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193610.072|INFO|Thread-19|log|Packet CLOCK_STARTED (Seq #13, o#13 ) handlePacket
+260330 193610.072|INFO|Thread-19|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193610.072|INFO|Thread-19|log|    To: SERVER0 @ site 0
+260330 193610.073|INFO|Thread-19|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260330 193610.073|INFO|Thread-19|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260330 193610.073|INFO|Thread-19|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1774892170059,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=2,WEEK_OF_YEAR=14,WEEK_OF_MONTH=5,DAY_OF_MONTH=30,DAY_OF_YEAR=89,DAY_OF_WEEK=2,DAY_OF_WEEK_IN_MONTH=5,AM_PM=1,HOUR=5,HOUR_OF_DAY=17,MINUTE=36,SECOND=10,MILLISECOND=59,ZONE_OFFSET=0,DST_OFFSET=0]
+260330 193610.094|INFO|Thread-19|log|Clock for site 1 started by ADMINISTRATOR1 @ site 1 elapsed 0:00:13
+260330 193610.095|INFO|Thread-19|log| receiveObject(S) end   got Packet[CLOCK_STARTED] #13 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193629.322|INFO|Thread-20|log| receiveObject(S) start got Packet[CLOCK_STOPPED] #14 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193629.323|INFO|Thread-20|log|Packet CLOCK_STOPPED (Seq #14, o#14 ) recieveObject
+260330 193629.323|INFO|Thread-20|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193629.323|INFO|Thread-20|log|    To: SERVER0 @ site 0
+260330 193629.323|INFO|Thread-20|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260330 193629.324|INFO|Thread-20|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260330 193629.324|INFO|Thread-20|log|handlePacket start Packet[CLOCK_STOPPED] #14 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193629.324|INFO|Thread-20|log|Packet CLOCK_STOPPED (Seq #14, o#14 ) handlePacket
+260330 193629.328|INFO|Thread-20|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193629.329|INFO|Thread-20|log|    To: SERVER0 @ site 0
+260330 193629.329|INFO|Thread-20|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260330 193629.329|INFO|Thread-20|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260330 193629.331|INFO|Thread-20|log|Clock for site 1 stopped by ADMINISTRATOR1 @ site 1 elapsed 0:00:32
+260330 193629.332|INFO|Thread-20|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #14 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.466|INFO|Thread-21|log| receiveObject(S) start got Packet[UPDATE_SETTING] #15 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.467|INFO|Thread-21|log|Packet UPDATE_SETTING (Seq #15, o#5 ) recieveObject
+260330 193646.467|INFO|Thread-21|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193646.467|INFO|Thread-21|log|    To: SERVER0 @ site 0
+260330 193646.467|INFO|Thread-21|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@bf7d7dc
+260330 193646.468|INFO|Thread-21|log|handlePacket start Packet[UPDATE_SETTING] #15 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.468|INFO|Thread-21|log|Packet UPDATE_SETTING (Seq #15, o#5 ) handlePacket
+260330 193646.468|INFO|Thread-21|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193646.468|INFO|Thread-21|log|    To: SERVER0 @ site 0
+260330 193646.468|INFO|Thread-21|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@bf7d7dc
+260330 193646.474|INFO|Thread-21|log|handlePacket end Packet[UPDATE_SETTING] #15 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.475|INFO|Thread-21|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #15 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.479|INFO|Thread-22|log| receiveObject(S) start got Packet[UPDATE_SETTING] #16 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.479|INFO|Thread-22|log|Packet UPDATE_SETTING (Seq #16, o#4 ) recieveObject
+260330 193646.479|INFO|Thread-22|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193646.479|INFO|Thread-22|log|    To: SERVER0 @ site 0
+260330 193646.480|INFO|Thread-22|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@2392e5f7
+260330 193646.480|INFO|Thread-22|log|handlePacket start Packet[UPDATE_SETTING] #16 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.480|INFO|Thread-22|log|Packet UPDATE_SETTING (Seq #16, o#4 ) handlePacket
+260330 193646.480|INFO|Thread-22|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260330 193646.481|INFO|Thread-22|log|    To: SERVER0 @ site 0
+260330 193646.481|INFO|Thread-22|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@2392e5f7
+260330 193646.482|INFO|Thread-22|log|handlePacket end Packet[UPDATE_SETTING] #16 SERVER0 @ site 1 -> SERVER0 @ site 0
+260330 193646.483|INFO|Thread-22|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #16 SERVER0 @ site 1 -> SERVER0 @ site 0
+260403 165902.930|CONFIG|Thread-40|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260403 165902.931|INFO|Thread-40|log|
+260403 165902.932|INFO|Thread-40|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260403 165902.932|INFO|Thread-40|log|Login: team1 (aka team1)
+260403 165902.932|INFO|Thread-40|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260403 165902.932|INFO|Thread-40|log|Process id is 8440@shahoda
+260403 165902.933|INFO|Thread-40|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260403 165902.934|INFO|Thread-40|log|handlePacket end Packet[LOGIN_SUCCESS] #49 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 165902.934|INFO|Thread-40|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #49 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 173621.554|CONFIG|Thread-19|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260403 173621.555|INFO|Thread-19|log|
+260403 173621.555|INFO|Thread-19|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260403 173621.555|INFO|Thread-19|log|Login: team1 (aka team1)
+260403 173621.556|INFO|Thread-19|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260403 173621.556|INFO|Thread-19|log|Process id is 14759@shahoda
+260403 173621.561|INFO|Thread-19|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260403 173621.562|INFO|Thread-19|log|handlePacket end Packet[LOGIN_SUCCESS] #82 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 173621.562|INFO|Thread-19|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #82 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 215029.041|CONFIG|Thread-18|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260403 215029.043|INFO|Thread-18|log|
+260403 215029.043|INFO|Thread-18|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260403 215029.043|INFO|Thread-18|log|Login: team1 (aka team1)
+260403 215029.043|INFO|Thread-18|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260403 215029.044|INFO|Thread-18|log|Process id is 8837@shahoda
+260403 215029.044|INFO|Thread-18|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260403 215029.045|INFO|Thread-18|log|handlePacket end Packet[LOGIN_SUCCESS] #28 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 215029.045|INFO|Thread-18|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #28 SERVER0 @ site 1 -> TEAM1 @ site 1
+260404 023302.055|CONFIG|Thread-16|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260404 023302.055|INFO|Thread-16|log|
+260404 023302.056|INFO|Thread-16|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260404 023302.056|INFO|Thread-16|log|Login: team1 (aka team1)
+260404 023302.057|INFO|Thread-16|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260404 023302.057|INFO|Thread-16|log|Process id is 13139@shahoda
+260404 023302.057|INFO|Thread-16|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260404 023302.058|INFO|Thread-16|log|handlePacket end Packet[LOGIN_SUCCESS] #31 SERVER0 @ site 1 -> TEAM1 @ site 1
+260404 023302.058|INFO|Thread-16|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #31 SERVER0 @ site 1 -> TEAM1 @ site 1

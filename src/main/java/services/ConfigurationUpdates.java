@@ -1,6 +1,8 @@
 package services;
 
+import edu.csus.ecs.pc2.api.IClarification;
 import edu.csus.ecs.pc2.api.IContestClock;
+import edu.csus.ecs.pc2.api.IProblem;
 import edu.csus.ecs.pc2.api.implementation.Contest;
 import edu.csus.ecs.pc2.api.listener.ContestEvent;
 import edu.csus.ecs.pc2.api.listener.IConfigurationUpdateListener;
@@ -24,6 +26,7 @@ public class ConfigurationUpdates implements IConfigurationUpdateListener {
                 // TODO Auto-generated method stub
                 System.out.println("PC2 configuration added .............");
         pushRealPc2Trigger("configurationItemAdded");
+      //  pushRealPc2TriggerClarification(arg0, "CLARIFICATION_SUBMITTED");
 
         }
 
@@ -40,6 +43,7 @@ public class ConfigurationUpdates implements IConfigurationUpdateListener {
                 // TODO Auto-generated method stub
                 System.out.println("PC2 configuration updated .............");
         pushRealPc2Trigger("configurationItemUpdated");
+      //  pushRealPc2TriggerClarification(arg0, "CLARIFICATION_ANSWERED");   // <-- called here
 
         }
         private void pushRealPc2Trigger(String source) {
@@ -76,4 +80,58 @@ public class ConfigurationUpdates implements IConfigurationUpdateListener {
                     e.printStackTrace();
                 }
             }
+        
+        
+        
+    /*    private void pushRealPc2TriggerClarification(ContestEvent event, String type) {
+            try {
+                IClarification[] clarifications = teamContest.getClarifications();
+                if (clarifications == null || clarifications.length == 0) return;
+
+                IClarification clar = clarifications[clarifications.length - 1];
+                if (clar == null) return;
+
+                IProblem problem   = event.getProblem();
+                String problemName = (problem != null) ? problem.getName() : "General";
+                String question    = clar.getQuestion();
+                String answer      = clar.getAnswer();
+                boolean answered   = (answer != null && !answer.isEmpty());
+
+                // ✅ Save to cache so REST endpoint can serve it
+                ClarificationCache.store(
+                    clar.getNumber(),
+                    problemName,
+                    question,
+                    answer,
+                    answered
+                );
+
+                String json =
+                    "{"
+                        + "\"type\":\"" + type + "\","
+                        + "\"payload\":{"
+                        + "\"problem\":\"" + escapeJson(problemName) + "\","
+                        + "\"question\":\"" + escapeJson(question) + "\","
+                        + "\"answered\":" + answered + ","
+                        + "\"answer\":\"" + escapeJson(answered ? answer : "") + "\""
+                        + "}"
+                        + "}";
+
+                ContestSocket.broadcast(json);
+                System.out.println("[PC2] Clarification broadcast sent: " + type);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        private String escapeJson(String value) {
+            if (value == null) return "";
+            return value
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r");
+        }*/
+        
+        
+        
 }

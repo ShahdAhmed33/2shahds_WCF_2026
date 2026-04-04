@@ -1,0 +1,11 @@
+260404 035356.297|CONFIG|Thread-30|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260404 035356.297|INFO|Thread-30|log|
+260404 035356.297|INFO|Thread-30|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260404 035356.297|INFO|Thread-30|log|Login: judge1 (aka judge1)
+260404 035356.297|INFO|Thread-30|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260404 035356.298|INFO|Thread-30|log|Process id is 23536@shahoda
+260404 035356.298|INFO|Thread-30|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260404 035356.298|INFO|Thread-30|log|handlePacket end Packet[LOGIN_SUCCESS] #152 SERVER0 @ site 1 -> JUDGE1 @ site 1
+260404 035356.299|INFO|Thread-30|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #152 SERVER0 @ site 1 -> JUDGE1 @ site 1
+260404 035356.679|INFO|qtp537548559-18|log|Sending packet to server Packet[LOGOUT] #7 JUDGE1 @ site 1 -> SERVER0 @ site 1
+260404 035356.683|INFO|qtp537548559-18|log|Sent    packet to server Packet[LOGOUT] #7 JUDGE1 @ site 1 -> SERVER0 @ site 1

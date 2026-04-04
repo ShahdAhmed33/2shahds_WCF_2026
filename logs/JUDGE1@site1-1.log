@@ -1,0 +1,22 @@
+260404 035316.112|CONFIG|Thread-23|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260404 035316.113|INFO|Thread-23|log|
+260404 035316.113|INFO|Thread-23|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260404 035316.113|INFO|Thread-23|log|Login: judge1 (aka judge1)
+260404 035316.114|INFO|Thread-23|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260404 035316.114|INFO|Thread-23|log|Process id is 23536@shahoda
+260404 035316.114|INFO|Thread-23|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260404 035316.114|INFO|Thread-23|log|handlePacket end Packet[LOGIN_SUCCESS] #147 SERVER0 @ site 1 -> JUDGE1 @ site 1
+260404 035316.115|INFO|Thread-23|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #147 SERVER0 @ site 1 -> JUDGE1 @ site 1
+260404 035316.471|INFO|qtp537548559-19|log|Sending packet to server Packet[LOGOUT] #5 JUDGE1 @ site 1 -> SERVER0 @ site 1
+260404 035316.473|INFO|qtp537548559-19|log|Sent    packet to server Packet[LOGOUT] #5 JUDGE1 @ site 1 -> SERVER0 @ site 1
+260404 035641.217|CONFIG|Thread-19|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260404 035641.217|INFO|Thread-19|log|
+260404 035641.218|INFO|Thread-19|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260404 035641.218|INFO|Thread-19|log|Login: judge1 (aka judge1)
+260404 035641.218|INFO|Thread-19|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260404 035641.218|INFO|Thread-19|log|Process id is 24135@shahoda
+260404 035641.219|INFO|Thread-19|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260404 035641.219|INFO|Thread-19|log|handlePacket end Packet[LOGIN_SUCCESS] #164 SERVER0 @ site 1 -> JUDGE1 @ site 1
+260404 035641.220|INFO|Thread-19|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #164 SERVER0 @ site 1 -> JUDGE1 @ site 1
+260404 035641.574|INFO|qtp537548559-15|log|Sending packet to server Packet[LOGOUT] #4 JUDGE1 @ site 1 -> SERVER0 @ site 1
+260404 035641.575|INFO|qtp537548559-15|log|Sent    packet to server Packet[LOGOUT] #4 JUDGE1 @ site 1 -> SERVER0 @ site 1
