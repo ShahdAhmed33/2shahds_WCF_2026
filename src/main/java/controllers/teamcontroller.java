@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -10,8 +12,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.WebApplicationException;
 import Model.listclarification;
 import edu.csus.ecs.pc2.api.IClarification;
+import edu.csus.ecs.pc2.api.IClient;
 import edu.csus.ecs.pc2.api.ServerConnection;
+import edu.csus.ecs.pc2.core.model.Clarification;
 import edu.csus.ecs.pc2.api.IContest;
+import edu.csus.ecs.pc2.api.IProblem;
 import helpers.CookiesHandlers;
 import services.ClarificationCache;
 import exceptions.MethodNotSupportedException;
@@ -118,6 +123,68 @@ public class teamcontroller extends maincontroller {
         }
     }
 
+    @POST
+    @Path("/submitClarification")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response submitClarification(@Context HttpServletRequest req, Map<String, String> payload) {
+        try {
+            // 1. Extract and Validate Token (Matches your listClarification logic)
+            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
+            
+            if (!isValidToken(token) || !sessions.containsKey(token)) {
+                throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
+            }
+
+            ServerConnection userConn = sessions.get(token);
+            
+            // 2. Validate Server Connection
+            if (userConn == null || !userConn.isLoggedIn()) {
+                throw new PC2ServiceUnavailableException("The PC2 server connection is lost for this session.");
+            }
+
+            IContest contest = userConn.getContest();
+            if (contest == null) {
+                throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
+            }
+
+         // 3. Match the Problem Name
+            String problemName = payload.get("ProblemName");
+            IProblem selectedProblem = null;
+
+            IProblem[] problems = contest.getProblems();
+            if (problems != null) {
+                for (IProblem prob : problems) {
+                    // Use trim() to remove hidden spaces and ignore case
+                	System.out.println("Available Problem in PC2: [" + prob.getName() + "]");
+                    if (prob.getName().trim().equalsIgnoreCase(problemName.trim())) {
+                        selectedProblem = prob;
+                        break;
+                    }
+                }
+            }
+
+            // 4. Submit the Clarification
+            String questionText = payload.get("Question");
+
+            // ERROR FIX: If the problem is still null after the loop, 
+            // it means "Problem A" doesn't exist exactly as typed in PC2.
+            if (selectedProblem == null) {
+                throw new Exception("Problem '" + problemName + "' not found in contest. Check the name in PC2 Admin.");
+            }
+
+            userConn.submitClarification(selectedProblem, questionText);
+
+            return Response.ok("{\"status\": \"Success\", \"message\": \"Clarification submitted\"}")
+                           .build();
+
+        } catch (Exception e) {
+            // Handle NotLoggedInException or SecurityException as defined in your docs
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                           .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                           .build();
+        }
+    }
     // --- UNSUPPORTED METHOD CATCHERS ---
     // These ensure that if a user tries POST/PUT on a GET endpoint, they get a JSON error
 

@@ -106,7 +106,6 @@ public class maincontroller extends GlobalClass {
                         .build();
             }
 
-            // 3. Generate Session Token (JWT)
             
             // 3. Generate Session Token (JWT)
             String cookieID = CookiesHandlers.genCookieID("team", req.username, req.username);

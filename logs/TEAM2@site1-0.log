@@ -290,3 +290,47 @@
 260324 000101.791|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260324 000101.791|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM2 @ site 1
 260324 000101.793|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 000719.643|CONFIG|Thread-22|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260405 000719.645|INFO|Thread-22|log|
+260405 000719.645|INFO|Thread-22|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260405 000719.645|INFO|Thread-22|log|Login: team2 (aka team2)
+260405 000719.646|INFO|Thread-22|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260405 000719.646|INFO|Thread-22|log|Process id is 32080@DESKTOP-5EPLK95
+260405 000719.647|INFO|Thread-22|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260405 000719.647|INFO|Thread-22|log|handlePacket end Packet[LOGIN_SUCCESS] #9 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 000719.647|INFO|Thread-22|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #9 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001124.786|CONFIG|Thread-21|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260405 001124.787|INFO|Thread-21|log|
+260405 001124.788|INFO|Thread-21|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260405 001124.788|INFO|Thread-21|log|Login: team2 (aka team2)
+260405 001124.790|INFO|Thread-21|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260405 001124.792|INFO|Thread-21|log|Process id is 23500@DESKTOP-5EPLK95
+260405 001124.792|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260405 001124.792|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #14 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001124.792|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #14 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001721.073|INFO|qtp626742236-54|log|Sending packet to server Packet[CLARIFICATION_SUBMISSION] #2 TEAM2 @ site 1 -> SERVER0 @ site 1
+260405 001721.075|INFO|qtp626742236-54|log|Sent    packet to server Packet[CLARIFICATION_SUBMISSION] #2 TEAM2 @ site 1 -> SERVER0 @ site 1
+260405 001721.115|INFO|Thread-27|log| receiveObject(S) start got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #16 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001721.115|INFO|Thread-27|log|Packet CLARIFICATION_SUBMISSION_CONFIRM (Seq #16, o#16 ) recieveObject
+260405 001721.121|INFO|Thread-27|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260405 001721.125|INFO|Thread-27|log|    To: TEAM2 @ site 1
+260405 001721.125|INFO|Thread-27|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 5 NEW from TEAM2 @ site 1 at 59 id=Clarification-1423021949031597198
+260405 001721.127|INFO|Thread-27|log|handlePacket start Packet[CLARIFICATION_SUBMISSION_CONFIRM] #16 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001721.127|INFO|Thread-27|log|Packet CLARIFICATION_SUBMISSION_CONFIRM (Seq #16, o#16 ) handlePacket
+260405 001721.128|INFO|Thread-27|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260405 001721.128|INFO|Thread-27|log|    To: TEAM2 @ site 1
+260405 001721.128|INFO|Thread-27|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 5 NEW from TEAM2 @ site 1 at 59 id=Clarification-1423021949031597198
+260405 001721.201|INFO|Thread-27|log| receiveObject(S) end   got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #16 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001849.859|INFO|qtp626742236-37|log|Sending packet to server Packet[CLARIFICATION_SUBMISSION] #3 TEAM2 @ site 1 -> SERVER0 @ site 1
+260405 001849.861|INFO|qtp626742236-37|log|Sent    packet to server Packet[CLARIFICATION_SUBMISSION] #3 TEAM2 @ site 1 -> SERVER0 @ site 1
+260405 001849.899|INFO|Thread-30|log| receiveObject(S) start got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #17 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001849.900|INFO|Thread-30|log|Packet CLARIFICATION_SUBMISSION_CONFIRM (Seq #17, o#17 ) recieveObject
+260405 001849.900|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260405 001849.900|INFO|Thread-30|log|    To: TEAM2 @ site 1
+260405 001849.901|INFO|Thread-30|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 6 NEW from TEAM2 @ site 1 at 61 id=Clarification-3268651067696046534
+260405 001849.901|INFO|Thread-30|log|handlePacket start Packet[CLARIFICATION_SUBMISSION_CONFIRM] #17 SERVER0 @ site 1 -> TEAM2 @ site 1
+260405 001849.902|INFO|Thread-30|log|Packet CLARIFICATION_SUBMISSION_CONFIRM (Seq #17, o#17 ) handlePacket
+260405 001849.902|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260405 001849.903|INFO|Thread-30|log|    To: TEAM2 @ site 1
+260405 001849.903|INFO|Thread-30|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 6 NEW from TEAM2 @ site 1 at 61 id=Clarification-3268651067696046534
+260405 001849.904|INFO|Thread-30|log| receiveObject(S) end   got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #17 SERVER0 @ site 1 -> TEAM2 @ site 1
