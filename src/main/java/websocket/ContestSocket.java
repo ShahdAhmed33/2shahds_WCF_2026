@@ -11,6 +11,8 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
 import controllers.maincontroller;
+import exceptions.NotVerifiedCookieException;
+import exceptions.UnauthorizedSessionException;
 import helpers.CookiesHandlers;
 @WebSocket
 public class ContestSocket {
@@ -93,19 +95,15 @@ public class ContestSocket {
 
 	        // 3. Reject if no token at all
 	        if (token == null || token.trim().isEmpty()) {
-	            System.out.println("[WS] Rejected — no token provided");
-	            session.close(1008, "Unauthorized");
-	            return;
+	        throw new UnauthorizedSessionException("No authentication token provided.");
 	        }
 
 	        // 4. Verify token using your CookiesHandlers
 	        try {
 	            CookiesHandlers.verifyCookie(token);
-	        } catch (exceptions.NotVerifiedCookieException e) {
-	            System.out.println("[WS] Rejected — invalid token: " + e.getMessage());
-	            session.close(1008, "Unauthorized");
-	            return;
-	        }
+	        } catch (NotVerifiedCookieException e) {
+                throw new UnauthorizedSessionException("Invalid or expired token: " + e.getMessage());
+            }
 
 	        // 5. Token is valid — accept connection
 	        System.out.println("[WS] Token verified successfully");
@@ -115,10 +113,15 @@ public class ContestSocket {
 	            "{\"type\":\"WS_CONNECTED\",\"message\":\"websocket connected successfully\"}"
 	        );
 
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        try { session.close(); } catch (Exception ex) { ex.printStackTrace(); }
-	    }
+	    }catch (UnauthorizedSessionException e) {
+            System.err.println("[WS] Unauthorized: " + e.getMessage());
+            session.close(1008, "Unauthorized: " + e.getMessage());
+        }
+	    catch (Exception e) {
+            System.err.println("[WS] Unexpected Error during connection");
+            e.printStackTrace();
+            session.close(1011, "Server Error");
+        }
 	}
 	
 	
