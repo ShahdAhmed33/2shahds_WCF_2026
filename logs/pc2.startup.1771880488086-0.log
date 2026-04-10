@@ -1,0 +1,26 @@
+260223 230128.088|CONFIG|qtp38997010-41|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260223 230128.089|INFO|qtp38997010-41|log|
+260223 230128.089|INFO|qtp38997010-41|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260223 230128.089|INFO|qtp38997010-41|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260223 230128.091|INFO|qtp38997010-41|log|Process id is 12576@lilsaados
+260223 230128.091|INFO|qtp38997010-41|log|Starting ConnectionManager...
+260223 230128.092|INFO|qtp38997010-41|log|Started ConnectionManager
+260223 230128.130|SEVERE|qtp38997010-41|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Lenovo\git\2shahds_WCF_2026
+260223 230128.130|INFO|qtp38997010-41|log|Contacting server at localhost:50002
+260223 230128.130|INFO|qtp38997010-41|log|Connecting to localhost:50002
+260223 230128.138|INFO|Thread-33|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=64982]-3544634493233913744)
+260223 231330.232|INFO|Thread-33|log|EOFException in receive for Socket[addr=localhost/127.0.0.1,port=50002,localport=64982]-3544634493233913744
+|java.io.EOFException: null
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (Unknown Source)
+|    at java.io.ObjectInputStream.readObject0 (Unknown Source)
+|    at java.io.ObjectInputStream.readObject (Unknown Source)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:152)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260223 231330.232|FINER|Thread-33|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:159)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260223 231330.232|FINER|Thread-33|run - e.getmessage is null()|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:159)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)

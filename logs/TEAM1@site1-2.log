@@ -1,0 +1,81 @@
+260222 012844.710|CONFIG|Thread-30|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 012844.710|INFO|Thread-30|log|
+260222 012844.711|INFO|Thread-30|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 012844.711|INFO|Thread-30|log|Login: team1 (aka team1)
+260222 012844.712|INFO|Thread-30|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 012844.712|INFO|Thread-30|log|Process id is 31660@DESKTOP-5EPLK95
+260222 012844.712|INFO|Thread-30|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260222 012844.712|INFO|Thread-30|log|handlePacket end Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
+260222 012844.713|INFO|Thread-30|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
+260223 231330.302|CONFIG|Thread-51|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260223 231330.303|INFO|Thread-51|log|
+260223 231330.303|INFO|Thread-51|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260223 231330.304|INFO|Thread-51|log|Login: team1 (aka team1)
+260223 231330.304|INFO|Thread-51|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260223 231330.304|INFO|Thread-51|log|Process id is 12576@lilsaados
+260223 231330.304|INFO|Thread-51|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260223 231330.304|INFO|Thread-51|log|handlePacket end Packet[LOGIN_SUCCESS] #29 SERVER0 @ site 1 -> TEAM1 @ site 1
+260223 231330.304|INFO|Thread-51|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #29 SERVER0 @ site 1 -> TEAM1 @ site 1
+260224 211904.450|CONFIG|Thread-28|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260224 211904.451|INFO|Thread-28|log|
+260224 211904.451|INFO|Thread-28|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260224 211904.451|INFO|Thread-28|log|Login: team1 (aka team1)
+260224 211904.451|INFO|Thread-28|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260224 211904.453|INFO|Thread-28|log|Process id is 23624@lilsaados
+260224 211904.453|INFO|Thread-28|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260224 211904.453|INFO|Thread-28|log|handlePacket end Packet[LOGIN_SUCCESS] #19 SERVER0 @ site 1 -> TEAM1 @ site 1
+260224 211904.453|INFO|Thread-28|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #19 SERVER0 @ site 1 -> TEAM1 @ site 1
+260302 224254.537|CONFIG|Thread-20|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260302 224254.538|INFO|Thread-20|log|
+260302 224254.538|INFO|Thread-20|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-100-generic (amd64) 
+260302 224254.539|INFO|Thread-20|log|Login: team1 (aka team1)
+260302 224254.539|INFO|Thread-20|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260302 224254.539|INFO|Thread-20|log|Process id is 17247@shahoda
+260302 224254.540|INFO|Thread-20|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260302 224254.540|INFO|Thread-20|log|handlePacket end Packet[LOGIN_SUCCESS] #33 SERVER0 @ site 1 -> TEAM1 @ site 1
+260302 224254.540|INFO|Thread-20|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #33 SERVER0 @ site 1 -> TEAM1 @ site 1
+260319 060622.448|CONFIG|Thread-30|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260319 060622.449|INFO|Thread-30|log|
+260319 060622.450|INFO|Thread-30|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260319 060622.450|INFO|Thread-30|log|Login: team1 (aka team1)
+260319 060622.450|INFO|Thread-30|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260319 060622.451|INFO|Thread-30|log|Process id is 41688@DESKTOP-5EPLK95
+260319 060622.451|INFO|Thread-30|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260319 060622.451|INFO|Thread-30|log|handlePacket end Packet[LOGIN_SUCCESS] #42 SERVER0 @ site 1 -> TEAM1 @ site 1
+260319 060622.451|INFO|Thread-30|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #42 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 215446.502|CONFIG|Thread-24|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260403 215446.505|INFO|Thread-24|log|
+260403 215446.505|INFO|Thread-24|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-106-generic (amd64) 
+260403 215446.505|INFO|Thread-24|log|Login: team1 (aka team1)
+260403 215446.505|INFO|Thread-24|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260403 215446.506|INFO|Thread-24|log|Process id is 8837@shahoda
+260403 215446.506|INFO|Thread-24|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260403 215446.506|INFO|Thread-24|log|handlePacket end Packet[LOGIN_SUCCESS] #34 SERVER0 @ site 1 -> TEAM1 @ site 1
+260403 215446.507|INFO|Thread-24|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #34 SERVER0 @ site 1 -> TEAM1 @ site 1
+260410 151619.132|CONFIG|Thread-23|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260410 151619.133|INFO|Thread-23|log|
+260410 151619.133|INFO|Thread-23|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260410 151619.133|INFO|Thread-23|log|Login: team1 (aka team1)
+260410 151619.133|INFO|Thread-23|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260410 151619.134|INFO|Thread-23|log|Process id is 10816@lilsaados
+260410 151619.134|INFO|Thread-23|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260410 151619.134|INFO|Thread-23|log|handlePacket end Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
+260410 151619.134|INFO|Thread-23|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
+260410 173445.531|CONFIG|Thread-35|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260410 173445.532|INFO|Thread-35|log|
+260410 173445.532|INFO|Thread-35|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260410 173445.532|INFO|Thread-35|log|Login: team1 (aka team1)
+260410 173445.532|INFO|Thread-35|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260410 173445.533|INFO|Thread-35|log|Process id is 11828@lilsaados
+260410 173445.533|INFO|Thread-35|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260410 173445.533|INFO|Thread-35|log|handlePacket end Packet[LOGIN_SUCCESS] #96 SERVER0 @ site 1 -> TEAM1 @ site 1
+260410 173445.533|INFO|Thread-35|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #96 SERVER0 @ site 1 -> TEAM1 @ site 1
+260410 200844.052|CONFIG|Thread-30|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260410 200844.053|INFO|Thread-30|log|
+260410 200844.053|INFO|Thread-30|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260410 200844.053|INFO|Thread-30|log|Login: team1 (aka team1)
+260410 200844.053|INFO|Thread-30|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260410 200844.053|INFO|Thread-30|log|Process id is 18532@lilsaados
+260410 200844.054|INFO|Thread-30|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260410 200844.054|INFO|Thread-30|log|handlePacket end Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1
+260410 200844.054|INFO|Thread-30|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #17 SERVER0 @ site 1 -> TEAM1 @ site 1

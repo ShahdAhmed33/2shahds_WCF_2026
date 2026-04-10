@@ -1,0 +1,10 @@
+260410 161609.011|CONFIG|qtp1607460018-15|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260410 161609.013|INFO|qtp1607460018-15|log|
+260410 161609.015|INFO|qtp1607460018-15|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260410 161609.015|INFO|qtp1607460018-15|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260410 161609.020|INFO|qtp1607460018-15|log|Process id is 8300@lilsaados
+260410 161609.021|INFO|qtp1607460018-15|log|Starting ConnectionManager...
+260410 161609.646|INFO|qtp1607460018-15|log|Started ConnectionManager
+260410 161609.646|SEVERE|qtp1607460018-15|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Lenovo\git\2shahds_WCF_2026
+260410 161609.646|INFO|qtp1607460018-15|log|Contacting server at localhost:50002
+260410 161609.647|INFO|qtp1607460018-15|log|Connecting to localhost:50002

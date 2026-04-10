@@ -1,0 +1,25 @@
+260221 164306.382|CONFIG|qtp325333723-56|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 164306.385|INFO|qtp325333723-56|log|
+260221 164306.386|INFO|qtp325333723-56|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 164306.386|INFO|qtp325333723-56|log|Login: admin (aka root)
+260221 164306.388|INFO|qtp325333723-56|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 164306.391|INFO|qtp325333723-56|log|Process id is 11424@DESKTOP-5EPLK95
+260221 164306.391|INFO|qtp325333723-56|log|Contacting server at localhost:50002 as ADMINISTRATOR0 @ site 0
+260221 164306.392|INFO|qtp325333723-56|log|sendLoginRequest start - sending from ADMINISTRATOR0 @ site 0
+260221 164306.392|INFO|qtp325333723-56|log|Sending packet to server Packet[LOGIN_REQUEST] #8 ADMINISTRATOR0 @ site 0 -> SERVER0 @ site 0
+260221 164306.392|INFO|qtp325333723-56|log|Sent    packet to server Packet[LOGIN_REQUEST] #8 ADMINISTRATOR0 @ site 0 -> SERVER0 @ site 0
+260221 164306.392|INFO|qtp325333723-56|log|sendLoginRequest end - packet sent.
+260221 164306.392|INFO|Thread-52|log|send(Serializable)
+260221 164306.408|INFO|Thread-51|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260221 164306.411|INFO|Thread-53|log| receiveObject(S) start got Packet[LOGIN_FAILED] #19 SERVER0 @ site 1 -> ADMINISTRATOR0 @ site 0
+260221 164306.411|INFO|Thread-53|log|Packet LOGIN_FAILED (Seq #19, o#19 ) recieveObject
+260221 164306.411|INFO|Thread-53|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260221 164306.411|INFO|Thread-53|log|    To: ADMINISTRATOR0 @ site 0
+260221 164306.411|INFO|Thread-53|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260221 164306.412|INFO|Thread-53|log|handlePacket start Packet[LOGIN_FAILED] #19 SERVER0 @ site 1 -> ADMINISTRATOR0 @ site 0
+260221 164306.412|INFO|Thread-53|log|Packet LOGIN_FAILED (Seq #19, o#19 ) handlePacket
+260221 164306.412|INFO|Thread-53|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260221 164306.412|INFO|Thread-53|log|    To: ADMINISTRATOR0 @ site 0
+260221 164306.412|INFO|Thread-53|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260221 164306.412|INFO|Thread-53|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #19 SERVER0 @ site 1 -> ADMINISTRATOR0 @ site 0
+260221 164330.372|INFO|Thread-51|log|connectionDropped(ConnectionHandlerID myConnectionID) 

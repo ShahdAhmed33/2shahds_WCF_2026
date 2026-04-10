@@ -1,0 +1,29 @@
+260222 024937.240|CONFIG|qtp477289012-61|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260222 024937.243|INFO|qtp477289012-61|log|
+260222 024937.246|INFO|qtp477289012-61|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260222 024937.246|INFO|qtp477289012-61|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260222 024937.253|INFO|qtp477289012-61|log|Process id is 22780@DESKTOP-5EPLK95
+260222 024937.255|INFO|qtp477289012-61|log|Starting ConnectionManager...
+260222 024937.287|INFO|qtp477289012-61|log|Started ConnectionManager
+260222 024937.293|SEVERE|qtp477289012-61|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260222 024937.294|INFO|qtp477289012-61|log|Contacting server at localhost:50002
+260222 024937.295|INFO|qtp477289012-61|log|Connecting to localhost:50002
+260222 025206.417|INFO|Thread-19|log|SocketException in receive for Socket[addr=localhost/127.0.0.1,port=50002,localport=49601]-5859073739263702173
+|java.net.SocketException: Connection reset
+|    at sun.nio.ch.NioSocketImpl.implRead (NioSocketImpl.java:318)
+|    at sun.nio.ch.NioSocketImpl.read (NioSocketImpl.java:346)
+|    at sun.nio.ch.NioSocketImpl$1.read (NioSocketImpl.java:796)
+|    at java.net.Socket$SocketInputStream.read (Socket.java:1099)
+|    at java.net.Socket$SocketInputStream.read (Socket.java:1093)
+|    at java.io.ObjectInputStream$PeekInputStream.peek (ObjectInputStream.java:2893)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peek (ObjectInputStream.java:3220)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (ObjectInputStream.java:3230)
+|    at java.io.ObjectInputStream.readObject0 (ObjectInputStream.java:1713)
+|    at java.io.ObjectInputStream.readObject (ObjectInputStream.java:540)
+|    at java.io.ObjectInputStream.readObject (ObjectInputStream.java:498)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:152)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260222 025206.423|FINER|Thread-19|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection reset
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:156)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)

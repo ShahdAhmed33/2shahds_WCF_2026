@@ -1,0 +1,67 @@
+260302 224457.601|CONFIG|qtp1130478920-16|log|Now logging to /home/shahd/eclipse-workspace/wti1/logs directory.
+260302 224457.602|INFO|qtp1130478920-16|log|
+260302 224457.602|INFO|qtp1130478920-16|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-100-generic (amd64) 
+260302 224457.602|INFO|qtp1130478920-16|log|Login: tt (aka team0)
+260302 224457.602|INFO|qtp1130478920-16|log|Working directory is /home/shahd/eclipse-workspace/wti1
+260302 224457.603|INFO|qtp1130478920-16|log|Process id is 17247@shahoda
+260302 224457.603|INFO|qtp1130478920-16|log|Contacting server at localhost:50002 as TEAM0 @ site 0
+260302 224457.603|INFO|qtp1130478920-16|log|sendLoginRequest start - sending from TEAM0 @ site 0
+260302 224457.604|INFO|qtp1130478920-16|log|Sending packet to server Packet[LOGIN_REQUEST] #5 TEAM0 @ site 0 -> SERVER0 @ site 0
+260302 224457.612|INFO|qtp1130478920-16|log|Sent    packet to server Packet[LOGIN_REQUEST] #5 TEAM0 @ site 0 -> SERVER0 @ site 0
+260302 224457.613|INFO|qtp1130478920-16|log|sendLoginRequest end - packet sent.
+260302 224457.612|INFO|Thread-29|log|send(Serializable)
+260302 224457.650|INFO|Thread-28|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=35060]--7547160050678485998)
+260302 224457.654|INFO|Thread-28|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=35060]--7547160050678485998 key is com.sun.crypto.provider.DESKey@fffe7f03
+260302 224457.654|INFO|Thread-28|log|Generating Unencrypted Public Key Packet
+260302 224457.655|INFO|Thread-28|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    4a4eb24d fbd8c655 638ee687 4f4f8337 75a1e127 cd87de7b 85115192 2453b906
+    5961ba9e 5a216b9c 11cd8282 53d11fe8 5ce4923b 1c42d0b1 98e69966 7fc9300b
+    bce60143 a414349b c696c69b 577e2782 0fb75a71 4f0cfa53 f6108128 b148acd3
+    ac9fe8d7 22389091 df73d69a 77c48832 466ed357 0d40f43c 68d22a40 dda300bd
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260302 224457.655|INFO|Thread-28|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@6484f62a
+260302 224457.747|INFO|Thread-28|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260302 224457.749|INFO|Thread-30|log| receiveObject(S) start got Packet[LOGIN_FAILED] #42 SERVER0 @ site 1 -> TEAM0 @ site 0
+260302 224457.750|INFO|Thread-30|log|Packet LOGIN_FAILED (Seq #42, o#42 ) recieveObject
+260302 224457.750|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260302 224457.750|INFO|Thread-30|log|    To: TEAM0 @ site 0
+260302 224457.750|INFO|Thread-30|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260302 224457.750|INFO|Thread-30|log|handlePacket start Packet[LOGIN_FAILED] #42 SERVER0 @ site 1 -> TEAM0 @ site 0
+260302 224457.750|INFO|Thread-30|log|Packet LOGIN_FAILED (Seq #42, o#42 ) handlePacket
+260302 224457.750|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (shahoda @ 127.0.1.1) (Contest Id: Default--6159007321590187439)
+260302 224457.750|INFO|Thread-30|log|    To: TEAM0 @ site 0
+260302 224457.750|INFO|Thread-30|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260302 224457.752|INFO|Thread-30|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #42 SERVER0 @ site 1 -> TEAM0 @ site 0
+260319 152708.402|CONFIG|qtp1890627974-43|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260319 152708.403|INFO|qtp1890627974-43|log|
+260319 152708.403|INFO|qtp1890627974-43|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260319 152708.404|INFO|qtp1890627974-43|log|Login: teamq2 (aka team0)
+260319 152708.404|INFO|qtp1890627974-43|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260319 152708.404|INFO|qtp1890627974-43|log|Process id is 40728@DESKTOP-5EPLK95
+260319 152708.404|INFO|qtp1890627974-43|log|Contacting server at localhost:50002 as TEAM0 @ site 0
+260319 152708.404|INFO|qtp1890627974-43|log|sendLoginRequest start - sending from TEAM0 @ site 0
+260319 152708.405|INFO|qtp1890627974-43|log|Sending packet to server Packet[LOGIN_REQUEST] #5 TEAM0 @ site 0 -> SERVER0 @ site 0
+260319 152708.405|INFO|qtp1890627974-43|log|Sent    packet to server Packet[LOGIN_REQUEST] #5 TEAM0 @ site 0 -> SERVER0 @ site 0
+260319 152708.405|INFO|qtp1890627974-43|log|sendLoginRequest end - packet sent.
+260319 152708.405|INFO|Thread-41|log|send(Serializable)
+260319 152708.421|INFO|Thread-40|log|public void receive(SealedObject TransportPacket, ConnectionHandlerID connectionHandlerID)
+260319 152708.428|INFO|Thread-42|log| receiveObject(S) start got Packet[LOGIN_FAILED] #48 SERVER0 @ site 1 -> TEAM0 @ site 0
+260319 152708.428|INFO|Thread-42|log|Packet LOGIN_FAILED (Seq #48, o#48 ) recieveObject
+260319 152708.428|INFO|Thread-42|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260319 152708.428|INFO|Thread-42|log|    To: TEAM0 @ site 0
+260319 152708.428|INFO|Thread-42|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260319 152708.428|INFO|Thread-42|log|handlePacket start Packet[LOGIN_FAILED] #48 SERVER0 @ site 1 -> TEAM0 @ site 0
+260319 152708.428|INFO|Thread-42|log|Packet LOGIN_FAILED (Seq #48, o#48 ) handlePacket
+260319 152708.428|INFO|Thread-42|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260319 152708.429|INFO|Thread-42|log|    To: TEAM0 @ site 0
+260319 152708.429|INFO|Thread-42|log|   key: MESSAGE_STRING is: java.lang.String No such account
+260319 152708.429|INFO|Thread-42|log| receiveObject(S) end   got Packet[LOGIN_FAILED] #48 SERVER0 @ site 1 -> TEAM0 @ site 0

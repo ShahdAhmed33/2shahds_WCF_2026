@@ -1,0 +1,25 @@
+260409 231544.121|CONFIG|qtp1607460018-14|log|Now logging to C:\Users\Lenovo\git\2shahds_WCF_2026\logs directory.
+260409 231544.124|INFO|qtp1607460018-14|log|
+260409 231544.125|INFO|qtp1607460018-14|log|Version 9.10.0 () Java ver 1.8.0_51 build 7065 Windows 8.1 6.3 (amd64) 
+260409 231544.126|INFO|qtp1607460018-14|log|Working directory is C:\Users\Lenovo\git\2shahds_WCF_2026
+260409 231544.130|INFO|qtp1607460018-14|log|Process id is 10692@lilsaados
+260409 231544.131|INFO|qtp1607460018-14|log|Starting ConnectionManager...
+260409 231544.701|INFO|qtp1607460018-14|log|Started ConnectionManager
+260409 231544.702|SEVERE|qtp1607460018-14|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Lenovo\git\2shahds_WCF_2026
+260409 231544.702|INFO|qtp1607460018-14|log|Contacting server at localhost:50002
+260409 231544.702|INFO|qtp1607460018-14|log|Connecting to localhost:50002
+260409 231736.858|INFO|Thread-14|log|EOFException in receive for Socket[addr=localhost/127.0.0.1,port=50002,localport=51176]--8395208222465691698
+|java.io.EOFException: null
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (Unknown Source)
+|    at java.io.ObjectInputStream.readObject0 (Unknown Source)
+|    at java.io.ObjectInputStream.readObject (Unknown Source)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:152)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260409 231736.861|FINER|Thread-14|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:159)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260409 231736.861|FINER|Thread-14|run - e.getmessage is null()|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:159)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)

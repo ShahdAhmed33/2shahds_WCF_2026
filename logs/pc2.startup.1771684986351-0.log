@@ -1,0 +1,48 @@
+260221 164306.356|CONFIG|qtp325333723-56|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260221 164306.357|INFO|qtp325333723-56|log|
+260221 164306.357|INFO|qtp325333723-56|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260221 164306.358|INFO|qtp325333723-56|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260221 164306.364|INFO|qtp325333723-56|log|Process id is 11424@DESKTOP-5EPLK95
+260221 164306.364|INFO|qtp325333723-56|log|Starting ConnectionManager...
+260221 164306.365|INFO|qtp325333723-56|log|Started ConnectionManager
+260221 164306.369|SEVERE|qtp325333723-56|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260221 164306.369|INFO|qtp325333723-56|log|Contacting server at localhost:50002
+260221 164306.369|INFO|qtp325333723-56|log|Connecting to localhost:50002
+260221 164306.386|INFO|Thread-51|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=56758]-3864605068052303327)
+260221 164306.389|INFO|Thread-51|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=56758]-3864605068052303327 key is com.sun.crypto.provider.DESKey@18dc9
+260221 164306.389|INFO|Thread-51|log|Generating Unencrypted Public Key Packet
+260221 164306.391|INFO|Thread-51|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    bd473789 7d70e3a7 564cddc0 77eb0784 ec271bb7 e11b53db d0eb9c36 aa30d8ce
+    aca3bf99 9c6a2850 612c746d ccd40e72 a12d4ff8 c7e2009a 994f7827 75a7da42
+    951b69b1 ff67a296 e942df75 7309045c eda92bd5 bbcff2f6 9dc9f8d1 7cf0b517
+    90ec133b f5969164 e6a52d6a ebac5512 435484c8 81ebce0a a1268151 93fec257
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260221 164306.391|INFO|Thread-51|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@36a75a36
+260221 164330.371|INFO|Thread-51|log|SocketException in receive for Socket[addr=localhost/127.0.0.1,port=50002,localport=56758]-3864605068052303327
+|java.net.SocketException: Connection reset
+|    at sun.nio.ch.NioSocketImpl.implRead (NioSocketImpl.java:318)
+|    at sun.nio.ch.NioSocketImpl.read (NioSocketImpl.java:346)
+|    at sun.nio.ch.NioSocketImpl$1.read (NioSocketImpl.java:796)
+|    at java.net.Socket$SocketInputStream.read (Socket.java:1099)
+|    at java.net.Socket$SocketInputStream.read (Socket.java:1093)
+|    at java.io.ObjectInputStream$PeekInputStream.peek (ObjectInputStream.java:2893)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peek (ObjectInputStream.java:3220)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (ObjectInputStream.java:3230)
+|    at java.io.ObjectInputStream.readObject0 (ObjectInputStream.java:1713)
+|    at java.io.ObjectInputStream.readObject (ObjectInputStream.java:540)
+|    at java.io.ObjectInputStream.readObject (ObjectInputStream.java:498)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:152)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
+260221 164330.372|FINER|Thread-51|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection reset
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:156)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:66)
