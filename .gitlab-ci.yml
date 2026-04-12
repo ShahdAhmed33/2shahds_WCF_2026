@@ -29,7 +29,6 @@ deploy-job:      # This job runs in the deploy stage.
   stage: deploy 
   script:
     - echo "Deploying application..."
-    - ls -l target
-    - ls -l dist/
+    - ls -l /tmp
     - ls -l /
 
