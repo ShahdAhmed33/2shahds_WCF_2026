@@ -36,6 +36,5 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - ls -l output
-    - ls -l /tmp
-    - ls -l /
+    - rsync -avh --delete output/pc2webapp/ /wwfwebapp/
 
