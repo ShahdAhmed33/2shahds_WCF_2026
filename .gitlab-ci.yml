@@ -24,9 +24,6 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - mvn install
-  artifacts:
-    paths:
-      - dist/
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy 
