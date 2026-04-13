@@ -6,5 +6,5 @@ java \
 -Dfile.encoding=UTF-8 \
 -Dstdout.encoding=UTF-8 \
 -Dstderr.encoding=UTF-8 \
--cp "${CLASSPATH}/bin/pc2webapp-1.0.jar:${CLASSPATH}/libs/*" \
--XX:+ShowCodeDetailsInExceptionMessages pc2webapp.StarterClass ${@}
+-cp "${CLASSPATH}/bin/web1-1.0.jar:${CLASSPATH}/libs/*" \
+-XX:+ShowCodeDetailsInExceptionMessages web1.starterclass ${@}

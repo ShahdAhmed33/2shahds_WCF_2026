@@ -14,16 +14,16 @@
   
 
   <groupId>edu.aast.ceng</groupId>
-  <artifactId>pc2webapp</artifactId>
+  <artifactId>web1</artifactId>
   <version>1.0</version>
 
-  <name>pc2webapp</name>
+  <name>web1</name>
   <description>An ACPC Team</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.acpc.global</url>
 
   <properties>
-   <pc2webapp.packagefilename>pc2webapp</pc2webapp.packagefilename>
+   <pc2webapp.packagefilename>web1</pc2webapp.packagefilename>
    <pc2webapp.tmpbuildpackagefilename>/tmp/${pc2webapp.packagefilename}-build</pc2webapp.tmpbuildpackagefilename>
    <pc2webapp.tmppackagefilename>${pc2webapp.tmpbuildpackagefilename}/${pc2webapp.packagefilename}</pc2webapp.tmppackagefilename>
 
@@ -158,7 +158,7 @@
                 <archive>
                     <manifest>
                         <!-- fully-qualified name of your main class -->
-                        <mainClass>pc2webapp.StarterClass</mainClass>
+                        <mainClass>web1.starterclass</mainClass>
                         <!-- optional: include classpath entries -->
                         <addClasspath>true</addClasspath>
                         <classpathPrefix>lib/</classpathPrefix>
@@ -251,8 +251,8 @@
                             <copy todir="${pc2webapp.tmppackagefilename}/libs" >  
 		    					<fileset dir="${project.build.directory}/libs/" includes="**"/>  
 							</copy> 
-                        	<copy file="${project.basedir}/final/pc2webapp-1.0.jar"
-                                  todir="${pc2webapp.tmppackagefilename}/bin"/>
+                        	<copy file="${project.basedir}/final/web1-1.0.jar"
+					todir="${pc2webapp.tmppackagefilename}/bin"/>
                             <tar destfile="/tmp/${pc2webapp.packagefilename}.tar.gz" basedir="${pc2webapp.tmpbuildpackagefilename}" compression="gzip">
 								 <tarfileset dir="${pc2webapp.tmppackagefilename}" filemode="755"> 
 									<include name="${pc2webapp.packagefilename}/launch.sh"/>
