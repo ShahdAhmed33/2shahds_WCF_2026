@@ -7,11 +7,11 @@ public class LoginResponse {
 	public String username;
     
    @Schema(description = "JWT token if login is successful", example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")
-	public String token;
+   public String token;
 	
 	public LoginResponse() {}
 	
-	public LoginResponse(String username,String token) {
+	public LoginResponse(String username, String token) {
 		
 		this.username=username;
 		this.token=token;
