@@ -1,0 +1,10 @@
+260415 195500.574|CONFIG|qtp1603195447-35|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260415 195500.576|INFO|qtp1603195447-35|log|
+260415 195500.580|INFO|qtp1603195447-35|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260415 195500.580|INFO|qtp1603195447-35|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260415 195500.596|INFO|qtp1603195447-35|log|Process id is 43292@DESKTOP-5EPLK95
+260415 195500.598|INFO|qtp1603195447-35|log|Starting ConnectionManager...
+260415 195500.645|INFO|qtp1603195447-35|log|Started ConnectionManager
+260415 195500.647|SEVERE|qtp1603195447-35|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260415 195500.647|INFO|qtp1603195447-35|log|Contacting server at localhost:50002
+260415 195500.648|INFO|qtp1603195447-35|log|Connecting to localhost:50002

@@ -1,0 +1,11 @@
+260413 220129.756|CONFIG|qtp1395089624-34|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260413 220129.756|INFO|qtp1395089624-34|log|
+260413 220129.757|INFO|qtp1395089624-34|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260413 220129.758|INFO|qtp1395089624-34|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260413 220129.760|INFO|qtp1395089624-34|log|Process id is 31028@DESKTOP-5EPLK95
+260413 220129.761|INFO|qtp1395089624-34|log|Starting ConnectionManager...
+260413 220129.767|INFO|qtp1395089624-34|log|Started ConnectionManager
+260413 220129.768|SEVERE|qtp1395089624-34|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260413 220129.769|INFO|qtp1395089624-34|log|Contacting server at localhost:50002
+260413 220129.769|INFO|qtp1395089624-34|log|Connecting to localhost:50002
+260413 220129.782|INFO|Thread-26|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=51679]-4753822347036256889)

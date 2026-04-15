@@ -125,6 +125,11 @@
             <artifactId>swagger-ui</artifactId>
             <version>5.11.8</version>
         </dependency>
+        <dependency>
+        	<groupId>edu.aast.ceng</groupId>
+        	<artifactId>clarification</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     
     <build>
