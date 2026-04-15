@@ -1,0 +1,29 @@
+260416 002006.952|CONFIG|qtp1395089624-32|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260416 002006.954|INFO|qtp1395089624-32|log|
+260416 002006.955|INFO|qtp1395089624-32|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260416 002006.955|INFO|qtp1395089624-32|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260416 002006.960|INFO|qtp1395089624-32|log|Process id is 19096@DESKTOP-5EPLK95
+260416 002006.961|INFO|qtp1395089624-32|log|Starting ConnectionManager...
+260416 002006.970|INFO|qtp1395089624-32|log|Started ConnectionManager
+260416 002006.975|SEVERE|qtp1395089624-32|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260416 002006.975|INFO|qtp1395089624-32|log|Contacting server at localhost:50002
+260416 002006.976|INFO|qtp1395089624-32|log|Connecting to localhost:50002
+260416 002007.011|INFO|Thread-17|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=55494]-4814953438541143881)
+260416 002007.018|INFO|Thread-17|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=55494]-4814953438541143881 key is com.sun.crypto.provider.DESKey@184f1
+260416 002007.018|INFO|Thread-17|log|Generating Unencrypted Public Key Packet
+260416 002007.018|INFO|Thread-17|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    1e18f354 71087cb5 453ad52c 5f750ab4 1add6c9e deb14351 e4a99df5 b4451ba5
+    eefff115 2335deef 0fda822d ac0bf280 284868cc 214cd2ed b731388c 8f9592c4
+    e96e6daf c482e2b5 61c53da3 f825876c faa36784 25bce53c 34b76fd4 55fadfa9
+    7b9f336e 049d35e7 c1d990f5 71db74b3 eb21cfe8 e92037f8 f18622c0 cd05d9da
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260416 002007.019|INFO|Thread-17|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@4b3b6875

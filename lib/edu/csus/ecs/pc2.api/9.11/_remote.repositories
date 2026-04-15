@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Apr 16 00:55:23 EET 2026
+pc2.api-9.11.jar>=
+pc2.api-9.11.pom>=

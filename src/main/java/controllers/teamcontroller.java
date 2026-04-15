@@ -23,7 +23,8 @@ import exceptions.MethodNotSupportedException;
 import exceptions.PC2ServiceUnavailableException;
 import exceptions.UnauthorizedSessionException;
 import exceptions.NoCookieException;
-
+import edu.csus.ecs.pc2.core.model.IInternalContest;
+import edu.csus.ecs.pc2.core.model.ContestInformation;
 @Path("/team")
 public class teamcontroller extends maincontroller {
 
@@ -122,17 +123,16 @@ public class teamcontroller extends maincontroller {
                     .build();
         }
     }
-
     @POST
     @Path("/submitClarification")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response submitClarification(@Context HttpServletRequest req, Map<String, String> payload) {
         try {
-            // 1. Extract and Validate Token (Matches your listClarification logic)
+            // 1. Extract and Validate Token
             String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
             
-            if (!isValidToken(token) || !sessions.containsKey(token)) {
+            if (token == null || !isValidToken(token) || !sessions.containsKey(token)) {
                 throw new UnauthorizedSessionException("Not logged in. Session is invalid or expired.");
             }
 
@@ -148,29 +148,47 @@ public class teamcontroller extends maincontroller {
                 throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
             }
 
-         // 3. Match the Problem Name
-            String problemName = payload.get("ProblemName");
+            // 3. Extract Payload Data
+            String problemName = payload.getOrDefault("ProblemName", "").trim();
+            String questionText = payload.getOrDefault("Question", "");
+
+            if (questionText.isEmpty()) {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("{\"error\": \"Question text cannot be empty.\"}")
+                        .build();
+            }
+
             IProblem selectedProblem = null;
 
+            // 4. Search in standard Problems
             IProblem[] problems = contest.getProblems();
             if (problems != null) {
                 for (IProblem prob : problems) {
-                    // Use trim() to remove hidden spaces and ignore case
-                	System.out.println("Available Problem in PC2: [" + prob.getName() + "]");
-                    if (prob.getName().trim().equalsIgnoreCase(problemName.trim())) {
+                    if (prob.getName().trim().equalsIgnoreCase(problemName)) {
                         selectedProblem = prob;
                         break;
                     }
                 }
             }
 
-            // 4. Submit the Clarification
-            String questionText = payload.get("Question");
-
-            // ERROR FIX: If the problem is still null after the loop, 
-            // it means "Problem A" doesn't exist exactly as typed in PC2.
+            // 5. Search in Clarification Categories (e.g., "General")
             if (selectedProblem == null) {
-                throw new Exception("Problem '" + problemName + "' not found in contest. Check the name in PC2 Admin.");
+                IProblem[] categories = contest.getClarificationCategories();
+                if (categories != null) {
+                    for (IProblem cat : categories) {
+                        if (cat.getName().trim().equalsIgnoreCase(problemName)) {
+                            selectedProblem = cat;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // 6. Final Validation and Submission
+            if (selectedProblem == null) {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("{\"error\": \"Category/Problem '" + problemName + "' not found.\"}")
+                        .build();
             }
 
             userConn.submitClarification(selectedProblem, questionText);
@@ -178,13 +196,18 @@ public class teamcontroller extends maincontroller {
             return Response.ok("{\"status\": \"Success\", \"message\": \"Clarification submitted\"}")
                            .build();
 
-        } catch (Exception e) {
-            // Handle NotLoggedInException or SecurityException as defined in your docs
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+        } catch (UnauthorizedSessionException e) {
+            return Response.status(Response.Status.UNAUTHORIZED)
                            .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                           .build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                           .entity("{\"error\": \"An unexpected error occurred: " + e.getMessage() + "\"}")
                            .build();
         }
     }
+
+
     // --- UNSUPPORTED METHOD CATCHERS ---
     // These ensure that if a user tries POST/PUT on a GET endpoint, they get a JSON error
 

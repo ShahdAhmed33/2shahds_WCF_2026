@@ -1,0 +1,22 @@
+260416 005940.591|CONFIG|Thread-24|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260416 005940.592|INFO|Thread-24|log|
+260416 005940.592|INFO|Thread-24|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260416 005940.592|INFO|Thread-24|log|Login: team2 (aka team2)
+260416 005940.593|INFO|Thread-24|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260416 005940.593|INFO|Thread-24|log|Process id is 3552@DESKTOP-5EPLK95
+260416 005940.594|INFO|Thread-24|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260416 005940.594|INFO|Thread-24|log|handlePacket end Packet[LOGIN_SUCCESS] #6 SERVER0 @ site 1 -> TEAM2 @ site 1
+260416 005940.594|INFO|Thread-24|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #6 SERVER0 @ site 1 -> TEAM2 @ site 1
+260416 010051.469|INFO|qtp792791759-36|log|Sending packet to server Packet[CLARIFICATION_SUBMISSION] #2 TEAM2 @ site 1 -> SERVER0 @ site 1
+260416 010051.470|INFO|qtp792791759-36|log|Sent    packet to server Packet[CLARIFICATION_SUBMISSION] #2 TEAM2 @ site 1 -> SERVER0 @ site 1
+260416 010051.511|INFO|Thread-27|log| receiveObject(S) start got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #8 SERVER0 @ site 1 -> TEAM2 @ site 1
+260416 010051.512|INFO|Thread-27|log|Packet CLARIFICATION_SUBMISSION_CONFIRM (Seq #8, o#8 ) recieveObject
+260416 010051.512|INFO|Thread-27|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260416 010051.512|INFO|Thread-27|log|    To: TEAM2 @ site 1
+260416 010051.512|INFO|Thread-27|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 33 NEW from TEAM2 @ site 1 at 3058 id=Clarification-9130654289586831791
+260416 010051.512|INFO|Thread-27|log|handlePacket start Packet[CLARIFICATION_SUBMISSION_CONFIRM] #8 SERVER0 @ site 1 -> TEAM2 @ site 1
+260416 010051.512|INFO|Thread-27|log|Packet CLARIFICATION_SUBMISSION_CONFIRM (Seq #8, o#8 ) handlePacket
+260416 010051.513|INFO|Thread-27|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260416 010051.513|INFO|Thread-27|log|    To: TEAM2 @ site 1
+260416 010051.513|INFO|Thread-27|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 33 NEW from TEAM2 @ site 1 at 3058 id=Clarification-9130654289586831791
+260416 010051.567|INFO|Thread-27|log| receiveObject(S) end   got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #8 SERVER0 @ site 1 -> TEAM2 @ site 1

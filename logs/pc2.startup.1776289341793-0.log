@@ -1,0 +1,12 @@
+260415 234221.799|CONFIG|qtp1395089624-31|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260415 234221.801|INFO|qtp1395089624-31|log|
+260415 234221.803|INFO|qtp1395089624-31|log|Version 9.11build () Java ver 21.0.8 build 7339~develop Windows 11 10.0 (amd64) 
+260415 234221.803|INFO|qtp1395089624-31|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260415 234221.808|INFO|qtp1395089624-31|log|Process id is 16524@DESKTOP-5EPLK95
+260415 234221.809|INFO|qtp1395089624-31|log|Starting ConnectionManager...
+260415 234221.820|INFO|qtp1395089624-31|log|Started ConnectionManager
+260415 234221.821|INFO|qtp1395089624-31|log|INIFile File location: file:/C:/Users/Shahd/Documents/WCF_Gitlab/wwfapi/pc2v9.ini
+260415 234221.821|INFO|qtp1395089624-31|log|setClientServerAndPort webworkflow.aast.edu parsed as webworkflow.aast.edu port 50002
+260415 234221.821|INFO|qtp1395089624-31|log|Contacting server at webworkflow.aast.edu:50002
+260415 234221.822|INFO|qtp1395089624-31|log|Connecting to webworkflow.aast.edu:50002
+260415 234222.121|INFO|Thread-17|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=webworkflow.aast.edu/128.251.8.78,port=50002,localport=65005]--5382822568071044184)

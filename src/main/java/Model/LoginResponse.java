@@ -3,6 +3,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(name = "LoginResponse", description = "Login response payload")
 
 public class LoginResponse {
+	public String csrfToken;
     @Schema(description = "Status of the login attempt", example = "SUCCESS")
 	public String username;
     
