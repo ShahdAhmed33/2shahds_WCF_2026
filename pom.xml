@@ -1,90 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<!-- 
+	The phases used here:
+		1- clean : To remove contest of final/*, /tmp/${tmpbuildpackage}
+		2- Package: Just to compile. and generate the content of final/
+		3- Install: Create /tmp/${tmpbuildpackagefilename} and create the build tree, copy the required files to it. And then generate the archive .tar.gz
+		Note:
+			The copy-dependencies uses scope of "test" which is not recommended in the production, cause it copies all dependencies including test*. I want to fix it
+-->
 
-    <groupId>edu.aast.ceng</groupId>
-    <artifactId>web1</artifactId>
-    <version>1.0</version>
-    <packaging>war</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <jetty.version>9.4.58.v20250814</jetty.version>
-        <jersey.version>2.47</jersey.version>
-        <jjwt.version>0.11.5</jjwt.version>
-    </properties>
+  <groupId>edu.aast.ceng</groupId>
+  <artifactId>web1</artifactId>
+  <version>1.0</version>
 
-    <dependencies>
+  <name>web1</name>
+  <description>An ACPC Team</description>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.acpc.global</url>
+
+  <properties>
+   <pc2webapp.packagefilename>web1</pc2webapp.packagefilename>
+   <pc2webapp.tmpbuildpackagefilename>/tmp/${pc2webapp.packagefilename}-build</pc2webapp.tmpbuildpackagefilename>
+   <pc2webapp.tmppackagefilename>${pc2webapp.tmpbuildpackagefilename}/${pc2webapp.packagefilename}</pc2webapp.tmppackagefilename>
+
+   <!--
+	   <pc2webapp.localdir>./pc2webapp</pc2webapp.localdir> 
+   -->
+    <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
+    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+
+<dependencies>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.1</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-server</artifactId>
+        <version>9.4.58.v20250814</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-servlet</artifactId>
+        <version>9.4.58.v20250814</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+        <version>2.47</version>
+    </dependency>
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>4.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+    
+	<dependency>
+	  	<groupId>org.glassfish.jersey.inject</groupId>
+	  	<artifactId>jersey-hk2</artifactId>
+	  	<version>2.47</version>
+	</dependency>
+	
+    <dependency>
+    	<groupId>org.glassfish.jersey.media</groupId>
+    	<artifactId>jersey-media-json-jackson</artifactId>
+    	<version>2.47</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>edu.csus.ecs</groupId>
+    	<artifactId>pc2.api</artifactId>
+    	<version>9.11</version>
+    	<scope>system</scope>
+    	<systemPath>${project.basedir}/lib/pc2.jar</systemPath>
+	</dependency>
+	
+	<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.13.2</version>
+</dependency>
+
+	<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.11.5</version>
+	</dependency>
+	<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt-impl</artifactId>
+	    <version>0.11.5</version>
+	    <scope>runtime</scope>
+	</dependency>
+	<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt-jackson</artifactId>
+	    <version>0.11.5</version>
+	    <scope>runtime</scope>
+    </dependency>
+
+    <!-- Jetty WebSocket -->
+
+    <!-- Jetty WebSocket Server -->
+    <dependency>
+        <groupId>org.eclipse.jetty.websocket</groupId>
+        <artifactId>websocket-server</artifactId>
+        <version>9.4.58.v20250814</version>
+    </dependency>
+
+    <!-- WebSocket API -->
+    <dependency>
+        <groupId>org.eclipse.jetty.websocket</groupId>
+        <artifactId>websocket-api</artifactId>
+        <version>9.4.58.v20250814</version>
+    </dependency>
+
+    <!-- Swagger Core v3 for JAX-RS -->
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>${jetty.version}</version>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.2.22</version>
         </dependency>
 
+        <!-- Swagger Annotations (NON-jakarta) -->
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlets</artifactId>
-            <version>${jetty.version}</version>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.2.22</version>
         </dependency>
 
+        <!-- Swagger UI via WebJars (optional for browser UI) -->
         <dependency>
-            <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>websocket-server</artifactId>
-            <version>${jetty.version}</version>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>5.11.8</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>websocket-api</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-server</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-api</artifactId>
-            <version>${jjwt.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-impl</artifactId>
-            <version>${jjwt.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
+	
+</dependencies>
+  <build>	
+  <directory>${project.basedir}/final</directory>
+  <plugins>
+  <!--Skip test during bui-->
+  <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.4</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
+  <!-- Plugin to set the manifest-->
+ <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+
+            <configuration>
+                <archive>
+                    <manifest>
+                        <!-- fully-qualified name of your main class -->
+                        <mainClass>web1.starterclass</mainClass>
+                        <!-- optional: include classpath entries -->
+                        <addClasspath>true</addClasspath>
+                        <classpathPrefix>lib/</classpathPrefix>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+  <!--Plugin to copy all jar dependencies to the build directory-->
+  <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.6.1</version> <executions>
+                <execution>
+                    <id>copy-dependencies</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>copy-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                        <stripVersion>false</stripVersion>
+                        <includeScope>test</includeScope>
+                        <overWriteReleases>true</overWriteReleases>
+                        <overWriteSnapshots>true</overWriteSnapshots>
+                        <overWriteIfNewer>true</overWriteIfNewer>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        
+  <!-- Plugin to copy all other files -->
+  		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>3.1.0</version>
+
+            <executions>
+                <execution>
+                    <id>copy-pc2-jar</id>
+                    <phase>package</phase>  
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                    <configuration>
+                        <target>
+                            <copy file="${project.basedir}/lib/pc2.jar"
+                                  todir="${project.build.directory}/libs"/>
+                            <copy file="${project.basedir}/launch.sh"
+                                  todir="${project.build.directory}/"/>
+                            <chmod file="${project.build.directory}/launch.sh"
+                                   perm="755" />     
+                        </target>
+                    </configuration>
+                </execution>
+                
+                  <!-- Clear /tmp/pc2webapp.packagename directory-->
+            <execution>
+                    <id>remove-archive</id>
+                    <phase>clean</phase>  
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                    <configuration>
+                        <target>
+				<delete dir="${pc2webapp.tmpbuildpackagefilename}"/>
+				<delete file="/tmp/${pc2webapp.packagefilename}.tar.gz"/>
+                        </target>
+                    </configuration>
+                </execution>
+                
+            <!-- Create tmp directory, and create the files, and create the archive-->    
+            <execution>
+                    <id>create-archive</id>
+                    <phase>install</phase>  
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                    <configuration>
+                        <target>
+                        	<mkdir dir="${pc2webapp.tmpbuildpackagefilename}"/>
+                        	<mkdir dir="${pc2webapp.tmppackagefilename}"/>
+                        	<mkdir dir="${pc2webapp.tmppackagefilename}/bin"/>
+                        	<mkdir dir="${pc2webapp.tmppackagefilename}/libs"/>
+                            <copy file="${project.basedir}/launch.sh"
+				    todir="${pc2webapp.tmppackagefilename}/"/>
+			    <copy file="${project.basedir}/pc2v9.ini"
+                                    todir="${pc2webapp.tmppackagefilename}/"/>
+                            <chmod file="${pc2webapp.tmppackagefilename}/launch.sh"
+                                   perm="755" />  
+                            <copy todir="${pc2webapp.tmppackagefilename}/libs" >  
+		    					<fileset dir="${project.build.directory}/libs/" includes="**"/>  
+							</copy> 
+                        	<copy file="${project.basedir}/final/web1-1.0.jar"
+					todir="${pc2webapp.tmppackagefilename}/bin"/>
+                            <tar destfile="/tmp/${pc2webapp.packagefilename}.tar.gz" basedir="${pc2webapp.tmpbuildpackagefilename}" compression="gzip">
+								 <tarfileset dir="${pc2webapp.tmppackagefilename}" filemode="755"> 
+									<include name="${pc2webapp.packagefilename}/launch.sh"/>
+								 </tarfileset>
+							</tar>
+							<delete dir="${buildpath_temp}"/>
+                        </target>
+                    </configuration>
+                </execution>            
+            </executions>
+        </plugin>
+  </plugins>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+          
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.12.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.6.1</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
