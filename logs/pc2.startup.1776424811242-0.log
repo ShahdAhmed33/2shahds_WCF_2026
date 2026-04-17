@@ -1,0 +1,11 @@
+260417 132011.244|CONFIG|qtp1395089624-53|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 132011.245|INFO|qtp1395089624-53|log|
+260417 132011.247|INFO|qtp1395089624-53|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 132011.247|INFO|qtp1395089624-53|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 132011.248|INFO|qtp1395089624-53|log|Process id is 33356@DESKTOP-5EPLK95
+260417 132011.248|INFO|qtp1395089624-53|log|Starting ConnectionManager...
+260417 132011.251|INFO|qtp1395089624-53|log|Started ConnectionManager
+260417 132011.256|INFO|qtp1395089624-53|log|INIFile File location: file:/C:/Users/Shahd/Documents/WCF_Gitlab/wwfapi/pc2v9.ini
+260417 132011.256|INFO|qtp1395089624-53|log|setClientServerAndPort webworkflow.aast.edu parsed as webworkflow.aast.edu port 50002
+260417 132011.257|INFO|qtp1395089624-53|log|Contacting server at webworkflow.aast.edu:50002
+260417 132011.257|INFO|qtp1395089624-53|log|Connecting to webworkflow.aast.edu:50002

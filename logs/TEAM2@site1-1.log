@@ -1,0 +1,18 @@
+260417 130107.719|CONFIG|Thread-26|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 130107.719|INFO|Thread-26|log|
+260417 130107.719|INFO|Thread-26|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 130107.719|INFO|Thread-26|log|Login: team2 (aka team2)
+260417 130107.719|INFO|Thread-26|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 130107.719|INFO|Thread-26|log|Process id is 23660@DESKTOP-5EPLK95
+260417 130107.719|INFO|Thread-26|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 130107.719|INFO|Thread-26|log|handlePacket end Packet[LOGIN_SUCCESS] #557 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 130107.719|INFO|Thread-26|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #557 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 130957.888|CONFIG|Thread-27|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 130957.890|INFO|Thread-27|log|
+260417 130957.891|INFO|Thread-27|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 130957.891|INFO|Thread-27|log|Login: team2 (aka team2)
+260417 130957.895|INFO|Thread-27|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 130957.895|INFO|Thread-27|log|Process id is 4988@DESKTOP-5EPLK95
+260417 130957.895|INFO|Thread-27|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 130957.896|INFO|Thread-27|log|handlePacket end Packet[LOGIN_SUCCESS] #569 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 130957.896|INFO|Thread-27|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #569 SERVER0 @ site 1 -> TEAM2 @ site 1

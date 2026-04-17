@@ -1,0 +1,30 @@
+260416 011320.345|CONFIG|qtp1395089624-31|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260416 011320.346|INFO|qtp1395089624-31|log|
+260416 011320.347|INFO|qtp1395089624-31|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260416 011320.347|INFO|qtp1395089624-31|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260416 011320.353|INFO|qtp1395089624-31|log|Process id is 31128@DESKTOP-5EPLK95
+260416 011320.354|INFO|qtp1395089624-31|log|Starting ConnectionManager...
+260416 011320.366|INFO|qtp1395089624-31|log|Started ConnectionManager
+260416 011320.386|INFO|qtp1395089624-31|log|INIFile File location: file:/C:/Users/Shahd/Documents/WCF_Gitlab/wwfapi/pc2v9.ini
+260416 011320.387|INFO|qtp1395089624-31|log|setClientServerAndPort webworkflow.aast.edu parsed as webworkflow.aast.edu port 50002
+260416 011320.387|INFO|qtp1395089624-31|log|Contacting server at webworkflow.aast.edu:50002
+260416 011320.389|INFO|qtp1395089624-31|log|Connecting to webworkflow.aast.edu:50002
+260416 011320.694|INFO|Thread-17|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=webworkflow.aast.edu/128.251.8.78,port=50002,localport=61193]-5730625460689256741)
+260416 011320.739|INFO|Thread-17|log|receiveUnencrypted Made a secret key for Socket[addr=webworkflow.aast.edu/128.251.8.78,port=50002,localport=61193]-5730625460689256741 key is com.sun.crypto.provider.DESKey@fffe7c23
+260416 011320.739|INFO|Thread-17|log|Generating Unencrypted Public Key Packet
+260416 011320.740|INFO|Thread-17|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    7b90cc9c 95dff644 38141e7c 31291f68 ad541e77 4db4259e 91a80b00 9953ef54
+    bf1c0721 0ea1c18d 42bac833 cc4a3469 2efddc86 b0affac6 bebb1f49 d0d7e8cd
+    f05b2c84 192660d1 3c4e99e9 cab8cb85 6342dedd 0019c29e 80ada1aa 1786c74e
+    57efbe0d a84151cd 5afe5018 40c81988 001b5b5a 96324119 4d57ae59 a604065f
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+260416 011320.741|INFO|Thread-17|log|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@4873108a

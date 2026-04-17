@@ -188,59 +188,112 @@ public class maincontroller extends GlobalClass {
     
  // --- CONTEST DATA: LANGUAGES ---
     @GET
+
     @Path("/listlanguages")
+
     @Produces(MediaType.APPLICATION_JSON)
+
     public Response listlanguages(@Context HttpServletRequest req) {
-        try {
-        	validateOrigin();
-            // 1. Extract cookie using the constant
-            String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
-            validateCSRF(req, token); // 🔥 ADD THIS
-            
-            // 2. Validate token & Server-side Session
-            if (!isValidToken(token)) {
-                throw new UnauthorizedSessionException("Invalid or expired token.");
-            }
 
-            ServerConnection userConn = sessions.get(token);
-            if (userConn == null || !userConn.isLoggedIn()) {
-                throw new NotVerifiedCookieException("Session expired on server. Please login again.");
-            }
+    try {
 
-            // 3. Fetch PC2 Data
-            IContest contest = userConn.getContest();
-            if (contest == null) {
-                throw new PC2ServiceUnavailableException("PC2 Contest data not found.");
-            }
+    validateOrigin();
 
-            ILanguage[] languages = contest.getLanguages();
-            if (languages == null || languages.length == 0) {
-                throw new LanguageNotFoundException("No languages available for this contest.");
-            }
+    // 1. Extract cookie using the constant
 
-            List<languageList> result = new ArrayList<>();
-            for (ILanguage lang : languages) {
-                result.add(new languageList(lang.getName(), lang.getCompilerCommandLine()));
-            }
-            return Response.ok(result).build();
+    String token = CookiesHandlers.getCookie(req.getCookies(), CookiesHandlers.AUTH_COOKIE_NAME);
 
-        } catch (NoCookieException | UnauthorizedSessionException | NotVerifiedCookieException e) {
-            return Response.status(Response.Status.UNAUTHORIZED)
-                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
-                    .build();
-        } catch (LanguageNotFoundException e) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
-                    .build();
-        } catch (PC2ServiceUnavailableException e) {
-            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
-                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
-                    .build();
-        } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("{\"error\": \"System Error: " + e.getMessage() + "\"}")
-                    .build();
-        }
+    validateCSRF(req, token); // 🔥 ADD THIS
+
+
+    // 2. Validate token & Server-side Session
+
+    if (!isValidToken(token)) {
+
+    throw new UnauthorizedSessionException("Invalid or expired token.");
+
+    }
+
+
+
+    ServerConnection userConn = sessions.get(token);
+
+    if (userConn == null || !userConn.isLoggedIn()) {
+
+    throw new NotVerifiedCookieException("Session expired on server. Please login again.");
+
+    }
+
+
+
+    // 3. Fetch PC2 Data
+
+    IContest contest = userConn.getContest();
+
+    if (contest == null) {
+
+    throw new PC2ServiceUnavailableException("PC2 Contest data not found.");
+
+    }
+
+
+
+    ILanguage[] languages = contest.getLanguages();
+
+    if (languages == null || languages.length == 0) {
+
+    throw new LanguageNotFoundException("No languages available for this contest.");
+
+    }
+
+
+
+    List<languageList> result = new ArrayList<>();
+
+    for (ILanguage lang : languages) {
+
+    result.add(new languageList(lang.getName(), lang.getCompilerCommandLine()));
+
+    }
+
+    return Response.ok(result).build();
+
+
+
+    } catch (NoCookieException | UnauthorizedSessionException | NotVerifiedCookieException e) {
+
+    return Response.status(Response.Status.UNAUTHORIZED)
+
+    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+
+    .build();
+
+    } catch (LanguageNotFoundException e) {
+
+    return Response.status(Response.Status.NOT_FOUND)
+
+    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+
+    .build();
+
+    } catch (PC2ServiceUnavailableException e) {
+
+    return Response.status(Response.Status.SERVICE_UNAVAILABLE)
+
+    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+
+    .build();
+
+    } catch (Exception e) {
+
+    return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+
+    .entity("{\"error\": \"System Error: " + e.getMessage() + "\"}")
+
+    .build();
+
+    }
+
     }
     // --- CONTEST DATA: PROBLEMS ---
     @GET

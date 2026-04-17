@@ -20,3 +20,30 @@
 260416 010051.513|INFO|Thread-27|log|    To: TEAM2 @ site 1
 260416 010051.513|INFO|Thread-27|log|   key: CLARIFICATION is: edu.csus.ecs.pc2.core.model.Clarification Clarification 33 NEW from TEAM2 @ site 1 at 3058 id=Clarification-9130654289586831791
 260416 010051.567|INFO|Thread-27|log| receiveObject(S) end   got Packet[CLARIFICATION_SUBMISSION_CONFIRM] #8 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 125959.544|CONFIG|Thread-21|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 125959.544|INFO|Thread-21|log|
+260417 125959.544|INFO|Thread-21|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 125959.544|INFO|Thread-21|log|Login: team2 (aka team2)
+260417 125959.544|INFO|Thread-21|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 125959.544|INFO|Thread-21|log|Process id is 23660@DESKTOP-5EPLK95
+260417 125959.544|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 125959.544|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #551 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 125959.544|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #551 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 130615.797|CONFIG|Thread-21|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 130615.798|INFO|Thread-21|log|
+260417 130615.798|INFO|Thread-21|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 130615.798|INFO|Thread-21|log|Login: team2 (aka team2)
+260417 130615.799|INFO|Thread-21|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 130615.800|INFO|Thread-21|log|Process id is 4988@DESKTOP-5EPLK95
+260417 130615.800|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 130615.802|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #563 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 130615.802|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #563 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 131644.210|CONFIG|Thread-21|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 131644.210|INFO|Thread-21|log|
+260417 131644.211|INFO|Thread-21|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 131644.211|INFO|Thread-21|log|Login: team2 (aka team2)
+260417 131644.212|INFO|Thread-21|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 131644.213|INFO|Thread-21|log|Process id is 33356@DESKTOP-5EPLK95
+260417 131644.213|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 131644.213|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #575 SERVER0 @ site 1 -> TEAM2 @ site 1
+260417 131644.213|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #575 SERVER0 @ site 1 -> TEAM2 @ site 1

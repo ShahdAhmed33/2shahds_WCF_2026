@@ -1,0 +1,9 @@
+260417 132011.933|CONFIG|Thread-31|log|Now logging to C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi\logs directory.
+260417 132011.933|INFO|Thread-31|log|
+260417 132011.933|INFO|Thread-31|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 132011.933|INFO|Thread-31|log|Login: team1 (aka team1)
+260417 132011.934|INFO|Thread-31|log|Working directory is C:\Users\Shahd\Documents\WCF_Gitlab\wwfapi
+260417 132011.934|INFO|Thread-31|log|Process id is 33356@DESKTOP-5EPLK95
+260417 132011.934|INFO|Thread-31|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 132011.938|INFO|Thread-31|log|handlePacket end Packet[LOGIN_SUCCESS] #587 SERVER0 @ site 1 -> TEAM1 @ site 1
+260417 132011.938|INFO|Thread-31|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #587 SERVER0 @ site 1 -> TEAM1 @ site 1
