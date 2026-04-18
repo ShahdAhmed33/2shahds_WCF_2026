@@ -387,3 +387,183 @@
 260410 210702.084|INFO|Thread-24|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260410 210702.085|INFO|Thread-24|log|handlePacket end Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM1 @ site 1
 260410 210702.086|INFO|Thread-24|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #50 SERVER0 @ site 1 -> TEAM1 @ site 1
+260417 133328.797|CONFIG|Thread-28|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260417 133328.798|INFO|Thread-28|log|
+260417 133328.799|INFO|Thread-28|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 133328.799|INFO|Thread-28|log|Login: team1 (aka team1)
+260417 133328.800|INFO|Thread-28|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260417 133328.800|INFO|Thread-28|log|Process id is 43960@DESKTOP-5EPLK95
+260417 133328.800|INFO|Thread-28|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 133328.803|INFO|Thread-28|log|handlePacket end Packet[LOGIN_SUCCESS] #15 SERVER0 @ site 1 -> TEAM1 @ site 1
+260417 133328.803|INFO|Thread-28|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #15 SERVER0 @ site 1 -> TEAM1 @ site 1
+260417 133343.107|INFO|Thread-29|log| receiveObject(S) start got Packet[CLOCK_STOPPED] #17 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133343.108|INFO|Thread-29|log|Packet CLOCK_STOPPED (Seq #17, o#17 ) recieveObject
+260417 133343.109|INFO|Thread-29|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133343.112|INFO|Thread-29|log|    To: SERVER0 @ site 0
+260417 133343.112|INFO|Thread-29|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133343.112|INFO|Thread-29|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133343.112|INFO|Thread-29|log|handlePacket start Packet[CLOCK_STOPPED] #17 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133343.112|INFO|Thread-29|log|Packet CLOCK_STOPPED (Seq #17, o#17 ) handlePacket
+260417 133343.113|INFO|Thread-29|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133343.113|INFO|Thread-29|log|    To: SERVER0 @ site 0
+260417 133343.113|INFO|Thread-29|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133343.113|INFO|Thread-29|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133343.121|INFO|Thread-29|log|Clock for site 1 stopped by ADMINISTRATOR1 @ site 1 elapsed 0:14:00
+260417 133343.122|INFO|Thread-29|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #17 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133344.038|INFO|Thread-30|log| receiveObject(S) start got Packet[CLOCK_STARTED] #18 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133344.039|INFO|Thread-30|log|Packet CLOCK_STARTED (Seq #18, o#18 ) recieveObject
+260417 133344.040|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133344.040|INFO|Thread-30|log|    To: SERVER0 @ site 0
+260417 133344.040|INFO|Thread-30|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133344.041|INFO|Thread-30|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133344.041|INFO|Thread-30|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776425624015,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=17,DAY_OF_YEAR=107,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=0,HOUR=11,HOUR_OF_DAY=11,MINUTE=33,SECOND=44,MILLISECOND=15,ZONE_OFFSET=0,DST_OFFSET=0]
+260417 133344.041|INFO|Thread-30|log|handlePacket start Packet[CLOCK_STARTED] #18 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133344.042|INFO|Thread-30|log|Packet CLOCK_STARTED (Seq #18, o#18 ) handlePacket
+260417 133344.042|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133344.042|INFO|Thread-30|log|    To: SERVER0 @ site 0
+260417 133344.042|INFO|Thread-30|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133344.042|INFO|Thread-30|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133344.042|INFO|Thread-30|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776425624015,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=17,DAY_OF_YEAR=107,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=0,HOUR=11,HOUR_OF_DAY=11,MINUTE=33,SECOND=44,MILLISECOND=15,ZONE_OFFSET=0,DST_OFFSET=0]
+260417 133344.044|INFO|Thread-30|log|Clock for site 1 started by ADMINISTRATOR1 @ site 1 elapsed 0:14:00
+260417 133344.044|INFO|Thread-30|log| receiveObject(S) end   got Packet[CLOCK_STARTED] #18 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133419.303|INFO|Thread-32|log| receiveObject(S) start got Packet[CLOCK_STOPPED] #19 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133419.303|INFO|Thread-32|log|Packet CLOCK_STOPPED (Seq #19, o#19 ) recieveObject
+260417 133419.304|INFO|Thread-32|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133419.304|INFO|Thread-32|log|    To: SERVER0 @ site 0
+260417 133419.305|INFO|Thread-32|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133419.305|INFO|Thread-32|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133419.305|INFO|Thread-32|log|handlePacket start Packet[CLOCK_STOPPED] #19 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133419.305|INFO|Thread-32|log|Packet CLOCK_STOPPED (Seq #19, o#19 ) handlePacket
+260417 133419.305|INFO|Thread-32|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133419.306|INFO|Thread-32|log|    To: SERVER0 @ site 0
+260417 133419.306|INFO|Thread-32|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133419.306|INFO|Thread-32|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133419.308|INFO|Thread-32|log|Clock for site 1 stopped by ADMINISTRATOR1 @ site 1 elapsed 0:14:35
+260417 133419.309|INFO|Thread-32|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #19 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.098|INFO|Thread-33|log| receiveObject(S) start got Packet[UPDATE_SETTING] #20 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.098|INFO|Thread-33|log|Packet UPDATE_SETTING (Seq #20, o#9 ) recieveObject
+260417 133430.099|INFO|Thread-33|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133430.099|INFO|Thread-33|log|    To: SERVER0 @ site 0
+260417 133430.099|INFO|Thread-33|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@7cad32c0
+260417 133430.099|INFO|Thread-33|log|handlePacket start Packet[UPDATE_SETTING] #20 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.100|INFO|Thread-33|log|Packet UPDATE_SETTING (Seq #20, o#9 ) handlePacket
+260417 133430.100|INFO|Thread-33|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133430.100|INFO|Thread-33|log|    To: SERVER0 @ site 0
+260417 133430.100|INFO|Thread-33|log|   key: CONTEST_TIME is: edu.csus.ecs.pc2.core.model.ContestTime edu.csus.ecs.pc2.core.model.ContestTime@7cad32c0
+260417 133430.102|INFO|Thread-33|log|handlePacket end Packet[UPDATE_SETTING] #20 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.102|INFO|Thread-33|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #20 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.108|INFO|Thread-34|log| receiveObject(S) start got Packet[UPDATE_SETTING] #21 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.109|INFO|Thread-34|log|Packet UPDATE_SETTING (Seq #21, o#10 ) recieveObject
+260417 133430.109|INFO|Thread-34|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133430.109|INFO|Thread-34|log|    To: SERVER0 @ site 0
+260417 133430.109|INFO|Thread-34|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@4e6c9af7
+260417 133430.109|INFO|Thread-34|log|handlePacket start Packet[UPDATE_SETTING] #21 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.109|INFO|Thread-34|log|Packet UPDATE_SETTING (Seq #21, o#10 ) handlePacket
+260417 133430.117|INFO|Thread-34|log|  From: SERVER0 @ site 1, oADMINISTRATOR1 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133430.118|INFO|Thread-34|log|    To: SERVER0 @ site 0
+260417 133430.118|INFO|Thread-34|log|   key: CONTEST_INFORMATION is: edu.csus.ecs.pc2.core.model.ContestInformation edu.csus.ecs.pc2.core.model.ContestInformation@4e6c9af7
+260417 133430.119|INFO|Thread-34|log|handlePacket end Packet[UPDATE_SETTING] #21 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133430.120|INFO|Thread-34|log| receiveObject(S) end   got Packet[UPDATE_SETTING] #21 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133431.628|INFO|Thread-35|log| receiveObject(S) start got Packet[CLOCK_STARTED] #22 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133431.628|INFO|Thread-35|log|Packet CLOCK_STARTED (Seq #22, o#22 ) recieveObject
+260417 133431.628|INFO|Thread-35|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133431.629|INFO|Thread-35|log|    To: SERVER0 @ site 0
+260417 133431.629|INFO|Thread-35|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133431.629|INFO|Thread-35|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133431.629|INFO|Thread-35|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776425671603,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=17,DAY_OF_YEAR=107,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=0,HOUR=11,HOUR_OF_DAY=11,MINUTE=34,SECOND=31,MILLISECOND=603,ZONE_OFFSET=0,DST_OFFSET=0]
+260417 133431.630|INFO|Thread-35|log|handlePacket start Packet[CLOCK_STARTED] #22 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 133431.630|INFO|Thread-35|log|Packet CLOCK_STARTED (Seq #22, o#22 ) handlePacket
+260417 133431.630|INFO|Thread-35|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 133431.630|INFO|Thread-35|log|    To: SERVER0 @ site 0
+260417 133431.630|INFO|Thread-35|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 133431.630|INFO|Thread-35|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260417 133431.630|INFO|Thread-35|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776425671603,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=17,DAY_OF_YEAR=107,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=0,HOUR=11,HOUR_OF_DAY=11,MINUTE=34,SECOND=31,MILLISECOND=603,ZONE_OFFSET=0,DST_OFFSET=0]
+260417 133431.632|INFO|Thread-35|log|Clock for site 1 started by ADMINISTRATOR1 @ site 1 elapsed 0:00:00
+260417 133431.633|INFO|Thread-35|log| receiveObject(S) end   got Packet[CLOCK_STARTED] #22 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 150156.334|CONFIG|Thread-28|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260417 150156.335|INFO|Thread-28|log|
+260417 150156.335|INFO|Thread-28|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260417 150156.336|INFO|Thread-28|log|Login: team1 (aka team1)
+260417 150156.336|INFO|Thread-28|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260417 150156.336|INFO|Thread-28|log|Process id is 15840@DESKTOP-5EPLK95
+260417 150156.336|INFO|Thread-28|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260417 150156.336|INFO|Thread-28|log|handlePacket end Packet[LOGIN_SUCCESS] #132 SERVER0 @ site 1 -> TEAM1 @ site 1
+260417 150156.336|INFO|Thread-28|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #132 SERVER0 @ site 1 -> TEAM1 @ site 1
+260417 150212.480|INFO|Thread-30|log| receiveObject(S) start got Packet[CLOCK_STOPPED] #135 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 150212.480|INFO|Thread-30|log|Packet CLOCK_STOPPED (Seq #135, o#135 ) recieveObject
+260417 150212.481|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 150212.481|INFO|Thread-30|log|    To: SERVER0 @ site 0
+260417 150212.481|INFO|Thread-30|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 150212.481|INFO|Thread-30|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId SERVER0 @ site 1
+260417 150212.481|INFO|Thread-30|log|handlePacket start Packet[CLOCK_STOPPED] #135 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 150212.481|INFO|Thread-30|log|Packet CLOCK_STOPPED (Seq #135, o#135 ) handlePacket
+260417 150212.481|INFO|Thread-30|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 150212.481|INFO|Thread-30|log|    To: SERVER0 @ site 0
+260417 150212.481|INFO|Thread-30|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 150212.481|INFO|Thread-30|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId SERVER0 @ site 1
+260417 150212.489|INFO|Thread-30|log|Clock for site 1 stopped by SERVER0 @ site 1 elapsed 1:27:29
+260417 150212.489|INFO|Thread-30|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #135 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 150213.473|INFO|Thread-32|log| receiveObject(S) start got Packet[CLOCK_STARTED] #137 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 150213.473|INFO|Thread-32|log|Packet CLOCK_STARTED (Seq #137, o#137 ) recieveObject
+260417 150213.473|INFO|Thread-32|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 150213.473|INFO|Thread-32|log|    To: SERVER0 @ site 0
+260417 150213.473|INFO|Thread-32|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 150213.473|INFO|Thread-32|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId SERVER0 @ site 1
+260417 150213.473|INFO|Thread-32|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776430933459,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=17,DAY_OF_YEAR=107,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=1,HOUR_OF_DAY=13,MINUTE=2,SECOND=13,MILLISECOND=459,ZONE_OFFSET=0,DST_OFFSET=0]
+260417 150213.474|INFO|Thread-32|log|handlePacket start Packet[CLOCK_STARTED] #137 SERVER0 @ site 1 -> SERVER0 @ site 0
+260417 150213.474|INFO|Thread-32|log|Packet CLOCK_STARTED (Seq #137, o#137 ) handlePacket
+260417 150213.474|INFO|Thread-32|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260417 150213.474|INFO|Thread-32|log|    To: SERVER0 @ site 0
+260417 150213.474|INFO|Thread-32|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260417 150213.474|INFO|Thread-32|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId SERVER0 @ site 1
+260417 150213.474|INFO|Thread-32|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776430933459,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=17,DAY_OF_YEAR=107,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=1,HOUR_OF_DAY=13,MINUTE=2,SECOND=13,MILLISECOND=459,ZONE_OFFSET=0,DST_OFFSET=0]
+260417 150213.475|INFO|Thread-32|log|Clock for site 1 started by SERVER0 @ site 1 elapsed 1:27:29
+260417 150213.475|INFO|Thread-32|log| receiveObject(S) end   got Packet[CLOCK_STARTED] #137 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 220340.438|CONFIG|Thread-33|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260418 220340.439|INFO|Thread-33|log|
+260418 220340.439|INFO|Thread-33|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260418 220340.440|INFO|Thread-33|log|Login: team1 (aka team1)
+260418 220340.440|INFO|Thread-33|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260418 220340.440|INFO|Thread-33|log|Process id is 18736@DESKTOP-5EPLK95
+260418 220340.441|INFO|Thread-33|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260418 220340.441|INFO|Thread-33|log|handlePacket end Packet[LOGIN_SUCCESS] #19 SERVER0 @ site 1 -> TEAM1 @ site 1
+260418 220340.441|INFO|Thread-33|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #19 SERVER0 @ site 1 -> TEAM1 @ site 1
+260418 220551.440|INFO|Thread-39|log| receiveObject(S) start got Packet[CLOCK_STOPPED] #24 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 220551.440|INFO|Thread-39|log|Packet CLOCK_STOPPED (Seq #24, o#24 ) recieveObject
+260418 220551.440|INFO|Thread-39|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260418 220551.441|INFO|Thread-39|log|    To: SERVER0 @ site 0
+260418 220551.441|INFO|Thread-39|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260418 220551.441|INFO|Thread-39|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260418 220551.441|INFO|Thread-39|log|handlePacket start Packet[CLOCK_STOPPED] #24 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 220551.441|INFO|Thread-39|log|Packet CLOCK_STOPPED (Seq #24, o#24 ) handlePacket
+260418 220551.441|INFO|Thread-39|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260418 220551.441|INFO|Thread-39|log|    To: SERVER0 @ site 0
+260418 220551.442|INFO|Thread-39|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260418 220551.442|INFO|Thread-39|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260418 220551.445|INFO|Thread-39|log|Clock for site 1 stopped by ADMINISTRATOR1 @ site 1 elapsed 0:03:38
+260418 220551.445|INFO|Thread-39|log| receiveObject(S) end   got Packet[CLOCK_STOPPED] #24 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 220641.278|INFO|Thread-44|log| receiveObject(S) start got Packet[CLOCK_STARTED] #31 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 220641.279|INFO|Thread-44|log|Packet CLOCK_STARTED (Seq #31, o#31 ) recieveObject
+260418 220641.279|INFO|Thread-44|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260418 220641.279|INFO|Thread-44|log|    To: SERVER0 @ site 0
+260418 220641.279|INFO|Thread-44|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260418 220641.279|INFO|Thread-44|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260418 220641.279|INFO|Thread-44|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776542801271,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=18,DAY_OF_YEAR=108,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=6,SECOND=41,MILLISECOND=271,ZONE_OFFSET=0,DST_OFFSET=0]
+260418 220641.280|INFO|Thread-44|log|handlePacket start Packet[CLOCK_STARTED] #31 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 220641.280|INFO|Thread-44|log|Packet CLOCK_STARTED (Seq #31, o#31 ) handlePacket
+260418 220641.281|INFO|Thread-44|log|  From: SERVER0 @ site 1, oSERVER0 @ site 1 (DESKTOP-5EPLK95 @ 192.168.0.1) (Contest Id: Default--8496739082754078555)
+260418 220641.281|INFO|Thread-44|log|    To: SERVER0 @ site 0
+260418 220641.281|INFO|Thread-44|log|   key: SITE_NUMBER is: java.lang.Integer 1
+260418 220641.281|INFO|Thread-44|log|   key: CLIENT_ID is: edu.csus.ecs.pc2.core.model.ClientId ADMINISTRATOR1 @ site 1
+260418 220641.281|INFO|Thread-44|log|   key: SERVER_CLOCK_OFFSET is: java.util.GregorianCalendar java.util.GregorianCalendar[time=1776542801271,areFieldsSet=true,areAllFieldsSet=false,lenient=true,zone=sun.util.calendar.ZoneInfo[id="GMT",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2026,MONTH=3,WEEK_OF_YEAR=16,WEEK_OF_MONTH=3,DAY_OF_MONTH=18,DAY_OF_YEAR=108,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=6,SECOND=41,MILLISECOND=271,ZONE_OFFSET=0,DST_OFFSET=0]
+260418 220641.283|INFO|Thread-44|log|Clock for site 1 started by ADMINISTRATOR1 @ site 1 elapsed 0:03:38
+260418 220641.284|INFO|Thread-44|log| receiveObject(S) end   got Packet[CLOCK_STARTED] #31 SERVER0 @ site 1 -> SERVER0 @ site 0
+260418 222041.109|CONFIG|Thread-82|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260418 222041.109|INFO|Thread-82|log|
+260418 222041.109|INFO|Thread-82|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260418 222041.109|INFO|Thread-82|log|Login: team1 (aka team1)
+260418 222041.109|INFO|Thread-82|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260418 222041.109|INFO|Thread-82|log|Process id is 18736@DESKTOP-5EPLK95
+260418 222041.110|INFO|Thread-82|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260418 222041.110|INFO|Thread-82|log|handlePacket end Packet[LOGIN_SUCCESS] #67 SERVER0 @ site 1 -> TEAM1 @ site 1
+260418 222041.110|INFO|Thread-82|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #67 SERVER0 @ site 1 -> TEAM1 @ site 1

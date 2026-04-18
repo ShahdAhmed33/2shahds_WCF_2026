@@ -1,0 +1,28 @@
+260418 223014.389|CONFIG|qtp1603195447-36|log|Now logging to C:\Users\Shahd\git\2shahds_WCF_2026\logs directory.
+260418 223014.389|INFO|qtp1603195447-36|log|
+260418 223014.389|INFO|qtp1603195447-36|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260418 223014.389|INFO|qtp1603195447-36|log|Working directory is C:\Users\Shahd\git\2shahds_WCF_2026
+260418 223014.392|INFO|qtp1603195447-36|log|Process id is 18736@DESKTOP-5EPLK95
+260418 223014.392|INFO|qtp1603195447-36|log|Starting ConnectionManager...
+260418 223014.394|INFO|qtp1603195447-36|log|Started ConnectionManager
+260418 223014.398|SEVERE|qtp1603195447-36|log|Cannot start PC^2, pc2v9.ini file not found in C:\Users\Shahd\git\2shahds_WCF_2026
+260418 223014.398|INFO|qtp1603195447-36|log|Contacting server at localhost:50002
+260418 223014.399|INFO|qtp1603195447-36|log|Connecting to localhost:50002
+260418 223014.405|INFO|Thread-97|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=localhost/127.0.0.1,port=50002,localport=59517]-8927804657909136588)
+260418 223014.407|INFO|Thread-97|log|receiveUnencrypted Made a secret key for Socket[addr=localhost/127.0.0.1,port=50002,localport=59517]-8927804657909136588 key is com.sun.crypto.provider.DESKey@fffe7de8
+260418 223014.407|INFO|Thread-97|log|Generating Unencrypted Public Key Packet
+260418 223014.407|INFO|Thread-97|log|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    1afc77ba bc340f96 2d5fa483 422a0267 0968555b 23a38f38 ae46fa08 e8c52e44
+    67bafb18 2336c359 ca9a7595 497ed6d3 c281b400 e74efc3c bb5292d7 207e562e
+    95350c31 8af58442 a54b5c33 1a1f82e5 ea1fce28 6c1ce4f3 b931741f c07b05fa
+    9b8135db 5715f594 1e66dbf9 715b1161 6a16b952 a07ff0f9 52b18e14 6647b22f
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512

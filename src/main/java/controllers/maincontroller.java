@@ -115,9 +115,6 @@ public class maincontroller extends GlobalClass {
                     .entity("{\"error\": \"Missing credentials\"}")
                     .build();
         }
-    	System.out.print("fuck");
-
-
         try {
             // 2. Establish PC2 Connection
         	System.out.print("fuck");
