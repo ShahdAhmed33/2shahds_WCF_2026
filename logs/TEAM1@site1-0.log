@@ -7,3 +7,30 @@
 260417 131748.645|INFO|Thread-26|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260417 131748.649|INFO|Thread-26|log|handlePacket end Packet[LOGIN_SUCCESS] #581 SERVER0 @ site 1 -> TEAM1 @ site 1
 260417 131748.650|INFO|Thread-26|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #581 SERVER0 @ site 1 -> TEAM1 @ site 1
+260419 215046.973|CONFIG|Thread-12|log|Now logging to /home/shahd/eclipse-workspace/wwfapi/logs directory.
+260419 215046.974|INFO|Thread-12|log|
+260419 215046.974|INFO|Thread-12|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-107-generic (amd64) 
+260419 215046.974|INFO|Thread-12|log|Login: team1 (aka team1)
+260419 215046.975|INFO|Thread-12|log|Working directory is /home/shahd/eclipse-workspace/wwfapi
+260419 215046.975|INFO|Thread-12|log|Process id is 11059@shahoda
+260419 215046.976|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260419 215046.976|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #788 SERVER0 @ site 1 -> TEAM1 @ site 1
+260419 215046.976|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #788 SERVER0 @ site 1 -> TEAM1 @ site 1
+260419 220143.677|CONFIG|Thread-12|log|Now logging to /home/shahd/eclipse-workspace/wwfapi/logs directory.
+260419 220143.678|INFO|Thread-12|log|
+260419 220143.678|INFO|Thread-12|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-107-generic (amd64) 
+260419 220143.678|INFO|Thread-12|log|Login: team1 (aka team1)
+260419 220143.679|INFO|Thread-12|log|Working directory is /home/shahd/eclipse-workspace/wwfapi
+260419 220143.679|INFO|Thread-12|log|Process id is 12804@shahoda
+260419 220143.680|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260419 220143.680|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #793 SERVER0 @ site 1 -> TEAM1 @ site 1
+260419 220143.681|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #793 SERVER0 @ site 1 -> TEAM1 @ site 1
+260419 220533.768|CONFIG|Thread-12|log|Now logging to /home/shahd/eclipse-workspace/wwfapi/logs directory.
+260419 220533.769|INFO|Thread-12|log|
+260419 220533.769|INFO|Thread-12|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-107-generic (amd64) 
+260419 220533.770|INFO|Thread-12|log|Login: team1 (aka team1)
+260419 220533.770|INFO|Thread-12|log|Working directory is /home/shahd/eclipse-workspace/wwfapi
+260419 220533.770|INFO|Thread-12|log|Process id is 13425@shahoda
+260419 220533.771|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260419 220533.771|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #798 SERVER0 @ site 1 -> TEAM1 @ site 1
+260419 220533.771|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #798 SERVER0 @ site 1 -> TEAM1 @ site 1

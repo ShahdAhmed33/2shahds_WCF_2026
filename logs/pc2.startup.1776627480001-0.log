@@ -1,0 +1,12 @@
+260419 213800.010|CONFIG|qtp237852351-13|log|Now logging to /home/shahd/eclipse-workspace/wwfapi/logs directory.
+260419 213800.011|INFO|qtp237852351-13|log|
+260419 213800.013|INFO|qtp237852351-13|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-107-generic (amd64) 
+260419 213800.013|INFO|qtp237852351-13|log|Working directory is /home/shahd/eclipse-workspace/wwfapi
+260419 213800.023|INFO|qtp237852351-13|log|Process id is 8833@shahoda
+260419 213800.024|INFO|qtp237852351-13|log|Starting ConnectionManager...
+260419 213800.084|INFO|qtp237852351-13|log|Started ConnectionManager
+260419 213800.085|INFO|qtp237852351-13|log|INIFile File location: file:/home/shahd/eclipse-workspace/wwfapi/pc2v9.ini
+260419 213800.086|INFO|qtp237852351-13|log|setClientServerAndPort webworkflow.aast.edu parsed as webworkflow.aast.edu port 50002
+260419 213800.086|INFO|qtp237852351-13|log|Contacting server at webworkflow.aast.edu:50002
+260419 213800.087|INFO|qtp237852351-13|log|Connecting to webworkflow.aast.edu:50002
+260419 213800.404|INFO|Thread-10|log|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=webworkflow.aast.edu/128.251.8.78,port=50002,localport=34276]-2900700667883222879)

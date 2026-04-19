@@ -9,7 +9,7 @@ import edu.csus.ecs.pc2.api.listener.IConfigurationUpdateListener;
 import websocket.ContestSocket;
 
 public class ConfigurationUpdates implements IConfigurationUpdateListener {
-        private Contest teamContest;
+        private static Contest teamContest;
         private String JWT;
    
 
@@ -46,7 +46,7 @@ public class ConfigurationUpdates implements IConfigurationUpdateListener {
       //  pushRealPc2TriggerClarification(arg0, "CLARIFICATION_ANSWERED");   // <-- called here
 
         }
-        private void pushRealPc2Trigger(String source) {
+        public static void pushRealPc2Trigger(String source) {
                  try {
                     /*
                      * REPLACE THESE WITH THE ACTUAL METHODS AVAILABLE

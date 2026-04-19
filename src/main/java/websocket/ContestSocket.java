@@ -14,6 +14,7 @@ import controllers.maincontroller;
 import exceptions.NotVerifiedCookieException;
 import exceptions.UnauthorizedSessionException;
 import helpers.CookiesHandlers;
+import services.ConfigurationUpdates;
 @WebSocket
 public class ContestSocket {
 	
@@ -187,7 +188,11 @@ public class ContestSocket {
 	 
 	 @OnWebSocketMessage
 	    public void onMessage(Session session, String message) {
+          
 	        System.out.println("Received WebSocket message: " + message);
+	        if (message != null && message.contains("JOIN")) {
+		         ConfigurationUpdates.pushRealPc2Trigger("INITIAL_SYNC"); 
+		     }
 	    }
 	 
 	 

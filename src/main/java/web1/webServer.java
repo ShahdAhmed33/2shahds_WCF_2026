@@ -138,8 +138,8 @@ public class webServer {
 		            con.setDoOutput(true);
 		            con.setConnectTimeout(3000);
 		            con.setReadTimeout(8000);
-		            String body = "{\"username\":\"warmup\",\"password\":\"warmup\"}";
-		            con.getOutputStream().write(body.getBytes("UTF-8"));
+		          //  String body = "{\"username\":\"warmup\",\"password\":\"warmup\"}";
+		           // con.getOutputStream().write(body.getBytes("UTF-8"));
 		            int status = con.getResponseCode();
 		            System.out.println("[WARMUP] Step 2 done - status: " + status);
 		            con.disconnect();
