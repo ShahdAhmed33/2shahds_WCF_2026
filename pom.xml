@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-	The phases used here:
-		1- clean : To remove contest of final/*, /tmp/${tmpbuildpackage}
-		2- Package: Just to compile. and generate the content of final/
-		3- Install: Create /tmp/${tmpbuildpackagefilename} and create the build tree, copy the required files to it. And then generate the archive .tar.gz
-		Note:
-			The copy-dependencies uses scope of "test" which is not recommended in the production, cause it copies all dependencies including test*. I want to fix it
+        The phases used here:
+                1- clean : To remove contest of final/*, /tmp/${tmpbuildpackage}
+                2- Package: Just to compile. and generate the content of final/
+                3- Install: Create /tmp/${tmpbuildpackagefilename} and create the build tree, copy the required files to it. And then generate the archive .tar.gz
+                Note:
+                        The copy-dependencies uses scope of "test" which is not recommended in the production, cause it copies all dependencies including test*. I want to fix it
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,7 +28,7 @@
    <pc2webapp.tmppackagefilename>${pc2webapp.tmpbuildpackagefilename}/${pc2webapp.packagefilename}</pc2webapp.tmppackagefilename>
 
    <!--
-	   <pc2webapp.localdir>./pc2webapp</pc2webapp.localdir> 
+           <pc2webapp.localdir>./pc2webapp</pc2webapp.localdir> 
    -->
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
     
@@ -71,47 +71,48 @@
         <scope>provided</scope>
     </dependency>
     
-	<dependency>
-	  	<groupId>org.glassfish.jersey.inject</groupId>
-	  	<artifactId>jersey-hk2</artifactId>
-	  	<version>2.47</version>
-	</dependency>
-	
+        <dependency>
+                <groupId>org.glassfish.jersey.inject</groupId>
+                <artifactId>jersey-hk2</artifactId>
+                <version>2.47</version>
+        </dependency>
+
     <dependency>
-    	<groupId>org.glassfish.jersey.media</groupId>
-    	<artifactId>jersey-media-json-jackson</artifactId>
-    	<version>2.47</version>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-json-jackson</artifactId>
+        <version>2.47</version>
     </dependency>
     
     <dependency>
-    <groupId>edu.csus.ecs</groupId>
-    <artifactId>pc2.api</artifactId>
-    <version>9.11</version>
-</dependency>
-	
-	
-	<dependency>
+        <groupId>edu.csus.ecs</groupId>
+        <artifactId>pc2.api</artifactId>
+        <version>9.11</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/lib/pc2.jar</systemPath>
+        </dependency>
+
+        <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
     <version>2.13.2</version>
 </dependency>
 
-	<dependency>
+        <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt-api</artifactId>
     <version>0.11.5</version>
-	</dependency>
-	<dependency>
-	    <groupId>io.jsonwebtoken</groupId>
-	    <artifactId>jjwt-impl</artifactId>
-	    <version>0.11.5</version>
-	    <scope>runtime</scope>
-	</dependency>
-	<dependency>
-	    <groupId>io.jsonwebtoken</groupId>
-	    <artifactId>jjwt-jackson</artifactId>
-	    <version>0.11.5</version>
-	    <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
     </dependency>
 
     <!-- Jetty WebSocket -->
@@ -150,9 +151,9 @@
             <artifactId>swagger-ui</artifactId>
             <version>5.11.8</version>
         </dependency>
-	
+
 </dependencies>
-  <build>	
+  <build>
   <directory>${project.basedir}/final</directory>
   <plugins>
   <!--Skip test during bui-->
@@ -205,7 +206,7 @@
         </plugin>
         
   <!-- Plugin to copy all other files -->
-  		<plugin>
+                <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>3.1.0</version>
@@ -238,8 +239,8 @@
                     </goals>
                     <configuration>
                         <target>
-				<delete dir="${pc2webapp.tmpbuildpackagefilename}"/>
-				<delete file="/tmp/${pc2webapp.packagefilename}.tar.gz"/>
+                                <delete dir="${pc2webapp.tmpbuildpackagefilename}"/>
+                                <delete file="/tmp/${pc2webapp.packagefilename}.tar.gz"/>
                         </target>
                     </configuration>
                 </execution>
@@ -253,27 +254,27 @@
                     </goals>
                     <configuration>
                         <target>
-                        	<mkdir dir="${pc2webapp.tmpbuildpackagefilename}"/>
-                        	<mkdir dir="${pc2webapp.tmppackagefilename}"/>
-                        	<mkdir dir="${pc2webapp.tmppackagefilename}/bin"/>
-                        	<mkdir dir="${pc2webapp.tmppackagefilename}/libs"/>
+                                <mkdir dir="${pc2webapp.tmpbuildpackagefilename}"/>
+                                <mkdir dir="${pc2webapp.tmppackagefilename}"/>
+                                <mkdir dir="${pc2webapp.tmppackagefilename}/bin"/>
+                                <mkdir dir="${pc2webapp.tmppackagefilename}/libs"/>
                             <copy file="${project.basedir}/launch.sh"
-				    todir="${pc2webapp.tmppackagefilename}/"/>
-			    <copy file="${project.basedir}/pc2v9.ini"
+                                    todir="${pc2webapp.tmppackagefilename}/"/>
+                            <copy file="${project.basedir}/pc2v9.ini"
                                     todir="${pc2webapp.tmppackagefilename}/"/>
                             <chmod file="${pc2webapp.tmppackagefilename}/launch.sh"
                                    perm="755" />  
                             <copy todir="${pc2webapp.tmppackagefilename}/libs" >  
-		    					<fileset dir="${project.build.directory}/libs/" includes="**"/>  
-							</copy> 
-                        	<copy file="${project.basedir}/final/web1-1.0.jar"
-					todir="${pc2webapp.tmppackagefilename}/bin"/>
+                                                        <fileset dir="${project.build.directory}/libs/" includes="**"/>  
+                                                        </copy> 
+                                <copy file="${project.basedir}/final/web1-1.0.jar"
+                                        todir="${pc2webapp.tmppackagefilename}/bin"/>
                             <tar destfile="/tmp/${pc2webapp.packagefilename}.tar.gz" basedir="${pc2webapp.tmpbuildpackagefilename}" compression="gzip">
-								 <tarfileset dir="${pc2webapp.tmppackagefilename}" filemode="755"> 
-									<include name="${pc2webapp.packagefilename}/launch.sh"/>
-								 </tarfileset>
-							</tar>
-							<delete dir="${buildpath_temp}"/>
+                                                                 <tarfileset dir="${pc2webapp.tmppackagefilename}" filemode="755"> 
+                                                                        <include name="${pc2webapp.packagefilename}/launch.sh"/>
+                                                                 </tarfileset>
+                                                        </tar>
+                                                        <delete dir="${buildpath_temp}"/>
                         </target>
                     </configuration>
                 </execution>            
