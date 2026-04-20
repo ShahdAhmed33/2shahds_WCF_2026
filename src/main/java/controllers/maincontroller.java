@@ -83,109 +83,69 @@ public class maincontroller extends GlobalClass {
         @ApiResponse(responseCode = "401", description = "Invalid username or password")
     })
     
-    
-    
-
     @Path("/login")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response loginApi(LoginPage req) {
-        // 1. Validate Input
-    	String csrfToken = UUID.randomUUID().toString();
-    	String username = req.username;
-
-    	// Check if user is locked
-    	if (lockoutTime.containsKey(username)) {
-    	    long lockTime = lockoutTime.get(username);
-
-    	    if (System.currentTimeMillis() - lockTime < LOCK_TIME) {
-    	        return Response.status(Response.Status.TOO_MANY_REQUESTS)
-    	            .entity("{\"error\": \"Account locked. Try again later.\"}")
-    	            .build();
-    	    } else {
-    	        // Unlock after time passes
-    	        lockoutTime.remove(username);
-    	        loginAttempts.remove(username);
-    	    }
-    	}
-
         if (req == null || req.username == null || req.password == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("{\"error\": \"Missing credentials\"}")
                     .build();
         }
-    	System.out.print("fuck");
 
+        String username = req.username;
 
         try {
-            // 2. Establish PC2 Connection
-        	System.out.print("fuck");
             ServerConnection serverconnection = new ServerConnection();
             serverconnection.login(req.username, req.password);
            
             IClient myClient = serverconnection.getMyClient();
+            
+            // --- EXTRACT DISPLAY NAME ---
+            String displayName = myClient.getDisplayName(); 
+            if (displayName == null || displayName.isEmpty()) {
+                displayName = myClient.getDisplayName();
+            }
+            // If still null, force a value so you can see it in Postman
+            if (displayName == null) {
+                displayName = "Team_" + username;
+            }
+
+            // DEBUG: Check your server console for this message!
+            System.out.println(">>> LOGIN SUCCESS: " + username + " | NAME: " + displayName);
+
             if (myClient.getType() != ClientType.TEAM_CLIENT) {
-                serverconnection.logoff(); // Clean up the connection
+                serverconnection.logoff(); 
                 return Response.status(Response.Status.FORBIDDEN)
-                        .entity("{\"error\": \"Access denied: Only team accounts are allowed\"}")
-                        .type(MediaType.APPLICATION_JSON)
+                        .entity("{\"error\": \"Access denied: Only team accounts allowed\"}")
                         .build();
             }
-            loginAttempts.remove(username);
-            lockoutTime.remove(username);
 
-            
-            // 3. Generate Session Token (JWT)
+            String csrfToken = UUID.randomUUID().toString();
             String cookieID = CookiesHandlers.genCookieID("team", req.username, req.username);
-            csrfTokens.put(cookieID, csrfToken);
             
-            // 4. Thread-Safe Session Storage
             sessions.put(cookieID, serverconnection);
-            
-            // 5. Service Registration
+            csrfTokens.put(cookieID, csrfToken);
             registAllServices(serverconnection.getContest(), cookieID); 
             
-            // --- THE FIX IS HERE ---
-            // 6. Create the NewCookie object using your helper
             NewCookie authCookie = CookiesHandlers.createCookie(cookieID);
             
-            // 7. Response - Attach the cookie to the response
-            LoginResponse loginRes = new LoginResponse(req.username , cookieID);
-            loginRes.csrfToken= csrfToken;
+            // USE THE 4-ARG CONSTRUCTOR
+            LoginResponse loginRes = new LoginResponse(req.username, cookieID, displayName, csrfToken);
             
             return Response.ok(loginRes)
-                .cookie(authCookie) // This adds the 'Set-Cookie' header
+                .cookie(authCookie)
                 .type(MediaType.APPLICATION_JSON)
                 .build();
 
         } catch (Throwable t) { 
-            // Catch Throwable to see class-loading or initialization errors
-            t.printStackTrace(); 
-            int attempts = loginAttempts.getOrDefault(username, 0) + 1;
-            loginAttempts.put(username, attempts);
-
-            if (attempts >= MAX_ATTEMPTS) {
-                lockoutTime.put(username, System.currentTimeMillis());
-            }
-            
-            String msg = t.getMessage() != null ? t.getMessage() : "Unknown Initialization Error";
-            
-            if (msg.contains("Login denied") || msg.contains("No such account")) {
-                return Response.status(Response.Status.UNAUTHORIZED)
-                        .entity("{\"error\": \"Login denied: Invalid credentials\"}")
-                        .build();
-            }
-
-            // Return a JSON error instead of an HTML 500 page
-            return Response.status(Response.Status.SERVICE_UNAVAILABLE)
-                    .entity("{\"error\": \"Server warm-up error: " + msg + ". Please try again.\"}")
-                    .type(MediaType.APPLICATION_JSON)
+            t.printStackTrace();
+            return Response.status(Response.Status.UNAUTHORIZED)
+                    .entity("{\"error\": \"Login failed: " + t.getMessage() + "\"}")
                     .build();
         }
     }
-    
-    
  // --- CONTEST DATA: LANGUAGES ---
     @GET
     @Path("/listlanguages")

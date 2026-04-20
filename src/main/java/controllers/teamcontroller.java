@@ -16,6 +16,7 @@ import edu.csus.ecs.pc2.api.IClient;
 import edu.csus.ecs.pc2.api.ServerConnection;
 import edu.csus.ecs.pc2.core.model.Clarification;
 import edu.csus.ecs.pc2.api.IContest;
+import edu.csus.ecs.pc2.api.IContestClock;
 import edu.csus.ecs.pc2.api.IProblem;
 import helpers.CookiesHandlers;
 import services.ClarificationCache;
@@ -25,6 +26,7 @@ import exceptions.UnauthorizedSessionException;
 import exceptions.NoCookieException;
 import edu.csus.ecs.pc2.core.model.IInternalContest;
 import edu.csus.ecs.pc2.core.model.ContestInformation;
+import edu.csus.ecs.pc2.core.model.ContestTime;
 @Path("/team")
 public class teamcontroller extends maincontroller {
 
@@ -148,6 +150,16 @@ public class teamcontroller extends maincontroller {
                 throw new PC2ServiceUnavailableException("Unable to retrieve contest data.");
             }
 
+            // --- FIX FOR ISSUE: Verify Contest State ---
+            // We check the ContestTime to see if the contest is currently running.
+            IContestClock contestTime = contest.getContestClock();
+            if (contestTime == null || !contestTime.isContestClockRunning()) {
+                return Response.status(Response.Status.FORBIDDEN)
+                        .entity("{\"error\": \"Clarifications cannot be submitted while the contest is stopped or paused.\"}")
+                        .build();
+            }
+            // --------------------------------------------
+
             // 3. Extract Payload Data
             String problemName = payload.getOrDefault("ProblemName", "").trim();
             String questionText = payload.getOrDefault("Question", "");
@@ -206,7 +218,6 @@ public class teamcontroller extends maincontroller {
                            .build();
         }
     }
-
 
     // --- UNSUPPORTED METHOD CATCHERS ---
     // These ensure that if a user tries POST/PUT on a GET endpoint, they get a JSON error

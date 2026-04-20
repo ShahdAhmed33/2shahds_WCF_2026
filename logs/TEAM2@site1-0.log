@@ -47,3 +47,12 @@
 260417 131644.213|INFO|Thread-21|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260417 131644.213|INFO|Thread-21|log|handlePacket end Packet[LOGIN_SUCCESS] #575 SERVER0 @ site 1 -> TEAM2 @ site 1
 260417 131644.213|INFO|Thread-21|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #575 SERVER0 @ site 1 -> TEAM2 @ site 1
+260419 231111.196|CONFIG|Thread-19|log|Now logging to C:\Users\Shahd\git\wwfapi\logs directory.
+260419 231111.197|INFO|Thread-19|log|
+260419 231111.199|INFO|Thread-19|log|Version 9.10.0 () Java ver 21.0.8 build 7065 Windows 11 10.0 (amd64) 
+260419 231111.200|INFO|Thread-19|log|Login: team2 (aka team2)
+260419 231111.200|INFO|Thread-19|log|Working directory is C:\Users\Shahd\git\wwfapi
+260419 231111.201|INFO|Thread-19|log|Process id is 24172@DESKTOP-5EPLK95
+260419 231111.201|INFO|Thread-19|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260419 231111.202|INFO|Thread-19|log|handlePacket end Packet[LOGIN_SUCCESS] #868 SERVER0 @ site 1 -> TEAM2 @ site 1
+260419 231111.202|INFO|Thread-19|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #868 SERVER0 @ site 1 -> TEAM2 @ site 1
