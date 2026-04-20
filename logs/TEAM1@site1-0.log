@@ -34,3 +34,21 @@
 260419 220533.771|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
 260419 220533.771|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #798 SERVER0 @ site 1 -> TEAM1 @ site 1
 260419 220533.771|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #798 SERVER0 @ site 1 -> TEAM1 @ site 1
+260420 031900.181|CONFIG|Thread-12|log|Now logging to /home/shahd/eclipse-workspace/wwf/wwfapi/logs directory.
+260420 031900.182|INFO|Thread-12|log|
+260420 031900.182|INFO|Thread-12|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-107-generic (amd64) 
+260420 031900.183|INFO|Thread-12|log|Login: team1 (aka team1)
+260420 031900.183|INFO|Thread-12|log|Working directory is /home/shahd/eclipse-workspace/wwf/wwfapi
+260420 031900.183|INFO|Thread-12|log|Process id is 49736@shahoda
+260420 031900.184|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260420 031900.185|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #1561 SERVER0 @ site 1 -> TEAM1 @ site 1
+260420 031900.185|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #1561 SERVER0 @ site 1 -> TEAM1 @ site 1
+260420 032847.863|CONFIG|Thread-12|log|Now logging to /home/shahd/eclipse-workspace/wwf/wwfapi/logs directory.
+260420 032847.864|INFO|Thread-12|log|
+260420 032847.864|INFO|Thread-12|log|Version 9.10.0 () Java ver 11.0.30 build 7065 Linux 6.8.0-107-generic (amd64) 
+260420 032847.864|INFO|Thread-12|log|Login: team1 (aka team1)
+260420 032847.865|INFO|Thread-12|log|Working directory is /home/shahd/eclipse-workspace/wwf/wwfapi
+260420 032847.865|INFO|Thread-12|log|Process id is 50918@shahoda
+260420 032847.866|INFO|Thread-12|log| handlePacket original LOGIN_SUCCESS after -- all settings loaded 
+260420 032847.866|INFO|Thread-12|log|handlePacket end Packet[LOGIN_SUCCESS] #1574 SERVER0 @ site 1 -> TEAM1 @ site 1
+260420 032847.867|INFO|Thread-12|log| receiveObject(S) end   got Packet[LOGIN_SUCCESS] #1574 SERVER0 @ site 1 -> TEAM1 @ site 1
