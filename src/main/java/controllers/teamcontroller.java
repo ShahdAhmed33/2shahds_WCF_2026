@@ -151,9 +151,10 @@ public class teamcontroller extends maincontroller {
             }
 
             // --- FIX FOR ISSUE: Verify Contest State ---
-            // We check the ContestTime to see if the contest is currently running.
-            IContestClock contestTime = contest.getContestClock();
-            if (contestTime == null || !contestTime.isContestClockRunning()) {
+            // This prevents "General" or problem-specific clarifications 
+            // from being submitted if the contest is stopped or paused.
+            IContestClock contestClock = contest.getContestClock();
+            if (contestClock == null || !contestClock.isContestClockRunning()) {
                 return Response.status(Response.Status.FORBIDDEN)
                         .entity("{\"error\": \"Clarifications cannot be submitted while the contest is stopped or paused.\"}")
                         .build();
@@ -184,6 +185,7 @@ public class teamcontroller extends maincontroller {
             }
 
             // 5. Search in Clarification Categories (e.g., "General")
+            // This is the specific area where "General" clarifications were slipping through
             if (selectedProblem == null) {
                 IProblem[] categories = contest.getClarificationCategories();
                 if (categories != null) {
@@ -203,6 +205,7 @@ public class teamcontroller extends maincontroller {
                         .build();
             }
 
+            // Final submission call to the PC2 Server
             userConn.submitClarification(selectedProblem, questionText);
 
             return Response.ok("{\"status\": \"Success\", \"message\": \"Clarification submitted\"}")
@@ -218,7 +221,6 @@ public class teamcontroller extends maincontroller {
                            .build();
         }
     }
-
     // --- UNSUPPORTED METHOD CATCHERS ---
     // These ensure that if a user tries POST/PUT on a GET endpoint, they get a JSON error
 
