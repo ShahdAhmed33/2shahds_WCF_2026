@@ -126,39 +126,32 @@ public class maincontroller extends GlobalClass {
            
             IClient myClient = serverconnection.getMyClient();
             if (myClient.getType() != ClientType.TEAM_CLIENT) {
-                serverconnection.logoff(); // Clean up the connection
+                serverconnection.logoff();
                 return Response.status(Response.Status.FORBIDDEN)
-                        .entity("{\"error\": \"Access denied: Only team accounts are allowed\"}")
-                        .type(MediaType.APPLICATION_JSON)
-                        .build();
+                    .entity("{\"error\": \"Access denied: Only team accounts are allowed\"}")
+                    .type(MediaType.APPLICATION_JSON)
+                    .build();
             }
+
             loginAttempts.remove(username);
             lockoutTime.remove(username);
 
-            
-            // 3. Generate Session Token (JWT)
             String cookieID = CookiesHandlers.genCookieID("team", req.username, req.username);
             csrfTokens.put(cookieID, csrfToken);
-            
-            // 4. Thread-Safe Session Storage
             sessions.put(cookieID, serverconnection);
-            
-            // 5. Service Registration
-            registAllServices(serverconnection.getContest(), cookieID); 
-            
-            // --- THE FIX IS HERE ---
-            // 6. Create the NewCookie object using your helper
+
+            registAllServices(serverconnection.getContest(), cookieID);
+
             NewCookie authCookie = CookiesHandlers.createCookie(cookieID);
-            
-            // 7. Response - Attach the cookie to the response
-            LoginResponse loginRes = new LoginResponse(req.username , cookieID);
-            loginRes.csrfToken= csrfToken;
-            
+
+            String displayName = myClient.getDisplayName();
+            LoginResponse loginRes = new LoginResponse(req.username, cookieID, displayName);
+            loginRes.csrfToken = csrfToken;
+
             return Response.ok(loginRes)
-                .cookie(authCookie) // This adds the 'Set-Cookie' header
+                .cookie(authCookie)
                 .type(MediaType.APPLICATION_JSON)
                 .build();
-
         } catch (Throwable t) { 
             // Catch Throwable to see class-loading or initialization errors
             t.printStackTrace(); 
@@ -345,18 +338,29 @@ public class maincontroller extends GlobalClass {
 	@Context
 	HttpServletRequest request;
 
-	private void validateOrigin() {
-	    String origin = request.getHeader("Origin");
+	private static final java.util.Set<String> ALLOWED_ORIGINS = java.util.Set.of(
+		    "http://localhost:8080",
+		    "http://wwffrontend.aast.edu"
+		  //  "https://wwffrontend.aast.edu"
+		);
 
-	    // Allow if no origin (non-browser or safe case)
-	    if (origin != null && !origin.equals("http://localhost:8080")) {
-	        throw new WebApplicationException(
-	        		Response.status(Response.Status.FORBIDDEN)
-	                .entity("{\"error\":\"CSRF protection: Invalid origin\"}")
-	                .build()
-	        );
-	    }
-	}
+		private void validateOrigin() {
+		    String origin = request.getHeader("Origin");
+
+		    // Allow non-browser requests that do not send Origin
+		    if (origin == null || origin.isBlank()) {
+		        return;
+		    }
+
+		    if (!ALLOWED_ORIGINS.contains(origin)) {
+		        throw new WebApplicationException(
+		            Response.status(Response.Status.FORBIDDEN)
+		                .entity("{\"error\":\"CSRF protection: Invalid origin: " + origin + "\"}")
+		                .type(MediaType.APPLICATION_JSON)
+		                .build()
+		        );
+		    }
+		}
 	private void validateCSRF(HttpServletRequest req, String token) {
 	    String csrfHeader = req.getHeader("X-CSRF-Token");
 	    String expected = csrfTokens.get(token);
